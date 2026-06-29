@@ -1,7 +1,7 @@
-from pydantic import BaseModel,Field
-from typing import Optional,List
+from pydantic import BaseModel, Field
+from typing import Optional, List
 from app.schemas.Dayplan import DayPlan
-from app.schemas.WeatherInfo import WeatherInfo
+from app.schemas.Weather import WeatherInfo
 from app.schemas.Budget import Budget
 
 class TripPlan(BaseModel):

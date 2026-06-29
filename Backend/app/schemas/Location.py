@@ -1,5 +1,5 @@
-from pydantic import BaseModel,Field
+from pydantic import BaseModel, Field
 
 class Location(BaseModel):
-    longtitude: float = Field(..., description="经度"，ge=-180,le=180)
-    latitude: float = Field(..., description="纬度",ge=-90,le=90)
+    longitude: float = Field(..., description="经度", ge=-180, le=180)
+    latitude: float = Field(..., description="纬度", ge=-90, le=90)

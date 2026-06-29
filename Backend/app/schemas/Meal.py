@@ -1,4 +1,4 @@
-from pydantic import BaseModel,Field
+from pydantic import BaseModel, Field
 from typing import Optional
 from app.schemas.Location import Location
 

@@ -1,4 +1,4 @@
-from pydantic import BaseModel,Field,field_validator
+from pydantic import BaseModel, Field, field_validator
 
 class WeatherInfo(BaseModel):
     """天气信息"""

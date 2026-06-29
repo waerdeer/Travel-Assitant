@@ -1,5 +1,5 @@
-from pydantic import BaseModel,Field
-from typing import Optional,List
+from pydantic import BaseModel, Field
+from typing import Optional, List
 from app.schemas.Attraction import Attraction
 from app.schemas.Hotel import Hotel
 from app.schemas.Meal import Meal
