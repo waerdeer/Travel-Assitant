@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
+#定义所有agent的输入输出，统一接口
 
 @dataclass
 class AgentContext:
@@ -12,7 +13,7 @@ class AgentContext:
     accommodation: str = ""
     extra: dict[str, Any] = field(default_factory=dict)
 
-
+#agent输出数据格式
 @dataclass
 class AgentResult:
     success: bool
@@ -20,7 +21,7 @@ class AgentResult:
     error: Optional[str] = None
     raw_response: Optional[str] = None
 
-
+#定义所有agent的基类
 class BaseAgent(ABC):
     @property
     @abstractmethod

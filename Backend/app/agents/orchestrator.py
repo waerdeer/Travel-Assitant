@@ -10,6 +10,8 @@ from app.schemas import TripPlan
 
 
 class TripOrchestrator:
+
+    #初始化agent实例
     def __init__(self):
         self.attraction_agent = AttractionExecutor()
         self.weather_agent = WeatherExecutor()
@@ -24,6 +26,8 @@ class TripOrchestrator:
         preferences: str = "",
         accommodation: str = "",
     ) -> TripPlan:
+    
+        #构建agent输入上下文
         context = AgentContext(
             city=city,
             start_date=start_date,
@@ -32,6 +36,7 @@ class TripOrchestrator:
             accommodation=accommodation,
         )
 
+        #并行执行agent任务
         attraction_task = self.attraction_agent.execute(context)
         weather_task = self.weather_agent.execute(context)
         hotel_task = self.hotel_agent.execute(context)
@@ -43,6 +48,7 @@ class TripOrchestrator:
             return_exceptions=False,
         )
 
+        #检查每个agent任务是否成功
         for result in results:
             if not result.success:
                 raise RuntimeError(f"Agent 执行失败: {result.error}")
