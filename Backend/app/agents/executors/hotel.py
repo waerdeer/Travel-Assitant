@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: hotel.py
+功能描述: 住宿推荐 Agent，负责根据预算和景点位置，寻找合适的住宿方案。
+=====================================================================
+"""
+
 from app.agents.base import BaseAgent, AgentContext, AgentResult
 from app.agents.prompts.hotel import HOTEL_AGENT_PROMPT
 from app.tools.amap import AmapClient

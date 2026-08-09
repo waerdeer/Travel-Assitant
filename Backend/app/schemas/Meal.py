@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: Meal.py
+功能描述: 数据实体：定义餐饮、美食相关的结构化数据类型。
+=====================================================================
+"""
+
 from pydantic import BaseModel, Field
 from typing import Optional
 from app.schemas.Location import Location

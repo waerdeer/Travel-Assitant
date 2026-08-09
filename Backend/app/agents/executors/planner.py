@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: planner.py
+功能描述: 行程统筹规划 Agent，负责汇总各个子 Agent 的数据，生成最终按天划分的旅游日程表。
+=====================================================================
+"""
+
 import json
 from app.agents.base import BaseAgent, AgentContext, AgentResult
 from app.agents.prompts.planner import PLANNER_AGENT_PROMPT

@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: base.py
+功能描述: 智能体基类（BaseAgent），定义所有智能体的标准输入/输出契约及核心执行接口。
+=====================================================================
+"""
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any, Optional

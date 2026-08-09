@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: Dayplan.py
+功能描述: 数据实体：定义单日行程规划的结构化数据类型。
+=====================================================================
+"""
+
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from app.schemas.Attraction import Attraction

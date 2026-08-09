@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: weather.py
+功能描述: 天气查询 Agent，负责基于目的地和出行时间调用工具获取气象信息。
+=====================================================================
+"""
+
 from app.agents.base import BaseAgent, AgentContext, AgentResult
 from app.agents.prompts.weather import WEATHER_AGENT_PROMPT
 from app.tools.amap import AmapClient

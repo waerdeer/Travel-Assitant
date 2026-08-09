@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: Attraction.py
+功能描述: 数据实体：定义旅游景点的结构化数据类型。
+=====================================================================
+"""
+
 from pydantic import BaseModel, Field
 from typing import Optional
 from app.schemas.Location import Location

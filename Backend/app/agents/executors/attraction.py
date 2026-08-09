@@ -1,3 +1,10 @@
+"""
+=====================================================================
+模块名称: attraction.py
+功能描述: 景点检索 Agent，负责根据用户的偏好和位置信息，筛选最合适的旅游景点。
+=====================================================================
+"""
+
 from app.agents.base import BaseAgent, AgentContext, AgentResult
 from app.agents.prompts.attraction import ATTRACTION_AGENT_PROMPT
 from app.tools.amap import AmapClient
