@@ -1,11 +1,7 @@
 {
   "amap": {
     "enabled": true,
-    "transport": "stdio",
-    "command": "npx",
-    "args": ["-y", "amap-maps-mcp-server"],
-    "env": {
-      "AMAP_API_KEY": "${AMAP_API_KEY}"
-    }
+    "transport": "http",
+    "url": "https://mcp.amap.com/mcp?key=${AMAP_MAPS_API_KEY}"
   }
 }
