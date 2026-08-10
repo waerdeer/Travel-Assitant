@@ -1,52 +1,75 @@
-"""
-=====================================================================
-模块名称: llm.py
-功能描述: 大语言模型（LLM）客户端封装，负责处理和模型 API 的交互。
-=====================================================================
-"""
+from dataclasses import dataclass, field
 
 import httpx
+
 from app.core.config import settings
 from app.core.exceptions import TripPlannerError
 
 
-class LLMClient:
-    """统一 LLM 调用封装（OpenAI 兼容协议）。"""
+@dataclass
+class ToolCall:
+    """LLM 返回的工具调用。"""
+    name: str
+    arguments: dict
 
-    async def chat(self, prompt: str, system: str = "") -> str:
+
+@dataclass
+class LLMResult:
+    """LLM 响应结果。"""
+    content: str = ""
+    tool_calls: list[ToolCall] = field(default_factory=list)
+
+
+class LLMClient:
+    """LLM 调用封装，支持纯文本和 function calling 两种模式。"""
+
+    async def chat(self, prompt: str, tools: list[dict] = None) -> LLMResult:
         if not settings.llm_api_key:
             raise TripPlannerError("未配置 LLM_API_KEY")
 
-        headers = {
-            "Authorization": f"Bearer {settings.llm_api_key}",
-            "Content-Type": "application/json",
-        }
-        messages = []
-        if system:
-            messages.append({"role": "system", "content": system})
-        messages.append({"role": "user", "content": prompt})
-
+        messages = [{"role": "user", "content": prompt}]
         payload = {
             "model": settings.llm_model,
             "messages": messages,
             "temperature": 0.7,
         }
 
+        if tools:
+            payload["tools"] = tools
+
+        data = await self._request(payload)
+        return self._parse_response(data)
+
+    async def _request(self, payload: dict) -> dict:
+        headers = {
+            "Authorization": f"Bearer {settings.llm_api_key}",
+            "Content-Type": "application/json",
+        }
         url = f"{settings.llm_base_url}/chat/completions"
+
         async with httpx.AsyncClient(timeout=120) as client:
             resp = await client.post(url, json=payload, headers=headers)
             resp.raise_for_status()
-            data = resp.json()
+            return resp.json()
 
+    def _parse_response(self, data: dict) -> LLMResult:
         try:
-            return data["choices"][0]["message"]["content"]
+            message = data["choices"][0]["message"]
         except (KeyError, IndexError) as e:
             raise TripPlannerError(f"LLM 响应格式异常: {data}") from e
 
+        content = message.get("content", "") or ""
+        raw_calls = message.get("tool_calls") or []
+
+        tool_calls = [
+            ToolCall(
+                name=call["function"]["name"],
+                arguments=eval(call["function"]["arguments"]),
+            )
+            for call in raw_calls
+        ]
+
+        return LLMResult(content=content, tool_calls=tool_calls)
+
 
 llm_client = LLMClient()
-
-__all__ = [
-    "LLMClient",
-    "llm_client",
-]

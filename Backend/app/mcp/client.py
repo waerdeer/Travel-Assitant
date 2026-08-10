@@ -125,6 +125,12 @@ class MCPClient:
         else:
             return await self._call_tool_stdio(session_info["session"], tool_name, arguments)
 
+    def _http_headers(self) -> dict:
+        return {
+            "Accept": "application/json, text/event-stream",
+            "Content-Type": "application/json",
+        }
+
     async def _call_tool_http(self, url: str, tool_name: str, arguments: dict) -> MCPToolResult:
         client = self._get_http_client()
         payload = {
@@ -134,9 +140,9 @@ class MCPClient:
             "params": {"name": tool_name, "arguments": arguments},
         }
         try:
-            resp = await client.post(url, json=payload)
+            resp = await client.post(url, json=payload, headers=self._http_headers())
             resp.raise_for_status()
-            data = resp.json()
+            data = self._parse_sse_or_json(resp)
             result = data.get("result", {})
             content = result.get("content", [])
             is_error = result.get("isError", False)
@@ -153,6 +159,16 @@ class MCPClient:
             is_error=bool(getattr(result, "isError", False)),
         )
 
+    def _parse_sse_or_json(self, resp: httpx.Response) -> dict:
+        """解析 MCP 响应：可能是 SSE 格式或纯 JSON。"""
+        content_type = resp.headers.get("content-type", "")
+        if "text/event-stream" in content_type:
+            for line in resp.text.split("\n"):
+                if line.startswith("data: "):
+                    return json.loads(line[6:])
+            return {}
+        return resp.json()
+
     async def list_tools(self, server_name: str) -> list[dict]:
         session_info = await self._get_session(server_name)
 
@@ -164,8 +180,8 @@ class MCPClient:
                 "method": "tools/list",
                 "params": {},
             }
-            resp = await client.post(session_info["url"], json=payload)
-            data = resp.json()
+            resp = await client.post(session_info["url"], json=payload, headers=self._http_headers())
+            data = self._parse_sse_or_json(resp)
             tools = data.get("result", {}).get("tools", [])
             return [{"name": t["name"], "description": t.get("description", ""),
                      "schema": t.get("inputSchema", {})} for t in tools]

@@ -9,7 +9,6 @@ __all__ = [
 
 
 def __getattr__(name: str):
-    # 延迟导入 orchestrator，避免与 skills 层形成循环导入
     if name == "TripOrchestrator":
         from app.agents.orchestrator import TripOrchestrator
         return TripOrchestrator

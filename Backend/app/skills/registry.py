@@ -1,52 +1,35 @@
-"""
-=====================================================================
-模块名称: registry.py
-功能描述: 技能注册表，管理和索引所有可用的专家技能（Skills）。
-=====================================================================
-"""
-
-from app.agents.base import AgentContext
-from app.skills.base import BaseSkill
-from app.skills.general import GeneralTripSkill
-from app.skills.family import FamilyTripSkill
-from app.skills.budget import BudgetTripSkill
-from app.skills.food import FoodTripSkill
+from app.skills.dag import DAGContext, SkillDAG
+from app.skills.general_dag import GENERAL_DAG
+from app.skills.family_dag import FAMILY_DAG
+from app.skills.budget_dag import BUDGET_DAG
+from app.skills.food_dag import FOOD_DAG
 
 
 class SkillRegistry:
-    """Skill 注册中心：管理所有可用 Skill，并按意图路由。"""
+    """Skill 注册中心：管理所有 DAG，按用户偏好匹配。"""
 
     def __init__(self):
-        self._skills: list[BaseSkill] = [
-            GeneralTripSkill(),
-            FamilyTripSkill(),
-            BudgetTripSkill(),
-            FoodTripSkill(),
+        self._dags: list[SkillDAG] = [
+            GENERAL_DAG,
+            FAMILY_DAG,
+            BUDGET_DAG,
+            FOOD_DAG,
         ]
 
-    def register(self, skill: BaseSkill) -> None:
-        self._skills.append(skill)
+    def register(self, dag: SkillDAG) -> None:
+        self._dags.append(dag)
 
-    def all(self) -> list[BaseSkill]:
-        return list(self._skills)
+    def all(self) -> list[SkillDAG]:
+        return list(self._dags)
 
-    def resolve(self, context: AgentContext) -> BaseSkill:
-        """根据用户偏好/描述，匹配最合适的 Skill。
-
-        匹配规则（按注册顺序）：
-        1. 领域 Skill 的关键词命中优先
-        2. 都没命中 → 兜底用 GeneralTripSkill
-        """
+#目前直接通过keyword 子串匹配关键词而不是通过llm 大脑来选择。后续可以迭代升级。
+    def resolve(self, context: DAGContext) -> SkillDAG:
+        """根据用户偏好匹配最合适的 DAG。未命中则返回通用 DAG。"""
         text = f"{context.preferences} {context.accommodation}"
-        for skill in self._skills:
-            if skill.keywords and any(k in text for k in skill.keywords):
-                return skill
-        return self._skills[0]
+        for dag in self._dags:
+            if dag.keywords and any(k in text for k in dag.keywords):
+                return dag
+        return self._dags[0]
 
 
 skill_registry = SkillRegistry()
-
-__all__ = [
-    "SkillRegistry",
-    "skill_registry",
-]
