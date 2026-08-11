@@ -85,7 +85,14 @@ export interface PlanRequest {
 }
 
 export interface PlanResponse {
-  plan: TripPlan;
+  plan: {
+    city: string;
+    start_date: string;
+    end_date: string;
+    preferences: string;
+    plan_content: string;
+    steps: string[];
+  };
   skill_used: string;
 }
 

@@ -7,12 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#F9F8F6', // Sand/Linen
+        background: '#F9F8F6',
         surface: '#FFFFFF',
-        foreground: '#1A1C19', // Off-black
-        muted: '#8A8C89',      // Minimalist grey
-        border: '#E8E6E1',     // Delicate lines
-        accent: '#D4CDC4'      // Warm highlight
+        foreground: '#1A1C19',
+        muted: '#8A8C89',
+        border: '#E8E6E1',
+        accent: '#D4CDC4'
       },
       fontFamily: {
         sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -24,5 +24,7 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
