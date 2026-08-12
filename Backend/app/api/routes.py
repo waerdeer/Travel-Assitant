@@ -17,36 +17,14 @@ class PlanRequest(BaseModel):
 class ChatRequest(BaseModel):
     text: str = Field(..., description="用户的自然语言输入")
 
-@router.post("/trips", summary="生成旅行计划")
-async def create_trip(req: PlanRequest):
-    context = DAGContext(
-        city=req.city,
-        start_date=req.start_date,
-        end_date=req.end_date,
-        preferences=req.preferences,
-        accommodation=req.accommodation,
-    )
-    dag = skill_registry.resolve(context)
-
-    try:
-        orchestrator = TripOrchestrator()
-        result = await orchestrator.plan_trip(
-            city=req.city,
-            start_date=req.start_date,
-            end_date=req.end_date,
-            preferences=req.preferences,
-            accommodation=req.accommodation,
-        )
-        return {"skill_used": dag.name, "plan": result}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
+#核心处理接口 
 @router.post("/chat_plan", summary="自然语言对话生成行程")
 async def chat_create_trip(req: ChatRequest):
     orchestrator = TripOrchestrator()
-    try:
+    try: #llm来解析用户自然语言输入
         extracted = await orchestrator.extract_params(req.text)
         
+        #将llm返回的详细信息JSON 解析成函数具体可用字段
         context = DAGContext(
             city=extracted.get("city", "未知"),
             start_date=extracted.get("start_date", ""),
@@ -54,6 +32,7 @@ async def chat_create_trip(req: ChatRequest):
             preferences=extracted.get("preferences", req.text),
             accommodation=extracted.get("accommodation", ""),
         )
+        #硬编码匹配需要的skill 这个后续要改进
         dag = skill_registry.resolve(context)
         
         result = await orchestrator.plan_trip(

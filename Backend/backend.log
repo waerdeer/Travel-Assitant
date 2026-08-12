@@ -77,3 +77,66 @@ INFO:     127.0.0.1:55221 - "POST /api/v1/chat_plan HTTP/1.1" 200 OK
 16:23:07 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
 16:23:24 [dag] INFO: 执行完毕: 通用行程, 共 5 步
 INFO:     127.0.0.1:55538 - "POST /api/v1/chat_plan HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/agents/orchestrator.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26388]
+INFO:     Started server process [20813]
+INFO:     Waiting for application startup.
+17:13:23 [app] INFO: MCP 配置加载完成
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/routes.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20813]
+INFO:     Started server process [20962]
+INFO:     Waiting for application startup.
+17:13:44 [app] INFO: MCP 配置加载完成
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/routes.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20962]
+INFO:     Started server process [21099]
+INFO:     Waiting for application startup.
+17:14:05 [app] INFO: MCP 配置加载完成
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/routes.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21099]
+INFO:     Started server process [22451]
+INFO:     Waiting for application startup.
+17:17:41 [app] INFO: MCP 配置加载完成
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/routes.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [22451]
+INFO:     Started server process [24668]
+INFO:     Waiting for application startup.
+17:23:38 [app] INFO: MCP 配置加载完成
+INFO:     Application startup complete.
+17:24:21 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+17:24:22 [dag] INFO: 开始执行: 通用行程
+17:24:22 [dag] INFO: [1/5] query_weather
+17:24:22 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+17:24:22 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+17:24:31 [dag] INFO: [2/5] search_attractions
+17:24:31 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+17:24:32 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+17:24:41 [dag] INFO: [3/5] search_hotels
+17:24:41 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+17:24:41 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+17:24:50 [dag] INFO: [4/5] search_restaurants
+17:24:50 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+17:24:50 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+17:25:06 [dag] INFO: [5/5] generate_plan
+17:25:06 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+17:25:27 [dag] INFO: 执行完毕: 通用行程, 共 5 步
+INFO:     127.0.0.1:50189 - "POST /api/v1/chat_plan HTTP/1.1" 200 OK
