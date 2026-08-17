@@ -91,3 +91,24 @@
 17:25:06 [dag] INFO: [5/5] generate_plan
 17:25:06 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
 17:25:27 [dag] INFO: 执行完毕: 通用行程, 共 5 步
+18:19:22 [app] INFO: MCP 配置加载完成
+18:19:29 [app] INFO: MCP 配置加载完成
+18:20:00 [app] INFO: MCP 配置加载完成
+18:20:09 [app] INFO: MCP 配置加载完成
+18:20:20 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+18:20:21 [dag] INFO: 开始执行 LangGraph: 美食攻略
+18:20:21 [dag] INFO: 正在执行节点: query_weather
+18:20:21 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+18:20:22 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+18:20:29 [dag] INFO: 正在执行节点: search_attractions
+18:20:29 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+18:20:29 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+18:20:48 [dag] INFO: 正在执行节点: search_hotels
+18:20:48 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+18:20:48 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+18:21:03 [dag] INFO: 正在执行节点: search_restaurants
+18:21:03 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+18:21:03 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+18:21:26 [dag] INFO: 正在执行节点: generate_plan
+18:21:26 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+18:21:40 [dag] INFO: 执行完毕 LangGraph: 美食攻略
