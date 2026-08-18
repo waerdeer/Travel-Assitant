@@ -1,5 +1,9 @@
 import json
-from typing import Optional, List, Dict, Union
+import logging
+logger = logging.getLogger('app.graph.tools')
+
+
+from typing import Optional, List, Dict, Union, Any
 from pydantic import BaseModel, Field
 from langchain_core.tools import tool
 from app.mcp.registry import mcp_client
@@ -7,6 +11,35 @@ from app.mcp.registry import mcp_client
 # ==========================================
 # 工具 1：天气查询
 # ==========================================
+
+def extract_mcp_data(content: Union[List[Any], Dict[str, Any], str, Any]) -> Any:
+    """通用解包器：剥离 MCP 的 TextContent 包装，返回纯 Python 字典或列表。"""
+    if not content:
+        return []
+    
+    # 场景1: MCP 返回的是对象列表 (例如 TextContent)
+    if isinstance(content, list) and len(content) > 0:
+        first_item = content[0]
+        # MCP python sdk 的 TextContent 对象有 text 属性
+        if hasattr(first_item, "text"):
+            try:
+                return json.loads(first_item.text)
+            except Exception:
+                return first_item.text
+        # 如果列表里直接是 dict，直接返回
+        if isinstance(first_item, dict):
+            return content
+
+    # 场景2: MCP 返回的是纯 JSON 字符串
+    if isinstance(content, str):
+        try:
+            return json.loads(content)
+        except Exception:
+            return content
+
+    # 场景3: 已经是字典或列表，直接放行
+    return content
+
 class WeatherInput(BaseModel):
     city: str = Field(..., description="标准的城市名称，必须包含后缀，例如 '北京市', '杭州市', '成都市'。不能使用简写。")
 
@@ -20,7 +53,8 @@ async def get_weather_and_climate(city: str) -> str:
     try:
         result = await mcp_client.call_tool("amap", "amap_maps_weather", {"city": city})
         if result.success:
-            return json.dumps(result.content, ensure_ascii=False)
+            pure_data = extract_mcp_data(result.content)
+            return json.dumps(pure_data, ensure_ascii=False)
         return f"获取 {city} 天气失败: {result.error}"
     except Exception as e:
         return f"工具调用异常: {str(e)}。请尝试使用其他信息推断。"
@@ -46,7 +80,8 @@ async def search_travel_inspiration(city: str, keywords: str, max_results: int =
         result = await mcp_client.call_tool("amap", "amap_maps_text_search", arguments)
         
         if result.success:
-            items = result.content if isinstance(result.content, list) else [result.content]
+            pure_data = extract_mcp_data(result.content)
+            items = pure_data if isinstance(pure_data, list) else [pure_data]
             return json.dumps(items[:max_results], ensure_ascii=False)
         return f"搜索景点失败: {result.error}。请尝试缩短或更换 keywords 重新搜索。"
     except Exception as e:
@@ -79,15 +114,9 @@ async def search_hotels(city: str, poi_location: str, budget_level: str = "中�
         result = await mcp_client.call_tool("amap", "amap_maps_text_search", arguments)
         
         if result.success:
-            items = result.content if isinstance(result.content, list) else [result.content]
-            # 过滤掉过多字段防止上下文爆炸，仅保留关键信息
-            simplified = []
-            for item in items[:5]:
-                simplified.append({
-                    "name": item.get("name"),
-                    "address": item.get("address"),
-                    "type": item.get("type")
-                })
+            pure_data = extract_mcp_data(result.content)
+            items = pure_data if isinstance(pure_data, list) else [pure_data]
+            simplified = [{"name": item.get("name"), "address": item.get("address"), "type": item.get("type")} for item in items[:5] if isinstance(item, dict)]
             return json.dumps(simplified, ensure_ascii=False)
         return f"搜索酒店失败: {result.error}。请更换 poi_location (如改用地标名称) 重新搜索。"
     except Exception as e:
@@ -114,8 +143,9 @@ async def search_restaurants(city: str, poi_location: str, food_type: str = "特
         result = await mcp_client.call_tool("amap", "amap_maps_text_search", arguments)
         
         if result.success:
-            items = result.content if isinstance(result.content, list) else [result.content]
-            simplified = [{"name": i.get("name"), "address": i.get("address")} for i in items[:3]]
+            pure_data = extract_mcp_data(result.content)
+            items = pure_data if isinstance(pure_data, list) else [pure_data]
+            simplified = [{"name": i.get("name"), "address": i.get("address")} for i in items[:3] if isinstance(i, dict)]
             return json.dumps(simplified, ensure_ascii=False)
         return f"搜索餐厅失败: {result.error}。请放宽 food_type 重新搜索。"
     except Exception as e:

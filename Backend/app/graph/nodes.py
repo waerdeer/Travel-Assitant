@@ -1,5 +1,9 @@
 from typing import Dict, Any, List
 import json
+import logging
+logger = logging.getLogger('app.graph.nodes')
+
+
 from datetime import datetime
 
 from langchain_openai import ChatOpenAI
@@ -34,6 +38,7 @@ class RouterOutput(BaseModel):
 
 async def router_node(state: TripState) -> Dict[str, Any]:
     """意图识别中枢：分析最新的用户输入，决定走向"""
+    logger.info(">>> 🚀 [进入节点] 路由中枢 (router_node)")
     today = datetime.now().strftime("%Y-%m-%d")
     sys_prompt = f"""
     你是一个旅行助理的路由大脑。今天是 {today}。
@@ -72,6 +77,7 @@ async def router_node(state: TripState) -> Dict[str, Any]:
         except Exception:
             intent = "chat"; city = ""; start_date = ""; end_date = ""; pref = ""
 
+    logger.info(f"<<< ✅ [离开节点] 路由中枢, 意图判定为: {intent}, 提取城市: {city}")
     update_data = {"intent": intent}
     if intent == "new_trip" and city:
         update_data.update({
@@ -104,6 +110,7 @@ class InfoOutput(BaseModel):
 
 async def info_agent(state: TripState) -> Dict[str, Any]:
     """收集情报：利用 ReAct 代理自主收集足够的情报"""
+    logger.info(">>> 🚀 [进入节点] 收集情报 (info_agent)")
     city = state.get("city", "未知城市")
     
     # 1. 定义 ReAct 代理的系统指令
@@ -120,7 +127,8 @@ async def info_agent(state: TripState) -> Dict[str, Any]:
     react_agent = create_react_agent(llm, tools=INFO_TOOLS, prompt=agent_sys_prompt)
     
     # 3. 驱动子代理运行
-    invoke_input = {"messages": [HumanMessage(content="请开始利用工具收集情报。")]}
+    # 将全局的历史消息传给子代理，让它了解完整的聊天上下文
+    invoke_input = {"messages": state["messages"] + [HumanMessage(content="请开始利用工具收集情报。")]}
     # 限制递归步数，防止陷入死循环导致账单爆炸
     config = {"recursion_limit": 5}
     
@@ -145,6 +153,7 @@ async def info_agent(state: TripState) -> Dict[str, Any]:
         weather_context = final_answer
         inspiration_list = [{"name": "热门景点推荐"}]
         
+    logger.info(f"<<< ✅ [离开节点] 收集情报, 找到景点数: {len(inspiration_list)}")
     return {
         "weather_context": weather_context,
         "inspiration_list": inspiration_list
@@ -154,6 +163,7 @@ async def info_agent(state: TripState) -> Dict[str, Any]:
 # 2. 生成草案节点 (Draft Node) -> 纯推理节点
 # ==========================================
 async def draft_node(state: TripState) -> Dict[str, Any]:
+    logger.info(">>> 🚀 [进入节点] 生成草案 (draft_node)")
     sys_prompt = (
         f"请制定一个每日游玩大纲草案。\n"
         f"城市: {state.get('city')} \n天气: {state.get('weather_context')}\n"
@@ -163,6 +173,7 @@ async def draft_node(state: TripState) -> Dict[str, Any]:
         SystemMessage(content=sys_prompt),
         HumanMessage(content="请直接输出包含每天大纲的文字版行程草案。")
     ])
+    logger.info("<<< ✅ [离开节点] 生成草案")
     return {"rough_itinerary": res.content}
 
 # ==========================================
@@ -173,6 +184,7 @@ class BookingOutput(BaseModel):
     confirmed_attractions: List[Dict[str, Any]] = Field(description="最终确定的景点列表")
 
 async def booking_node(state: TripState) -> Dict[str, Any]:
+    logger.info(">>> 🚀 [进入节点] 订机票酒店 (booking_node)")
     city = state.get("city", "未知城市")
     
     agent_sys_prompt = (
@@ -187,7 +199,7 @@ async def booking_node(state: TripState) -> Dict[str, Any]:
     )
     
     react_agent = create_react_agent(llm, tools=BOOKING_TOOLS, prompt=agent_sys_prompt)
-    invoke_input = {"messages": [HumanMessage(content="请帮我寻找酒店。")]}
+    invoke_input = {"messages": state["messages"] + [HumanMessage(content="请帮我寻找酒店。")]}
     
     try:
         agent_res = await react_agent.ainvoke(invoke_input, {"recursion_limit": 5})
@@ -207,6 +219,7 @@ async def booking_node(state: TripState) -> Dict[str, Any]:
         confirmed_hotels = []
         confirmed_attractions = []
         
+    logger.info(f"<<< ✅ [离开节点] 订机票酒店, 确认酒店数: {len(confirmed_hotels)}")
     return {
         "confirmed_hotels": confirmed_hotels,
         "confirmed_attractions": confirmed_attractions
@@ -216,6 +229,7 @@ async def booking_node(state: TripState) -> Dict[str, Any]:
 # 4. 排最终行程节点 (Planner Node - ReAct 架构)
 # ==========================================
 async def planner_node(state: TripState) -> Dict[str, Any]:
+    logger.info(">>> 🚀 [进入节点] 排最终行程 (planner_node)")
     city = state.get('city')
     
     agent_sys_prompt = (
@@ -231,7 +245,7 @@ async def planner_node(state: TripState) -> Dict[str, Any]:
     )
     
     react_agent = create_react_agent(llm, tools=PLANNER_TOOLS, prompt=agent_sys_prompt)
-    invoke_input = {"messages": [HumanMessage(content="请开始查漏补缺（搜餐厅），最后交付给我一份完美的 Markdown 行程单。")]}
+    invoke_input = {"messages": state["messages"] + [HumanMessage(content="请开始查漏补缺（搜餐厅），最后交付给我一份完美的 Markdown 行程单。")]}
     
     try:
         agent_res = await react_agent.ainvoke(invoke_input, {"recursion_limit": 5})
@@ -240,6 +254,7 @@ async def planner_node(state: TripState) -> Dict[str, Any]:
         final_markdown = f"生成方案时出错: {str(e)}\n\n请您稍后再试。"
     
     # 记录助手的最终回复到全局上下文，以便多轮对话可见
+    logger.info("<<< ✅ [离开节点] 排最终行程")
     return {
         "messages": [AIMessage(content=final_markdown)],
         "final_plan_md": final_markdown
