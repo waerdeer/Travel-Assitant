@@ -1,54 +1,28 @@
+import uuid
 from pydantic import BaseModel, Field
 from fastapi import APIRouter, HTTPException
 
 from app.agents.orchestrator import TripOrchestrator
-from app.skills.dag import DAGContext
-from app.skills.registry import skill_registry
 
 router = APIRouter()
 
-class PlanRequest(BaseModel):
-    city: str = Field(..., description="目的地城市")
-    start_date: str = Field(..., description="开始日期 YYYY-MM-DD")
-    end_date: str = Field(..., description="结束日期 YYYY-MM-DD")
-    preferences: str = Field(default="", description="偏好：亲子游/穷游/美食等")
-    accommodation: str = Field(default="", description="住宿偏好：经济型/豪华型等")
-
 class ChatRequest(BaseModel):
+    # 前端现在需要传 thread_id 来追踪会话
+    thread_id: str = Field(default_factory=lambda: str(uuid.uuid4()), description="会话ID")
     text: str = Field(..., description="用户的自然语言输入")
 
-#核心处理接口 
-@router.post("/chat_plan", summary="自然语言对话生成行程")
+@router.post("/chat_plan", summary="自然语言对话生成行程 (支持多轮记忆)")
 async def chat_create_trip(req: ChatRequest):
     orchestrator = TripOrchestrator()
-    try: #llm来解析用户自然语言输入
-        extracted = await orchestrator.extract_params(req.text)
-        
-        #将llm返回的详细信息JSON 解析成函数具体可用字段
-        context = DAGContext(
-            city=extracted.get("city", "未知"),
-            start_date=extracted.get("start_date", ""),
-            end_date=extracted.get("end_date", ""),
-            preferences=extracted.get("preferences", req.text),
-            accommodation=extracted.get("accommodation", ""),
-        )
-        #硬编码匹配需要的skill 这个后续要改进
-        dag = skill_registry.resolve(context)
-        
+    try: 
+        # 直接透传 thread_id 和文本给 Orchestrator
         result = await orchestrator.plan_trip(
-            city=context.city,
-            start_date=context.start_date,
-            end_date=context.end_date,
-            preferences=context.preferences,
-            accommodation=context.accommodation,
+            thread_id=req.thread_id,
+            text=req.text
         )
-        return {"skill_used": dag.name, "plan": result}
+        return {
+            "skill_used": result.get("intent", "chat"), 
+            "plan": result
+        }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.get("/skills", summary="查看已注册的 Skill 列表")
-async def list_skills():
-    return [
-        {"name": d.name, "description": d.description, "keywords": d.keywords, "nodes": list(d.nodes.keys())}
-        for d in skill_registry.all()
-    ]
+        import traceback; traceback.print_exc(); raise HTTPException(status_code=500, detail=str(e))

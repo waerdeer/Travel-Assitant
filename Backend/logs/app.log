@@ -1,114 +1,39 @@
-16:00:44 [app] INFO: MCP 配置加载完成
-16:00:56 [app] INFO: MCP 配置加载完成
-16:02:01 [app] INFO: MCP 配置加载完成
-16:02:07 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:02:08 [dag] INFO: 开始执行: 美食攻略
-16:02:08 [dag] INFO: [1/5] query_weather
-16:02:09 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:02:10 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:02:16 [dag] INFO: [2/5] search_attractions
-16:02:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:02:17 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:02:32 [dag] INFO: [3/5] search_hotels
-16:02:32 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:02:33 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:02:47 [dag] INFO: [4/5] search_restaurants
-16:02:48 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:02:48 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:03:09 [dag] INFO: [5/5] generate_plan
-16:03:09 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:03:27 [dag] INFO: 执行完毕: 美食攻略, 共 5 步
-16:06:23 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:06:24 [dag] INFO: 开始执行: 通用行程
-16:06:24 [dag] INFO: [1/5] query_weather
-16:06:24 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:06:25 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:06:31 [dag] INFO: [2/5] search_attractions
-16:06:31 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:06:32 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:06:47 [dag] INFO: [3/5] search_hotels
-16:06:47 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:06:48 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:06:53 [dag] INFO: [4/5] search_restaurants
-16:06:54 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:06:55 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:07:09 [dag] INFO: [5/5] generate_plan
-16:07:09 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:07:24 [dag] INFO: 执行完毕: 通用行程, 共 5 步
-16:08:11 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:08:12 [dag] INFO: 开始执行: 通用行程
-16:08:12 [dag] INFO: [1/5] query_weather
-16:08:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:08:13 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:08:18 [dag] INFO: [2/5] search_attractions
-16:08:18 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:08:19 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:08:27 [dag] INFO: [3/5] search_hotels
-16:08:28 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:08:28 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:08:37 [dag] INFO: [4/5] search_restaurants
-16:08:37 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:08:38 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:08:53 [dag] INFO: [5/5] generate_plan
-16:08:54 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:09:16 [dag] INFO: 执行完毕: 通用行程, 共 5 步
-16:22:16 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:22:17 [dag] INFO: 开始执行: 通用行程
-16:22:17 [dag] INFO: [1/5] query_weather
-16:22:18 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:22:19 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:22:26 [dag] INFO: [2/5] search_attractions
-16:22:26 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:22:27 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:22:44 [dag] INFO: [3/5] search_hotels
-16:22:45 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:22:46 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:22:54 [dag] INFO: [4/5] search_restaurants
-16:22:55 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-16:22:55 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:23:07 [dag] INFO: [5/5] generate_plan
-16:23:07 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-16:23:24 [dag] INFO: 执行完毕: 通用行程, 共 5 步
-17:13:23 [app] INFO: MCP 配置加载完成
-17:13:44 [app] INFO: MCP 配置加载完成
-17:14:05 [app] INFO: MCP 配置加载完成
-17:17:41 [app] INFO: MCP 配置加载完成
-17:23:38 [app] INFO: MCP 配置加载完成
-17:24:21 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-17:24:22 [dag] INFO: 开始执行: 通用行程
-17:24:22 [dag] INFO: [1/5] query_weather
-17:24:22 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-17:24:22 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-17:24:31 [dag] INFO: [2/5] search_attractions
-17:24:31 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-17:24:32 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-17:24:41 [dag] INFO: [3/5] search_hotels
-17:24:41 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-17:24:41 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-17:24:50 [dag] INFO: [4/5] search_restaurants
-17:24:50 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-17:24:50 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-17:25:06 [dag] INFO: [5/5] generate_plan
-17:25:06 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-17:25:27 [dag] INFO: 执行完毕: 通用行程, 共 5 步
-18:19:22 [app] INFO: MCP 配置加载完成
-18:19:29 [app] INFO: MCP 配置加载完成
-18:20:00 [app] INFO: MCP 配置加载完成
-18:20:09 [app] INFO: MCP 配置加载完成
-18:20:20 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-18:20:21 [dag] INFO: 开始执行 LangGraph: 美食攻略
-18:20:21 [dag] INFO: 正在执行节点: query_weather
-18:20:21 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-18:20:22 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-18:20:29 [dag] INFO: 正在执行节点: search_attractions
-18:20:29 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-18:20:29 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-18:20:48 [dag] INFO: 正在执行节点: search_hotels
-18:20:48 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-18:20:48 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-18:21:03 [dag] INFO: 正在执行节点: search_restaurants
-18:21:03 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
-18:21:03 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-18:21:26 [dag] INFO: 正在执行节点: generate_plan
-18:21:26 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
-18:21:40 [dag] INFO: 执行完毕 LangGraph: 美食攻略
+15:24:21 [app] INFO: MCP 配置加载完成
+15:24:32 [app] INFO: MCP 配置加载完成
+15:24:35 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+15:24:35 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:24:36 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:24:39 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:24:39 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:24:39 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:24:42 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:24:42 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:24:42 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:24:42 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:24:44 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+15:24:44 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:25:00 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:25:04 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:04 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:04 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:04 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:25:07 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:07 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:07 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:07 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:25:09 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+15:25:09 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:25:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:14 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+15:25:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+15:25:17 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
