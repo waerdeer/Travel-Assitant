@@ -183,3 +183,49 @@
 16:28:25 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
 16:28:25 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
 16:28:40 [app.graph.nodes] INFO: <<< ✅ [离开节点] 排最终行程
+10:45:01 [app] INFO: MCP 配置加载完成
+10:48:41 [app.graph.nodes] INFO: >>> 🚀 [进入节点] 路由中枢 (router_node)
+10:48:42 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+10:48:42 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:48:43 [app.graph.nodes] INFO: <<< ✅ [离开节点] 路由中枢, 意图判定为: new_trip, 提取城市: 泉州
+10:48:43 [app.graph.nodes] INFO: >>> 🚀 [进入节点] 收集情报 (info_agent)
+10:48:43 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:48:45 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:48:45 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:48:46 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:48:48 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:48:48 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:48:48 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:48:48 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:48:50 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+10:48:50 [app.graph.nodes] INFO: <<< ✅ [离开节点] 收集情报, 找到景点数: 1
+10:48:50 [app.graph.nodes] INFO: >>> 🚀 [进入节点] 生成草案 (draft_node)
+10:48:50 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:01 [app.graph.nodes] INFO: <<< ✅ [离开节点] 生成草案
+10:49:01 [app.graph.nodes] INFO: >>> 🚀 [进入节点] 订机票酒店 (booking_node)
+10:49:02 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:04 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:04 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:04 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:06 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:06 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:07 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:09 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+10:49:09 [app.graph.nodes] INFO: <<< ✅ [离开节点] 订机票酒店, 确认酒店数: 0
+10:49:09 [app.graph.nodes] INFO: >>> 🚀 [进入节点] 排最终行程 (planner_node)
+10:49:09 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:13 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:13 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:16 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:16 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:17 [httpx] INFO: HTTP Request: POST https://mcp.amap.com/mcp?key= "HTTP/1.1 200 OK"
+10:49:17 [httpx] INFO: HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+10:49:20 [app.graph.nodes] INFO: <<< ✅ [离开节点] 排最终行程
