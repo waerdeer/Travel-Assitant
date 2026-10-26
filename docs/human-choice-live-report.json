@@ -1,0 +1,786 @@
+{
+  "run_at": "2026-10-24T11:14:51.990249+08:00",
+  "thread_id": "189c7c0f-6422-4cd4-957a-9e43b0ba9204",
+  "phases": [
+    {
+      "phase": "paused",
+      "status": "awaiting_choice",
+      "metrics": {
+        "model_calls": 1,
+        "input_tokens": 1601,
+        "output_tokens": 1049,
+        "duration_ms": 18680,
+        "tool_calls": 8,
+        "repairs": 0
+      },
+      "pending_choice": {
+        "token": "560603610b7e48059330d9e75c38d400",
+        "city": "杭州",
+        "message": "先选一下住宿和餐饮，再把每天的路线安排妥当。也可以交给 Agent 自动决定。",
+        "hotels": [
+          {
+            "evidence_id": "hotel:a4cb118b82f6",
+            "name": "乡阁民宿(西湖风景区店)",
+            "address": "杭州西湖风景名胜区翁家山128号",
+            "retrieval_hint": "经济型",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:44.024529+00:00"
+          },
+          {
+            "evidence_id": "hotel:3f4c17afa814",
+            "name": "若隐民宿(满觉陇路3号分店)",
+            "address": "下满觉陇105号",
+            "retrieval_hint": "民宿",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:44.862956+00:00"
+          },
+          {
+            "evidence_id": "hotel:3c8ab2a8a9fb",
+            "name": "杭州若芷幽兰民宿(西湖风景区店)",
+            "address": "下满觉陇252号",
+            "retrieval_hint": "经济型",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:44.024602+00:00"
+          },
+          {
+            "evidence_id": "hotel:949ba5bf66e5",
+            "name": "西湖简象民宿(龙井桂雨店)",
+            "address": "上满觉陇15-17号",
+            "retrieval_hint": "民宿",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:44.863046+00:00"
+          }
+        ],
+        "restaurants": [
+          {
+            "evidence_id": "restaurant:fc3bfa7823ec",
+            "name": "桂语山房(满觉陇店)",
+            "address": "满觉陇路1号",
+            "retrieval_hint": "杭帮菜",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:46.473499+00:00"
+          },
+          {
+            "evidence_id": "restaurant:cf45b6bf4205",
+            "name": "姚记面馆",
+            "address": "下满觉陇48号",
+            "retrieval_hint": "特色面馆",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:47.373664+00:00"
+          },
+          {
+            "evidence_id": "restaurant:71d5b98929ea",
+            "name": "家烧面馆(南山路)",
+            "address": "家烧面馆南山路38号雷峰塔西停车场斜对面大树边小巷到底15米",
+            "retrieval_hint": "本地小吃",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:49.670875+00:00"
+          },
+          {
+            "evidence_id": "restaurant:31463c6cb765",
+            "name": "满陇客",
+            "address": "满觉陇168号",
+            "retrieval_hint": "杭帮菜",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:46.473565+00:00"
+          },
+          {
+            "evidence_id": "restaurant:103996cc24c2",
+            "name": "乾龙面馆",
+            "address": "乾龙路42号",
+            "retrieval_hint": "特色面馆",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:47.373750+00:00"
+          },
+          {
+            "evidence_id": "restaurant:0836f4147019",
+            "name": "浙里本味(西湖龙井店)",
+            "address": "赤山苑9号",
+            "retrieval_hint": "本地小吃",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:13:49.670809+00:00"
+          }
+        ],
+        "selected_options": {},
+        "intent": "new_trip"
+      },
+      "trace": [
+        {
+          "stage": "understand",
+          "intent": "new_trip",
+          "summary": "需求完整，准备检索证据",
+          "reused_evidence": 0
+        },
+        {
+          "stage": "tool",
+          "tool": "get_weather_and_climate",
+          "args": {
+            "city": "杭州"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 4,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1216
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "杭州",
+            "keywords": "西湖",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2478
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "杭州",
+            "keywords": "杭州博物馆",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 697
+        },
+        {
+          "stage": "tool",
+          "tool": "search_hotels",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "budget_level": "经济型"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2159
+        },
+        {
+          "stage": "tool",
+          "tool": "search_hotels",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "budget_level": "民宿"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 838
+        },
+        {
+          "stage": "tool",
+          "tool": "search_restaurants",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "food_type": "杭帮菜"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 6,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1610
+        },
+        {
+          "stage": "tool",
+          "tool": "search_restaurants",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "food_type": "特色面馆"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 6,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 900
+        },
+        {
+          "stage": "tool",
+          "tool": "search_restaurants",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "food_type": "本地小吃"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 6,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2297
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 51 条，本轮累计调用 8 次工具",
+          "round": 1
+        },
+        {
+          "stage": "review_options",
+          "summary": "已保存候选，等待用户选择后继续规划",
+          "hotel_options": 4,
+          "restaurant_options": 6
+        },
+        {
+          "stage": "deliver",
+          "status": "awaiting_choice",
+          "summary": "返回说明与下一步"
+        }
+      ]
+    },
+    {
+      "phase": "diversified_candidates",
+      "status": "awaiting_choice",
+      "metrics": {
+        "model_calls": 1,
+        "input_tokens": 2771,
+        "output_tokens": 1064,
+        "duration_ms": 13843,
+        "tool_calls": 5,
+        "repairs": 0
+      },
+      "pending_choice": {
+        "token": "fc927c1af78145bc99e416b113088030",
+        "city": "杭州",
+        "message": "先选一下住宿和餐饮，再把每天的路线安排妥当。也可以交给 Agent 自动决定。",
+        "hotels": [
+          {
+            "evidence_id": "hotel:facf40674452",
+            "name": "布丁严选酒店(杭州西湖苏堤雷峰塔店)",
+            "address": "虎跑路四眼井224-1号",
+            "retrieval_hint": "经济型",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:14.861915+00:00"
+          },
+          {
+            "evidence_id": "hotel:3f4c17afa814",
+            "name": "若隐民宿(满觉陇路3号分店)",
+            "address": "下满觉陇105号",
+            "retrieval_hint": "民宿",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:16.673490+00:00"
+          },
+          {
+            "evidence_id": "hotel:5ea83754a080",
+            "name": "如家酒店(杭州西湖景区虎跑路雷峰塔店)",
+            "address": "虎跑路58号",
+            "retrieval_hint": "经济型",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:14.862019+00:00"
+          },
+          {
+            "evidence_id": "hotel:949ba5bf66e5",
+            "name": "西湖简象民宿(龙井桂雨店)",
+            "address": "上满觉陇15-17号",
+            "retrieval_hint": "民宿",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:16.673580+00:00"
+          }
+        ],
+        "restaurants": [
+          {
+            "evidence_id": "restaurant:fc3bfa7823ec",
+            "name": "桂语山房(满觉陇店)",
+            "address": "满觉陇路1号",
+            "retrieval_hint": "杭帮菜",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:17.390859+00:00"
+          },
+          {
+            "evidence_id": "restaurant:71d5b98929ea",
+            "name": "家烧面馆(南山路)",
+            "address": "家烧面馆南山路38号雷峰塔西停车场斜对面大树边小巷到底15米",
+            "retrieval_hint": "片儿川",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:18.411961+00:00"
+          },
+          {
+            "evidence_id": "restaurant:d25a67e9bb12",
+            "name": "孙奶奶葱包桧",
+            "address": "中山南路391号",
+            "retrieval_hint": "葱包桧",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:20.302073+00:00"
+          },
+          {
+            "evidence_id": "restaurant:31463c6cb765",
+            "name": "满陇客",
+            "address": "满觉陇168号",
+            "retrieval_hint": "杭帮菜",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:17.390957+00:00"
+          },
+          {
+            "evidence_id": "restaurant:b594aacb3bb0",
+            "name": "菊英面店(中山南路总店)",
+            "address": "中山南路368号",
+            "retrieval_hint": "片儿川",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:18.412043+00:00"
+          },
+          {
+            "evidence_id": "restaurant:c5557cbf016e",
+            "name": "叶大姐葱包桧(河坊街店)",
+            "address": "后市街与由义弄交叉口西北20米",
+            "retrieval_hint": "葱包桧",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T03:19:20.302145+00:00"
+          }
+        ],
+        "selected_options": {},
+        "intent": "modify_itinerary",
+        "trip_summary": "杭州 · 2026-11-07 — 2026-11-08 · 2 人"
+      },
+      "trace": [
+        {
+          "stage": "understand",
+          "intent": "modify_itinerary",
+          "summary": "需求完整，准备检索证据",
+          "reused_evidence": 24
+        },
+        {
+          "stage": "tool",
+          "tool": "search_hotels",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "budget_level": "经济型"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1301
+        },
+        {
+          "stage": "tool",
+          "tool": "search_hotels",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "budget_level": "民宿"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1811
+        },
+        {
+          "stage": "tool",
+          "tool": "search_restaurants",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "food_type": "杭帮菜"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 6,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 717
+        },
+        {
+          "stage": "tool",
+          "tool": "search_restaurants",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "food_type": "片儿川"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 6,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1021
+        },
+        {
+          "stage": "tool",
+          "tool": "search_restaurants",
+          "args": {
+            "city": "杭州",
+            "poi_location": "西湖周边",
+            "food_type": "葱包桧"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 3,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1890
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 49 条，本轮累计调用 5 次工具",
+          "round": 1
+        },
+        {
+          "stage": "review_options",
+          "summary": "已保存候选，等待用户选择后继续规划",
+          "hotel_options": 4,
+          "restaurant_options": 6
+        },
+        {
+          "stage": "deliver",
+          "status": "awaiting_choice",
+          "summary": "返回说明与下一步"
+        }
+      ]
+    },
+    {
+      "phase": "selected_and_completed",
+      "status": "completed",
+      "metrics": {
+        "model_calls": 2,
+        "input_tokens": 12011,
+        "output_tokens": 9934,
+        "duration_ms": 70233,
+        "tool_calls": 10,
+        "repairs": 1
+      },
+      "trace": [
+        {
+          "stage": "apply_selection",
+          "summary": "用户已选择，作为规划约束继续",
+          "selected_options": {
+            "hotel_evidence_id": "hotel:5ea83754a080",
+            "restaurant_evidence_ids": [
+              "restaurant:31463c6cb765",
+              "restaurant:b594aacb3bb0",
+              "restaurant:d25a67e9bb12"
+            ]
+          }
+        },
+        {
+          "stage": "plan",
+          "attempt": 1,
+          "summary": "生成引用证据的结构化行程"
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B01EE6"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 574
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B02070"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1186
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B0BIT8"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2038
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFFWQGI8"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 669
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B15DKJ"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2198
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B089X6"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 949
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFFDBOG3"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 995
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0KABDYN2W"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 958
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFIA5FV5"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1211
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFGWH97F"
+          },
+          "ok": true,
+          "count": 1,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1077
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 10 个已选地点的坐标，供路线校验使用"
+        },
+        {
+          "stage": "validate",
+          "passed": false,
+          "attempt": 1,
+          "errors": [
+            "invalid_reference",
+            "invalid_reference"
+          ],
+          "summary": "发现约束冲突，准备修正"
+        },
+        {
+          "stage": "repair",
+          "attempt": 2,
+          "summary": "根据校验反馈修正行程"
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 0 个已选地点的坐标，供路线校验使用"
+        },
+        {
+          "stage": "validate",
+          "passed": true,
+          "attempt": 2,
+          "errors": [],
+          "summary": "约束检查通过"
+        },
+        {
+          "stage": "deliver",
+          "status": "completed",
+          "summary": "交付已校验行程"
+        }
+      ],
+      "validation": {
+        "passed": true,
+        "issues": [
+          {
+            "code": "weather_uncovered",
+            "severity": "warning",
+            "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+            "day": null
+          },
+          {
+            "code": "estimates_only",
+            "severity": "warning",
+            "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+            "day": null
+          }
+        ],
+        "checks": [
+          "目的地一致",
+          "日期覆盖",
+          "地点证据引用",
+          "每日时间与节奏",
+          "人均预算",
+          "住宿与餐饮",
+          "地理距离",
+          "必去与排除地点"
+        ],
+        "unverified_checks": [
+          "天气覆盖"
+        ]
+      },
+      "selected_options": {
+        "hotel_evidence_id": "hotel:5ea83754a080",
+        "restaurant_evidence_ids": [
+          "restaurant:31463c6cb765",
+          "restaurant:b594aacb3bb0",
+          "restaurant:d25a67e9bb12"
+        ]
+      },
+      "itinerary": {
+        "city": "杭州",
+        "days": [
+          {
+            "date": "2026-11-07",
+            "theme": "西湖湖山经典线：断桥—西湖博物馆—苏堤",
+            "stops": [
+              {
+                "evidence_id": "attraction:8ebde259e0a9",
+                "start_time": "09:00",
+                "end_time": "10:00",
+                "note": "从断桥残雪开始游览西湖东北角；开放情况与客流需出行前核实。"
+              },
+              {
+                "evidence_id": "attraction:cee616bd3ef2",
+                "start_time": "10:20",
+                "end_time": "11:50",
+                "note": "参观西湖博物馆，了解西湖人文；预约要求与开放时间需核实。"
+              },
+              {
+                "evidence_id": "restaurant:31463c6cb765",
+                "start_time": "12:10",
+                "end_time": "13:10",
+                "note": "杭帮菜午餐，建议提前确认营业时间与等位情况。"
+              },
+              {
+                "evidence_id": "attraction:dec0d521c6eb",
+                "start_time": "13:30",
+                "end_time": "15:00",
+                "note": "苏堤春晓步行游览；天气、开放情况与交通用时需临近确认。"
+              }
+            ]
+          },
+          {
+            "date": "2026-11-08",
+            "theme": "吴山博物馆与武林城市文化线",
+            "stops": [
+              {
+                "evidence_id": "attraction:0edc0989dcd7",
+                "start_time": "09:00",
+                "end_time": "10:30",
+                "note": "参观杭州博物馆；开放时间、预约要求需核实。"
+              },
+              {
+                "evidence_id": "restaurant:d25a67e9bb12",
+                "start_time": "10:45",
+                "end_time": "11:15",
+                "note": "本地小吃体验，作为午餐前小吃；营业时间需核实。"
+              },
+              {
+                "evidence_id": "restaurant:b594aacb3bb0",
+                "start_time": "11:30",
+                "end_time": "12:15",
+                "note": "面馆正餐，品尝片儿川等面食；营业时间需核实。"
+              },
+              {
+                "evidence_id": "attraction:cb3706cf8e09",
+                "start_time": "13:00",
+                "end_time": "14:30",
+                "note": "参观浙江自然博物院；开放时间、预约及票价需核实。"
+              },
+              {
+                "evidence_id": "attraction:862e46a1d387",
+                "start_time": "14:45",
+                "end_time": "15:30",
+                "note": "西湖文化广场及周边城市景观散步，作为行程收尾；不进入未列明场馆。"
+              }
+            ]
+          }
+        ],
+        "hotel_evidence_id": "hotel:5ea83754a080",
+        "costs": {
+          "accommodation": 180.0,
+          "meals": 220.0,
+          "transport": 100.0,
+          "tickets": 80.0,
+          "basis": "按2人1晚估算：经济型酒店双人间约¥360/晚×1晚÷2人=¥180/人；餐饮按约¥110/人/天×2天=¥220/人，含所选餐厅及简早/饮水；市内交通¥100/人；门票及预约弹性预留¥80/人。所有价格为非实时估算，未核实实际房价、票价与营业时间。"
+        },
+        "suggestions": [
+          "11月7—8日天气未包含在近期天气证据中，请临近出行通过官方渠道确认，并备薄外套和雨具；不将近期天气当作未来预报。",
+          "出行前请核实杭州博物馆、浙江自然博物院、西湖博物馆等开放时间、预约要求及票价。",
+          "住宿为如家酒店(杭州西湖景区虎跑路雷峰塔店)候选，未预订；建议确认房型、取消政策及实际房价。",
+          "孙奶奶葱包桧、满陇客、菊英面店(中山南路总店)均为所选餐厅，营业时间和等位情况需核实；如有变动在所选餐厅池内调整。",
+          "西湖周边以步行、公交/地铁和短途打车组合衔接，行程已预留至少15分钟交通缓冲；费用为估算。"
+        ]
+      },
+      "final_plan_md": "# 杭州 · 2 日旅行\n\n2026-11-07 — 2026-11-08 · 2 人 · 人均预算 ¥1200\n\n> **出行前须知**：近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报；费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。\n\n## Day 1 · 2026-11-07\n**西湖湖山经典线：断桥—西湖博物馆—苏堤**\n\n- **09:00–10:00 · [杭州西湖风景名胜区-断桥残雪](https://uri.amap.com/search?keyword=%E6%9D%AD%E5%B7%9E%E8%A5%BF%E6%B9%96%E9%A3%8E%E6%99%AF%E5%90%8D%E8%83%9C%E5%8C%BA-%E6%96%AD%E6%A1%A5%E6%AE%8B%E9%9B%AA&city=%E6%9D%AD%E5%B7%9E)**\n  龙井路1号杭州西湖风景名胜区内(东北角)\n  规划建议（模型生成）：从断桥残雪开始游览西湖东北角；开放情况与客流需出行前核实。\n- **10:20–11:50 · [西湖博物馆](https://uri.amap.com/search?keyword=%E8%A5%BF%E6%B9%96%E5%8D%9A%E7%89%A9%E9%A6%86&city=%E6%9D%AD%E5%B7%9E)**\n  南山路89号\n  规划建议（模型生成）：参观西湖博物馆，了解西湖人文；预约要求与开放时间需核实。\n- **12:10–13:10 · [满陇客](https://uri.amap.com/search?keyword=%E6%BB%A1%E9%99%87%E5%AE%A2&city=%E6%9D%AD%E5%B7%9E)**\n  满觉陇168号\n  规划建议（模型生成）：杭帮菜午餐，建议提前确认营业时间与等位情况。\n- **13:30–15:00 · [杭州西湖风景名胜区-苏堤春晓](https://uri.amap.com/search?keyword=%E6%9D%AD%E5%B7%9E%E8%A5%BF%E6%B9%96%E9%A3%8E%E6%99%AF%E5%90%8D%E8%83%9C%E5%8C%BA-%E8%8B%8F%E5%A0%A4%E6%98%A5%E6%99%93&city=%E6%9D%AD%E5%B7%9E)**\n  杭州西湖风景名胜区内(东北角)\n  规划建议（模型生成）：苏堤春晓步行游览；天气、开放情况与交通用时需临近确认。\n\n## Day 2 · 2026-11-08\n**吴山博物馆与武林城市文化线**\n\n- **09:00–10:30 · [杭州博物馆](https://uri.amap.com/search?keyword=%E6%9D%AD%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86&city=%E6%9D%AD%E5%B7%9E)**\n  粮道山18号\n  规划建议（模型生成）：参观杭州博物馆；开放时间、预约要求需核实。\n- **10:45–11:15 · [孙奶奶葱包桧](https://uri.amap.com/search?keyword=%E5%AD%99%E5%A5%B6%E5%A5%B6%E8%91%B1%E5%8C%85%E6%A1%A7&city=%E6%9D%AD%E5%B7%9E)**\n  中山南路391号\n  规划建议（模型生成）：本地小吃体验，作为午餐前小吃；营业时间需核实。\n- **11:30–12:15 · [菊英面店(中山南路总店)](https://uri.amap.com/search?keyword=%E8%8F%8A%E8%8B%B1%E9%9D%A2%E5%BA%97%28%E4%B8%AD%E5%B1%B1%E5%8D%97%E8%B7%AF%E6%80%BB%E5%BA%97%29&city=%E6%9D%AD%E5%B7%9E)**\n  中山南路368号\n  规划建议（模型生成）：面馆正餐，品尝片儿川等面食；营业时间需核实。\n- **13:00–14:30 · [浙江自然博物院](https://uri.amap.com/search?keyword=%E6%B5%99%E6%B1%9F%E8%87%AA%E7%84%B6%E5%8D%9A%E7%89%A9%E9%99%A2&city=%E6%9D%AD%E5%B7%9E)**\n  西湖文化广场6号\n  规划建议（模型生成）：参观浙江自然博物院；开放时间、预约及票价需核实。\n- **14:45–15:30 · [西湖文化广场](https://uri.amap.com/search?keyword=%E8%A5%BF%E6%B9%96%E6%96%87%E5%8C%96%E5%B9%BF%E5%9C%BA&city=%E6%9D%AD%E5%B7%9E)**\n  环城北路47号\n  规划建议（模型生成）：西湖文化广场及周边城市景观散步，作为行程收尾；不进入未列明场馆。\n\n## 住宿候选\n**如家酒店(杭州西湖景区虎跑路雷峰塔店)** · 虎跑路58号\n仅为地图检索候选，未预订；房价、房态及是否符合住宿偏好需另行核实。\n\n## 费用估算\n全程人均人民币估算，非实时价格；不含往返目的地的大交通。\n\n| 类别 | 人均估算 |\n| --- | ---: |\n| 住宿 | ¥180 |\n| 餐饮 | ¥220 |\n| 市内交通 | ¥100 |\n| 门票 | ¥80 |\n| 合计 | **¥580** |\n\n估算依据：按2人1晚估算：经济型酒店双人间约¥360/晚×1晚÷2人=¥180/人；餐饮按约¥110/人/天×2天=¥220/人，含所选餐厅及简早/饮水；市内交通¥100/人；门票及预约弹性预留¥80/人。所有价格为非实时估算，未核实实际房价、票价与营业时间。\n\n## 旅行提示\n- 11月7—8日天气未包含在近期天气证据中，请临近出行通过官方渠道确认，并备薄外套和雨具；不将近期天气当作未来预报。\n- 出行前请核实杭州博物馆、浙江自然博物院、西湖博物馆等开放时间、预约要求及票价。\n- 住宿为如家酒店(杭州西湖景区虎跑路雷峰塔店)候选，未预订；建议确认房型、取消政策及实际房价。\n- 孙奶奶葱包桧、满陇客、菊英面店(中山南路总店)均为所选餐厅，营业时间和等位情况需核实；如有变动在所选餐厅池内调整。\n- 西湖周边以步行、公交/地铁和短途打车组合衔接，行程已预留至少15分钟交通缓冲；费用为估算。\n\n## 数据来源\n地点来自高德地图 MCP，以下为检索时间；文字建议与费用由模型生成。\n- 杭州博物馆 · 2026-10-24T03:13:41.865421+00:00 · `attraction:0edc0989dcd7`\n- 西湖文化广场 · 2026-10-24T03:13:41.168248+00:00 · `attraction:862e46a1d387`\n- 杭州西湖风景名胜区-断桥残雪 · 2026-10-24T03:13:41.168198+00:00 · `attraction:8ebde259e0a9`\n- 浙江自然博物院 · 2026-10-24T03:13:41.865502+00:00 · `attraction:cb3706cf8e09`\n- 西湖博物馆 · 2026-10-24T03:13:41.865524+00:00 · `attraction:cee616bd3ef2`\n- 杭州西湖风景名胜区-苏堤春晓 · 2026-10-24T03:13:41.168219+00:00 · `attraction:dec0d521c6eb`\n- 如家酒店(杭州西湖景区虎跑路雷峰塔店) · 2026-10-24T03:19:14.862019+00:00 · `hotel:5ea83754a080`\n- 满陇客 · 2026-10-24T03:19:17.390957+00:00 · `restaurant:31463c6cb765`\n- 菊英面店(中山南路总店) · 2026-10-24T03:19:18.412043+00:00 · `restaurant:b594aacb3bb0`\n- 孙奶奶葱包桧 · 2026-10-24T03:19:20.302073+00:00 · `restaurant:d25a67e9bb12`"
+    }
+  ],
+  "manual_checks": {
+    "restart_and_reload_restored_pending_candidates": true,
+    "initial_model_failure_root_cause": "unconfirmed; standalone call and subsequent retry succeeded"
+  },
+  "selection_assertions": {
+    "hotel_matches_user_choice": true,
+    "restaurants_within_user_pool": true,
+    "no_repeated_understanding": true,
+    "pending_choice_cleared": true,
+    "distinct_restaurants_used": 3
+  }
+}

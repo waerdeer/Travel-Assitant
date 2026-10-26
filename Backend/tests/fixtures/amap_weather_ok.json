@@ -1,0 +1,11 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"city\":\"杭州市\",\"forecasts\":[{\"date\":\"2026-09-19\",\"week\":\"6\",\"dayweather\":\"多云\",\"nightweather\":\"阴\",\"daytemp\":\"33\",\"nighttemp\":\"24\",\"daywind\":\"东北\",\"nightwind\":\"东北\",\"daypower\":\"1-3\",\"nightpower\":\"1-3\",\"daytemp_float\":\"33.0\",\"nighttemp_float\":\"24.0\"},{\"date\":\"2026-09-20\",\"week\":\"7\",\"dayweather\":\"多云\",\"nightweather\":\"晴\",\"daytemp\":\"30\",\"nighttemp\":\"23\",\"daywind\":\"东北\",\"nightwind\":\"东北\",\"daypower\":\"1-3\",\"nightpower\":\"1-3\",\"daytemp_float\":\"30.0\",\"nighttemp_float\":\"23.0\"},{\"date\":\"2026-09-21\",\"week\":\"1\",\"dayweather\":\"晴\",\"nightweather\":\"晴\",\"daytemp\":\"31\",\"nighttemp\":\"24\",\"daywind\":\"北\",\"nightwind\":\"北\",\"daypower\":\"1-3\",\"nightpower\":\"1-3\",\"daytemp_float\":\"31.0\",\"nighttemp_float\":\"24.0\"},{\"date\":\"2026-09-22\",\"week\":\"2\",\"dayweather\":\"多云\",\"nightweather\":\"晴\",\"daytemp\":\"30\",\"nighttemp\":\"23\",\"daywind\":\"东\",\"nightwind\":\"东\",\"daypower\":\"1-3\",\"nightpower\":\"1-3\",\"daytemp_float\":\"30.0\",\"nighttemp_float\":\"23.0\"}]}"
+      }
+    ],
+    "isError": false
+  }
+}

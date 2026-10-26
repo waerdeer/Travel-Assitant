@@ -1,0 +1,8 @@
+{
+  "test": "browser_cancel_protects_accepted_plan",
+  "unchanged": true,
+  "accepted_sha256": "d32059e0b37572efbb7c4652ab5e5e1cb571898f4d56ddc166a84372453bf9b3",
+  "screenshot": "docs/screenshots/route-first-live-cancelled.png",
+  "browser_observed": "本轮已停止；原行程保留；输入恢复；导出与正式版区域仍存在",
+  "export": "浏览器已点击导出；文件落盘位置未验证，不冒称下载文件已核对"
+}

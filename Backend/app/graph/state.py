@@ -4,7 +4,7 @@ import operator
 from langgraph.graph.message import add_messages
 from langchain_core.messages import AnyMessage
 
-class TripState(TypedDict):
+class TripState(TypedDict, total=False):
     """旅行规划 Agent 的全局共享状态 (支持多轮对话记忆)"""
     
     # ====== 核心机制 ======
@@ -30,3 +30,32 @@ class TripState(TypedDict):
     final_plan_md: str
     current_step_count: int
     error_msg: Optional[str]
+    requirements: dict
+    decision: dict
+    evidence: List[Dict]
+    itinerary: Optional[dict]
+    validation: dict
+    trace: List[Dict]
+    metrics: dict
+    status: str
+    reply: str
+    repair_count: int
+    tool_calls: int
+    research_round: int
+    missing_requirements: List[str]
+    previous_itinerary: Optional[dict]
+    previous_plan_md: str
+    accepted_plan: dict
+    interaction_mode: str
+    pending_choice: Optional[dict]
+    choice_selection: Optional[dict]
+    selected_options: dict
+    choice_confirmed: bool
+    review_categories: List[str]
+    scope_policy_version: int
+    spatial_repair_no_progress: bool
+    planning_strategy: str
+    route_draft: Optional[dict]
+    requested_review_categories: List[str]
+    preferred_options: dict
+    run_id: str

@@ -1,0 +1,31 @@
+{
+  "unchanged": true,
+  "before": {
+    "f359c00e-e649-46fc-ba8c-00c3747ab56c": {
+      "sha256": "480827f3f0ca71d783c95dddc41b13eebe52e08b51484c51a564661d2ea9ffc9",
+      "messages": 4,
+      "trips": 0
+    },
+    "3ac52b53-f2fb-4e8a-af84-0714d1a40f0b": {
+      "sha256": "f4b878daba7d52cc895b50bc0bfaabec1401d2a7ea582ee3d267005283462f4f",
+      "messages": 4,
+      "trips": 0
+    }
+  },
+  "after": {
+    "f359c00e-e649-46fc-ba8c-00c3747ab56c": {
+      "sha256": "480827f3f0ca71d783c95dddc41b13eebe52e08b51484c51a564661d2ea9ffc9",
+      "messages": 4,
+      "trips": 0
+    },
+    "3ac52b53-f2fb-4e8a-af84-0714d1a40f0b": {
+      "sha256": "f4b878daba7d52cc895b50bc0bfaabec1401d2a7ea582ee3d267005283462f4f",
+      "messages": 4,
+      "trips": 0
+    }
+  },
+  "health_status": "ok",
+  "mcp_ok": true,
+  "frontend_status": 200,
+  "startup_transient_timeout_observed": true
+}

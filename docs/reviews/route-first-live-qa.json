@@ -1,0 +1,136 @@
+[
+  {
+    "thread_id": "qa-round2-legacy-ui",
+    "status": "completed",
+    "route_draft": null,
+    "pending_choice": null,
+    "last_run": {
+      "status": "completed",
+      "trace": [
+        {
+          "stage": "apply_selection",
+          "summary": "用户已选择，作为规划约束继续",
+          "selected_options": {}
+        },
+        {
+          "stage": "plan",
+          "attempt": 1,
+          "summary": "生成引用证据的结构化行程"
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0JRCH2299"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1203
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFFWF688"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2837
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFF5T3KR"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 990
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFFWQ9NO"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1285
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFH6L43B"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2068
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 5 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "validate",
+          "passed": true,
+          "attempt": 1,
+          "errors": [],
+          "issues": [
+            {
+              "code": "weather_uncovered",
+              "severity": "warning",
+              "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+              "day": null
+            },
+            {
+              "code": "estimates_only",
+              "severity": "warning",
+              "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+              "day": null
+            }
+          ],
+          "summary": "约束检查通过"
+        },
+        {
+          "stage": "deliver",
+          "status": "completed",
+          "summary": "交付已校验行程"
+        }
+      ],
+      "metrics": {
+        "model_calls": 1,
+        "input_tokens": 12065,
+        "output_tokens": 4671,
+        "duration_ms": 35602,
+        "tool_calls": 5,
+        "repairs": 0
+      }
+    }
+  }
+]

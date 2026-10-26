@@ -1,0 +1,330 @@
+{
+  "legacy_retry": {
+    "status": "awaiting_clarification",
+    "reply": "已记下：目的地待定 · 7 天。\n开始规划前，还需要确认：\n- “北疆”不是单城市集中区域，当前只能围绕一个集中住宿点规划，不能把阿勒泰直接当作已选定目的地。请先选定一个集中区域（如乌鲁木齐市区、伊宁市区或禾木村内）；7天也可缩短该段或拆成多个单点行程分别规划。确认后我再按保留的日期更新豪华住宿和羊肉餐饮候选。\n- 想去哪个国内城市？第一版支持单城市旅行。"
+  },
+  "original_input": {
+    "status": "awaiting_clarification",
+    "reply": "已记下：目的地待定 · 7 天。\n开始规划前，还需要确认：\n- 北疆跨度很大，阿勒泰—布尔津—喀纳斯—禾木以及整个伊犁河谷都不适合作为一个单住宿点、30公里内集中游玩的单城市行程。请先选定一个集中游玩区域，例如乌鲁木齐市区、伊宁市区或禾木村内；若想覆盖多地，建议拆成分段行程，每段单独规划。\n- 想去哪个国内城市？第一版支持单城市旅行。"
+  },
+  "hotel_search": {
+    "ok": true,
+    "names": [
+      "喀纳斯禾木假日度假酒店",
+      "布尔津鸿宇福瑞酒店(喀纳斯塔桥店)",
+      "阿勒泰禾木希尔顿酒店",
+      "阿勒泰禾木康莱德酒店",
+      "布尔津津品假日酒店(四季美食街店)"
+    ]
+  },
+  "browser_complete_flow": {
+    "thread_id": "5c44855d-9efa-47ab-9945-bd0390b67d10",
+    "test_scope": "用户确认改为乌鲁木齐市区两天，不代表完成北疆七天环线",
+    "status": "completed",
+    "requirements": {
+      "city": "乌鲁木齐",
+      "start_date": "2026-10-26",
+      "end_date": "2026-10-27",
+      "duration_days": 2,
+      "budget_per_person": 6000.0,
+      "travelers": 1,
+      "preferences": "豪华档次住宿，博物馆与市区散步，不去天池及远郊",
+      "pace": "balanced",
+      "must_visit": [],
+      "avoid_places": [
+        "天池",
+        "远郊"
+      ],
+      "daily_attraction_limit": 2
+    },
+    "selected_hotel": "美丽华酒店",
+    "selected_restaurants": [
+      "马风花大盘鸡新疆菜",
+      "新疆拉条子(贵州路科技街店)"
+    ],
+    "itinerary": {
+      "city": "乌鲁木齐",
+      "days": [
+        {
+          "date": "2026-10-26",
+          "theme": "博物馆馆藏与市区园林散步",
+          "stops": [
+            {
+              "evidence_id": "attraction:007e977c477c",
+              "start_time": "10:00",
+              "end_time": "12:00",
+              "note": "参观新疆维吾尔自治区博物馆，建议提前确认开放时间、预约要求及票价；馆内步行参观约2小时。"
+            },
+            {
+              "evidence_id": "restaurant:739c218a4308",
+              "start_time": "12:15",
+              "end_time": "13:15",
+              "note": "所选餐厅之一，安排午餐；建议错峰用餐，价格以现场为准。"
+            },
+            {
+              "evidence_id": "attraction:142b0844eeee",
+              "start_time": "13:30",
+              "end_time": "15:30",
+              "note": "在乌鲁木齐市植物园-湖心岛散步，属于市区休闲点；开放情况与天气请出发前确认。"
+            },
+            {
+              "evidence_id": "restaurant:1bdc62e90915",
+              "start_time": "18:00",
+              "end_time": "19:30",
+              "note": "所选餐厅之一，安排晚餐；建议提前确认营业情况，价格以现场为准。"
+            }
+          ]
+        },
+        {
+          "date": "2026-10-27",
+          "theme": "城市历史与新区公园漫步",
+          "stops": [
+            {
+              "evidence_id": "attraction:6b608bf3eba9",
+              "start_time": "09:00",
+              "end_time": "11:00",
+              "note": "参观乌鲁木齐市博物馆，建议提前确认开放时间、预约要求及票价。"
+            },
+            {
+              "evidence_id": "attraction:2601d1bf1c38",
+              "start_time": "11:45",
+              "end_time": "13:15",
+              "note": "在小绿谷公园市区散步；开放情况与天气请出发前确认。"
+            },
+            {
+              "evidence_id": "restaurant:1bdc62e90915",
+              "start_time": "14:00",
+              "end_time": "15:00",
+              "note": "轮换安排午餐，所选餐厅之一；已与上一景点预留约45分钟交通，营业情况以现场为准。"
+            },
+            {
+              "evidence_id": "restaurant:739c218a4308",
+              "start_time": "18:00",
+              "end_time": "19:30",
+              "note": "轮换安排晚餐，所选餐厅之一；建议提前确认营业情况，价格以现场为准。"
+            }
+          ]
+        }
+      ],
+      "hotel_evidence_id": "hotel:0818990a41a8",
+      "costs": {
+        "accommodation": 1500.0,
+        "meals": 600.0,
+        "transport": 200.0,
+        "tickets": 100.0,
+        "basis": "住宿按美丽华酒店豪华档约1500元/晚×1晚÷1人=1500元；餐饮按300元/人/天×2天=600元；市内交通按100元/人/天×2天=200元；门票及馆内项目按100元/人估算。均为估算，未核实实时价格，不含往返大交通。"
+      },
+      "suggestions": [
+        "博物馆开放时间、预约要求与票价请出发前核实；园内开放情况也请确认。",
+        "10月下旬早晚温差较大，请备保暖衣物；天气信息仅来自证据日期，出发前请再次确认。",
+        "市区内以打车或公共交通接驳，已为相邻地点预留不少于45分钟交通时间，部分时段更充裕。",
+        "美丽华酒店仅为候选住宿，未预订；两家餐厅也仅为候选，未预订。",
+        "行程每天安排2个景点，符合 balanced 节奏并遵守每日景点上限。",
+        "费用为全程人均估算，不含往返大交通；实时价格、营业时间和导航时长请出发前复核。"
+      ]
+    },
+    "validation": {
+      "passed": true,
+      "issues": [
+        {
+          "code": "estimates_only",
+          "severity": "warning",
+          "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+          "day": null
+        }
+      ],
+      "checks": [
+        "目的地一致",
+        "日期覆盖",
+        "地点证据引用",
+        "每日时间与节奏",
+        "人均预算",
+        "住宿与餐饮",
+        "天气覆盖",
+        "地理距离",
+        "必去与排除地点"
+      ],
+      "unverified_checks": []
+    },
+    "metrics": {
+      "model_calls": 2,
+      "input_tokens": 9081,
+      "output_tokens": 8127,
+      "duration_ms": 54336,
+      "tool_calls": 7,
+      "repairs": 1
+    },
+    "trace": [
+      {
+        "stage": "apply_selection",
+        "summary": "用户已选择，作为规划约束继续",
+        "selected_options": {
+          "hotel_evidence_id": "hotel:0818990a41a8",
+          "restaurant_evidence_ids": [
+            "restaurant:1bdc62e90915",
+            "restaurant:739c218a4308"
+          ]
+        }
+      },
+      {
+        "stage": "plan",
+        "attempt": 1,
+        "summary": "生成引用证据的结构化行程"
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B03DF016C6"
+        },
+        "ok": true,
+        "count": 1,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 1508
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B0HA1CFMTU"
+        },
+        "ok": true,
+        "count": 1,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 1549
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B0FFK5MOPU"
+        },
+        "ok": true,
+        "count": 1,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 590
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B0FFG6HFZ0"
+        },
+        "ok": true,
+        "count": 1,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 1157
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B03DF02878"
+        },
+        "ok": true,
+        "count": 1,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 860
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B0KATRPH35"
+        },
+        "ok": true,
+        "count": 1,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 1057
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B0FFK0B07Q"
+        },
+        "ok": true,
+        "count": 1,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 1844
+      },
+      {
+        "stage": "geography",
+        "summary": "补充 7 个已选地点的坐标，供路线校验使用"
+      },
+      {
+        "stage": "validate",
+        "passed": false,
+        "attempt": 1,
+        "errors": [
+          "transfer_buffer"
+        ],
+        "issues": [
+          {
+            "code": "transfer_buffer",
+            "severity": "error",
+            "message": "相邻地点交通留白不足（按直线距离保守检查，非导航时间）。",
+            "day": "2026-10-27"
+          },
+          {
+            "code": "estimates_only",
+            "severity": "warning",
+            "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+            "day": null
+          }
+        ],
+        "summary": "发现约束冲突，准备修正"
+      },
+      {
+        "stage": "repair",
+        "attempt": 2,
+        "summary": "根据校验反馈修正行程"
+      },
+      {
+        "stage": "geography",
+        "summary": "补充 0 个已选地点的坐标，供路线校验使用"
+      },
+      {
+        "stage": "validate",
+        "passed": true,
+        "attempt": 2,
+        "errors": [],
+        "issues": [
+          {
+            "code": "estimates_only",
+            "severity": "warning",
+            "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+            "day": null
+          }
+        ],
+        "summary": "约束检查通过"
+      },
+      {
+        "stage": "deliver",
+        "status": "completed",
+        "summary": "交付已校验行程"
+      }
+    ],
+    "assertions": [
+      "用户选择的酒店保留",
+      "仅使用所选餐厅且两家均已安排",
+      "恢复未重复理解需求",
+      "交通时间冲突被拦截后修正通过",
+      "待选择状态已清除"
+    ]
+  }
+}

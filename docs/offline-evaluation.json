@@ -1,0 +1,649 @@
+{
+  "benchmark": "deterministic-validator-v2",
+  "scope": "固定合成案例的约束检测；不代表真实生成成功率或零幻觉率",
+  "total": 33,
+  "passed": 33,
+  "accuracy": 1.0,
+  "cases": [
+    {
+      "id": "valid",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": true,
+      "actual_accepted": true,
+      "detected_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "wrong_city",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "city_mismatch",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "city_mismatch"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "date_gap",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "date_coverage",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "date_coverage"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "hallucinated_poi",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "invalid_reference",
+        "missing_attraction",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "invalid_reference",
+        "missing_attraction"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "fake_hotel",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "invalid_hotel",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "invalid_hotel"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "overlap",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "time_overlap",
+        "transfer_buffer",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "time_overlap",
+        "transfer_buffer"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "budget",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "budget_exceeded",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "budget_exceeded"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "zero_hotel_cost",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "missing_hotel_cost",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_hotel_cost"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "cross_district_meal",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "long_transfer",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "long_transfer"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "far_hotel",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": true,
+      "actual_accepted": true,
+      "detected_codes": [
+        "distant_hotel",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [],
+      "warning_codes": [
+        "distant_hotel",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "must_visit",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "must_visit_missing",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "must_visit_missing"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "exclude_place",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "excluded_place",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "excluded_place"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "missing_meal",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "missing_daily_meal",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_daily_meal"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "duplicate",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "duplicate_attraction",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "duplicate_attraction"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "traffic_buffer",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "transfer_buffer",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "transfer_buffer"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "early_activity",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "availability_window",
+        "estimates_only",
+        "time_window",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "availability_window",
+        "time_window"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "future_weather_is_warning",
+      "group": "specific",
+      "correct": true,
+      "expected_accepted": true,
+      "actual_accepted": true,
+      "detected_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_valid",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": true,
+      "actual_accepted": true,
+      "detected_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_meal_required",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "missing_daily_meal",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_daily_meal"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_stay_area_required",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "missing_stay_area",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_stay_area"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_stay_cannot_borrow_other_day",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "invalid_stay_anchor",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "invalid_stay_anchor"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_meal_cannot_borrow_other_day",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "invalid_meal_anchor",
+        "missing_daily_meal",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "invalid_meal_anchor",
+        "missing_daily_meal"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_meal_overlap",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "meal_time_overlap",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "meal_time_overlap"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_meal_zero_budget",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "missing_costs",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_costs"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "browse_hotel_budget_reserved",
+      "group": "browse",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "missing_hotel_cost",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_hotel_cost"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "arrival_return_empty",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": true,
+      "actual_accepted": true,
+      "detected_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [],
+      "warning_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "arrival_before_rejected",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "arrival_departure_assumptions",
+        "availability_window",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "availability_window"
+      ],
+      "warning_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "departure_after_rejected",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "arrival_departure_assumptions",
+        "availability_window",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "availability_window"
+      ],
+      "warning_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "empty_does_not_excuse_ordinary_day",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "estimates_only",
+        "missing_attraction",
+        "missing_daily_meal",
+        "missing_stay_area",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_attraction",
+        "missing_daily_meal",
+        "missing_stay_area"
+      ],
+      "warning_codes": [
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "empty_does_not_erase_must_visit",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "must_visit_missing",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "must_visit_missing"
+      ],
+      "warning_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "empty_does_not_erase_hotel_cost",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "missing_hotel_cost",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "missing_hotel_cost"
+      ],
+      "warning_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "empty_does_not_erase_dates",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "arrival_departure_assumptions",
+        "date_coverage",
+        "estimates_only",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "date_coverage"
+      ],
+      "warning_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    },
+    {
+      "id": "rest_day_cannot_have_attraction",
+      "group": "availability",
+      "correct": true,
+      "expected_accepted": false,
+      "actual_accepted": false,
+      "detected_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "rest_day_activity",
+        "weather_uncovered"
+      ],
+      "error_codes": [
+        "rest_day_activity"
+      ],
+      "warning_codes": [
+        "arrival_departure_assumptions",
+        "estimates_only",
+        "weather_uncovered"
+      ]
+    }
+  ]
+}

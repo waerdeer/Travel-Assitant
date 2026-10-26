@@ -1,67 +1,93 @@
-from langgraph.graph import StateGraph, START, END
-from langgraph.checkpoint.memory import MemorySaver
+"""Semantic decisions and deterministic acceptance gates are separate nodes."""
 
-from app.graph.state import TripState
-from app.graph.nodes import (
-    router_node, 
-    chat_node, 
-    info_agent, 
-    draft_node, 
-    booking_node, 
-    planner_node
+from langgraph.config import get_stream_writer
+from langgraph.graph import END, START, StateGraph
+
+from app.graph.choices import after_review, apply_selection, review_options
+from app.graph.drafts import build_route_draft, enrich_route_draft
+from app.graph.geography import enrich_locations
+from app.graph.pipeline import (
+    after_plan,
+    after_understand,
+    after_validate,
+    deliver,
+    plan,
+    understand,
+    validate,
 )
+from app.graph.research import collect_evidence, collect_route_evidence
+from app.graph.state import TripState
 
-def route_after_router(state: TripState) -> str:
-    """条件路由函数：根据 Router 节点判断的 intent 决定下一个节点"""
-    intent = state.get("intent", "chat")
-    if intent == "new_trip":
-        return "收集情报"
-    elif intent == "modify_hotel":
-        return "订机票酒店"
-    else:
-        return "普通闲聊"
 
 def build_workflow() -> StateGraph:
-    workflow = StateGraph(TripState)
-    
-    # 注册所有节点
-    workflow.add_node("路由中枢", router_node)
-    workflow.add_node("普通闲聊", chat_node)
-    
-    workflow.add_node("收集情报", info_agent)
-    workflow.add_node("生成草案", draft_node)
-    workflow.add_node("订机票酒店", booking_node)
-    workflow.add_node("排最终行程", planner_node)
-    
-    # 建立边
-    workflow.add_edge(START, "路由中枢")
-    
-    # 核心：条件路由边
-    workflow.add_conditional_edges(
-        "路由中枢", 
-        route_after_router,
-        {
-            "收集情报": "收集情报",
-            "订机票酒店": "订机票酒店",
-            "普通闲聊": "普通闲聊"
-        }
+    graph = StateGraph(TripState)
+
+    def register(name, function):
+        async def execute(state):
+            get_stream_writer()({"node": name, "phase": "start", "trace": state.get("trace", [])})
+            return await function(state)
+
+        graph.add_node(name, execute)
+
+    for name, function in (
+        ("understand", understand),
+        ("research", collect_evidence),
+        ("plan", plan),
+        ("validate", validate),
+        ("geography", enrich_locations),
+        ("deliver", deliver),
+        ("review_options", review_options),
+        ("apply_selection", apply_selection),
+        ("route_research", collect_route_evidence),
+        ("draft_route", build_route_draft),
+        ("draft_geography", enrich_route_draft),
+    ):
+        register(name, function)
+    graph.add_conditional_edges(
+        START,
+        lambda state: "apply_selection" if state.get("choice_selection") else "understand",
+        {"apply_selection": "apply_selection", "understand": "understand"},
     )
-    
-    # 闲聊结束
-    workflow.add_edge("普通闲聊", END)
-    
-    # 全新行程的主干道
-    workflow.add_edge("收集情报", "生成草案")
-    workflow.add_edge("生成草案", "订机票酒店")
-    
-    # 无论是顺流而下，还是从条件路由直接跳过来，最终都走排版
-    workflow.add_edge("订机票酒店", "排最终行程")
-    workflow.add_edge("排最终行程", END)
-    
-    return workflow
+    graph.add_conditional_edges(
+        "apply_selection",
+        lambda state: "plan" if state.get("status") == "planning" else "deliver",
+        {"plan": "plan", "deliver": "deliver"},
+    )
+    graph.add_conditional_edges(
+        "understand",
+        lambda state: (
+            "deliver"
+            if after_understand(state) == "deliver"
+            else (
+                "route_research" if state.get("planning_strategy") == "route_first" else "research"
+            )
+        ),
+        {"deliver": "deliver", "research": "research", "route_research": "route_research"},
+    )
+    graph.add_edge("route_research", "draft_route")
+    graph.add_conditional_edges(
+        "draft_route",
+        lambda state: "draft_geography" if state.get("route_draft") else "deliver",
+        {"draft_geography": "draft_geography", "deliver": "deliver"},
+    )
+    graph.add_conditional_edges(
+        "draft_geography",
+        lambda state: "research" if state.get("route_draft") else "deliver",
+        {"research": "research", "deliver": "deliver"},
+    )
+    graph.add_edge("research", "review_options")
+    graph.add_conditional_edges(
+        "review_options", after_review, {"deliver": "deliver", "plan": "plan"}
+    )
+    graph.add_conditional_edges("plan", after_plan, {"validate": "geography", "deliver": "deliver"})
+    graph.add_edge("geography", "validate")
+    graph.add_conditional_edges(
+        "validate", after_validate, {"research": "research", "plan": "plan", "deliver": "deliver"}
+    )
+    graph.add_edge("deliver", END)
+    return graph
 
-# 引入内存持久化
-memory = MemorySaver()
 
-# 编译图时挂载 Checkpointer
-app_graph = build_workflow().compile(checkpointer=memory)
+# persistence.py commits durable turn snapshots together with messages. This
+# supports turn-level recovery, not resuming midway through an interrupted node.
+app_graph = build_workflow().compile()

@@ -1,0 +1,9 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><title>图片加载失败降级 · 合成测试</title></head><body><h1 style="padding:20px">图片加载失败降级 · 合成测试（非真实推荐）</h1><div id="qa-root"></div><script type="module">
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import PlaceBrowser from '/src/components/PlaceBrowser.tsx';
+import '/src/index.css';
+const original=window.fetch.bind(window);
+window.fetch=(url, options)=>String(url).includes('/browse') ? Promise.resolve({ok:true,json:async()=>({plan_version:'0'.repeat(64),date:'2026-10-29',category:'hotel',city:'北京',anchor_name:'测试地点',anchor_evidence_id:'qa-anchor',relation:'合成用例：验证提供图片但加载失败时，文字卡片仍可用。',notice:'测试不调用地图、模型或保存接口。',items:[{poi_id:'qa-failed-photo',name:'图片失败的测试卡片',address:'仅为合成测试数据',source:'QA fixture',fetched_at:new Date().toISOString(),distance_km:null,images:[{url:'/__qa_missing_photo_file.png',source:'QA fixture',poi_id:'qa-failed-photo'}]}]})}) : original(url,options);
+createRoot(document.getElementById('qa-root')).render(React.createElement(PlaceBrowser,{threadId:'fixture-only',version:'0'.repeat(64),context:{date:'2026-10-29',anchorId:'qa-anchor',anchorName:'测试地点',category:'hotel'},onClose:()=>document.getElementById('qa-root').replaceChildren('测试面板已关闭')}));
+</script></body></html>

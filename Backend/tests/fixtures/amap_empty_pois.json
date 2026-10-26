@@ -1,0 +1,11 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"suggestion\":{\"keywords\":\"\",\"ciytes\":{\"suggestion\":[]}},\"pois\":[]}"
+      }
+    ],
+    "isError": false
+  }
+}

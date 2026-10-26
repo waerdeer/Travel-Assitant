@@ -1,0 +1,4212 @@
+[
+  {
+    "thread_id": "e1aea2ba-6ef1-429a-b201-f4742f332ef8",
+    "status": "completed",
+    "last_run": {
+      "status": "completed",
+      "trace": [
+        {
+          "stage": "understand",
+          "intent": "new_trip",
+          "summary": "需求完整，准备检索证据",
+          "reused_evidence": 0
+        },
+        {
+          "stage": "tool",
+          "tool": "get_weather_and_climate",
+          "args": {
+            "city": "北京"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 4,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 3054
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京胡同",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2227
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京博物馆",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1905
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 3 次工具",
+          "round": 1
+        },
+        {
+          "stage": "draft_route",
+          "summary": "路线草案已形成，先展示主要活动，再补充食宿",
+          "draft_id": "91bafd05d7e740cea4db1ccc558ade1a"
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A9WZZW"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1734
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFGQ6M53"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1913
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A83U0P"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1995
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A8UIN8"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 4300
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 4 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 7 次工具",
+          "round": 1
+        },
+        {
+          "stage": "plan",
+          "attempt": 1,
+          "summary": "生成引用证据的结构化行程"
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 0 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "validate",
+          "passed": true,
+          "attempt": 1,
+          "errors": [],
+          "issues": [
+            {
+              "code": "weather_uncovered",
+              "severity": "warning",
+              "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+              "day": null
+            },
+            {
+              "code": "estimates_only",
+              "severity": "warning",
+              "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+              "day": null
+            }
+          ],
+          "summary": "约束检查通过"
+        },
+        {
+          "stage": "deliver",
+          "status": "completed",
+          "summary": "交付已校验行程"
+        }
+      ],
+      "metrics": {
+        "model_calls": 3,
+        "input_tokens": 17702,
+        "output_tokens": 4037,
+        "time_to_draft_ms": 21293,
+        "duration_ms": 43078,
+        "tool_calls": 7,
+        "repairs": 0
+      }
+    },
+    "version": "8cfb605f0ac0bf0510c2dd6351c76b0f16017a34d7b4259709e3fa8b746a122a",
+    "plan": {
+      "city": "北京",
+      "start_date": "2026-10-29",
+      "end_date": "2026-10-30",
+      "persona": "balanced",
+      "custom_preferences": "喜欢胡同和博物馆",
+      "weather_context": null,
+      "inspiration_list": [
+        {
+          "name": "老北京胡同游",
+          "address": "前海西街10号(胡同文化人力客运三轮车)",
+          "typecode": "110000",
+          "id": "B0FFGFZ08S",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/17b07406474b67b1772b1df133a7de4a"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "五道营胡同",
+          "address": "安定门五道营胡同67号西门",
+          "typecode": "110200",
+          "id": "B000A9WZZW",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": "",
+          "location": "116.408701,39.948536",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:36:59.844815+00:00"
+        },
+        {
+          "name": "北京胡同烤鸭店(前门店)",
+          "address": "排子胡同17号(前门地铁站C西南口步行290米)",
+          "typecode": "050118",
+          "id": "B0FFLPYEF3",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/e212f340f1a302ca94598cd073113701"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "老北京胡同系列游售票处",
+          "address": "安定门西大街18号",
+          "typecode": "070306",
+          "id": "B0FFH283BV",
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "五道营胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "B0FFGQA57E",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京胡同烤鸭店(大栅栏店)",
+          "address": "煤市街弓字胡同29号(前门地铁站C西南口步行410米)",
+          "typecode": "050111",
+          "id": "B0K6MHCEMS",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/b8f2f90f558a6e2d0000003125132824?type=pic"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "九门小馆.老北京胡同菜(前门店)",
+          "address": "前门西河沿街66号(前门地铁站C西南口步行250米)",
+          "typecode": "050100",
+          "id": "B0MACHVA3V",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/084a7879c0730d750000002987826131?type=pic"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "府学胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "B0FFGQ6M53",
+          "image_urls": [
+            "https://aos-comment.amap.com/B0FFGQ6M53/comment/content_media_external_images_media_9374_ss__1731210746417_62205472.jpg"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": "",
+          "location": "116.412802,39.935737",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:37:01.758206+00:00"
+        },
+        {
+          "name": "豆瓣胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "BZDCPW02EA",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/69232cb34afcffedae134bc316955a49"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京华尔道夫胡同四合院",
+          "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+          "typecode": "100100",
+          "id": "B0H6YB5C1F",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国国家博物馆",
+          "address": "东长安街16号天安门广场东侧",
+          "typecode": "140100",
+          "id": "B000A83U0P",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A83U0P/headerImg/c18b1708f9b307ca92bf78809f7a0220_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": "",
+          "location": "116.401304,39.905374",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:37:03.753446+00:00"
+        },
+        {
+          "name": "故宫博物院",
+          "address": "景山前街4号",
+          "typecode": "110201|140100",
+          "id": "B000A8UIN8",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/2f968490d105bb2741e17f90b85c6b79"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": "",
+          "location": "116.397029,39.917839",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:37:08.053906+00:00"
+        },
+        {
+          "name": "中央礼品文物管理中心",
+          "address": "西兴隆街1号",
+          "typecode": "140100",
+          "id": "B0HUFDX2SZ",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/c57c5685ffee0983d0e048d8251dbfc4"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "国家自然博物馆",
+          "address": "天桥南大街126号",
+          "typecode": "140100",
+          "id": "B000A7CRPA",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/75fe64b469bd6b88564a9644a9a471ca"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国美术馆",
+          "address": "五四大街1号",
+          "typecode": "140100",
+          "id": "B000A7BC2S",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/7bd6fc174fed670cf2ea3a6ffcfa303a"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京警察博物馆",
+          "address": "东交民巷36号",
+          "typecode": "140100",
+          "id": "B000A3E189",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/5d743251217083210b996dc20c818bd5"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国铁道博物馆正阳门馆",
+          "address": "前门大街甲2号(前门地铁站E2北口旁)",
+          "typecode": "140100",
+          "id": "B000A84MRF",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/b5db866cf1e2fef06088957b9085a417"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京古代建筑博物馆",
+          "address": "东经路21号",
+          "typecode": "140100",
+          "id": "B000A16BBC",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/584ac3caafa9d9a3b44649f96af5faff"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "巧克巧蔻·巧克力博物馆(北京馆)",
+          "address": "廊坊头条2号院5号楼1层01号",
+          "typecode": "140100",
+          "id": "B0L0LUA3GD",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/6c35c462d03c79e20000004197142486?type=pic"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国钱币博物馆",
+          "address": "西交民巷17号",
+          "typecode": "140100",
+          "id": "B000A8UMB4",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A8UMB4/comment/176777624835_1767776253488_21154743.jpg"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        }
+      ],
+      "confirmed_hotels": [],
+      "confirmed_attractions": [
+        {
+          "name": "老北京胡同游",
+          "address": "前海西街10号(胡同文化人力客运三轮车)",
+          "typecode": "110000",
+          "id": "B0FFGFZ08S",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/17b07406474b67b1772b1df133a7de4a"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "五道营胡同",
+          "address": "安定门五道营胡同67号西门",
+          "typecode": "110200",
+          "id": "B000A9WZZW",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": "",
+          "location": "116.408701,39.948536",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:36:59.844815+00:00"
+        },
+        {
+          "name": "北京胡同烤鸭店(前门店)",
+          "address": "排子胡同17号(前门地铁站C西南口步行290米)",
+          "typecode": "050118",
+          "id": "B0FFLPYEF3",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/e212f340f1a302ca94598cd073113701"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "老北京胡同系列游售票处",
+          "address": "安定门西大街18号",
+          "typecode": "070306",
+          "id": "B0FFH283BV",
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "五道营胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "B0FFGQA57E",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京胡同烤鸭店(大栅栏店)",
+          "address": "煤市街弓字胡同29号(前门地铁站C西南口步行410米)",
+          "typecode": "050111",
+          "id": "B0K6MHCEMS",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/b8f2f90f558a6e2d0000003125132824?type=pic"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "九门小馆.老北京胡同菜(前门店)",
+          "address": "前门西河沿街66号(前门地铁站C西南口步行250米)",
+          "typecode": "050100",
+          "id": "B0MACHVA3V",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/084a7879c0730d750000002987826131?type=pic"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "府学胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "B0FFGQ6M53",
+          "image_urls": [
+            "https://aos-comment.amap.com/B0FFGQ6M53/comment/content_media_external_images_media_9374_ss__1731210746417_62205472.jpg"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": "",
+          "location": "116.412802,39.935737",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:37:01.758206+00:00"
+        },
+        {
+          "name": "豆瓣胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "BZDCPW02EA",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/69232cb34afcffedae134bc316955a49"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京华尔道夫胡同四合院",
+          "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+          "typecode": "100100",
+          "id": "B0H6YB5C1F",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+          ],
+          "retrieval_hint": "北京胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国国家博物馆",
+          "address": "东长安街16号天安门广场东侧",
+          "typecode": "140100",
+          "id": "B000A83U0P",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A83U0P/headerImg/c18b1708f9b307ca92bf78809f7a0220_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": "",
+          "location": "116.401304,39.905374",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:37:03.753446+00:00"
+        },
+        {
+          "name": "故宫博物院",
+          "address": "景山前街4号",
+          "typecode": "110201|140100",
+          "id": "B000A8UIN8",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/2f968490d105bb2741e17f90b85c6b79"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": "",
+          "location": "116.397029,39.917839",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:37:08.053906+00:00"
+        },
+        {
+          "name": "中央礼品文物管理中心",
+          "address": "西兴隆街1号",
+          "typecode": "140100",
+          "id": "B0HUFDX2SZ",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/c57c5685ffee0983d0e048d8251dbfc4"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "国家自然博物馆",
+          "address": "天桥南大街126号",
+          "typecode": "140100",
+          "id": "B000A7CRPA",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/75fe64b469bd6b88564a9644a9a471ca"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国美术馆",
+          "address": "五四大街1号",
+          "typecode": "140100",
+          "id": "B000A7BC2S",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/7bd6fc174fed670cf2ea3a6ffcfa303a"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京警察博物馆",
+          "address": "东交民巷36号",
+          "typecode": "140100",
+          "id": "B000A3E189",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/5d743251217083210b996dc20c818bd5"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国铁道博物馆正阳门馆",
+          "address": "前门大街甲2号(前门地铁站E2北口旁)",
+          "typecode": "140100",
+          "id": "B000A84MRF",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/b5db866cf1e2fef06088957b9085a417"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京古代建筑博物馆",
+          "address": "东经路21号",
+          "typecode": "140100",
+          "id": "B000A16BBC",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/584ac3caafa9d9a3b44649f96af5faff"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "巧克巧蔻·巧克力博物馆(北京馆)",
+          "address": "廊坊头条2号院5号楼1层01号",
+          "typecode": "140100",
+          "id": "B0L0LUA3GD",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/6c35c462d03c79e20000004197142486?type=pic"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        },
+        {
+          "name": "中国钱币博物馆",
+          "address": "西交民巷17号",
+          "typecode": "140100",
+          "id": "B000A8UMB4",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A8UMB4/comment/176777624835_1767776253488_21154743.jpg"
+          ],
+          "retrieval_hint": "北京博物馆",
+          "retrieval_area": ""
+        }
+      ],
+      "rough_itinerary": "",
+      "requirements": {
+        "city": "北京",
+        "start_date": "2026-10-29",
+        "end_date": "2026-10-30",
+        "duration_days": 2,
+        "budget_per_person": 2000.0,
+        "travelers": 1,
+        "preferences": "喜欢胡同和博物馆",
+        "pace": "balanced",
+        "must_visit": [],
+        "avoid_places": [],
+        "required_hotel": "",
+        "required_restaurants": [],
+        "reservation_notes": "",
+        "daily_attraction_limit": 2
+      },
+      "itinerary": {
+        "service_mode": "browse",
+        "city": "北京",
+        "days": [
+          {
+            "stay_anchor_evidence_id": "attraction:77afa1c6114b",
+            "meal_breaks": [
+              {
+                "anchor_evidence_id": "attraction:77afa1c6114b",
+                "start_time": "12:15",
+                "end_time": "13:30"
+              }
+            ],
+            "date": "2026-10-29",
+            "theme": "胡同漫步：五道营胡同与府学胡同",
+            "stops": [
+              {
+                "evidence_id": "attraction:99a48d8ece98",
+                "start_time": "09:00",
+                "end_time": "10:30",
+                "note": "从五道营胡同西口开始慢逛，小店与巷弄适合随走随停；营业时间与是否需要预约未核实，请出行前确认。"
+              },
+              {
+                "evidence_id": "attraction:77afa1c6114b",
+                "start_time": "10:45",
+                "end_time": "12:00",
+                "note": "从五道营一带转往府学胡同（东城区），两地相距不远，建议打车或骑行约15–20分钟；巷内为居民区，请安静游览。"
+              }
+            ]
+          },
+          {
+            "stay_anchor_evidence_id": null,
+            "meal_breaks": [
+              {
+                "anchor_evidence_id": "attraction:623f7044b2de",
+                "start_time": "12:15",
+                "end_time": "13:15"
+              }
+            ],
+            "date": "2026-10-30",
+            "theme": "博物馆日：故宫博物院与中国国家博物馆",
+            "stops": [
+              {
+                "evidence_id": "attraction:623f7044b2de",
+                "start_time": "09:00",
+                "end_time": "12:00",
+                "note": "故宫游览约3小时，只能覆盖中轴线主要院落；门票需实名预约、周一闭馆等规则请以官方渠道为准，此处时刻未核验。"
+              },
+              {
+                "evidence_id": "attraction:b47d77fdd2cc",
+                "start_time": "13:30",
+                "end_time": "16:30",
+                "note": "从故宫前往天安门广场东侧的中国国家博物馆，步行或短程打车约20分钟；国博通常需提前实名预约、下午停止入馆时间较早，请务必先核实。"
+              }
+            ]
+          }
+        ],
+        "hotel_evidence_id": null,
+        "costs": {
+          "accommodation": 450.0,
+          "meals": 360.0,
+          "transport": 120.0,
+          "tickets": 120.0,
+          "basis": "1人2天：住宿按经济型/精品酒店约450元/晚×1晚÷1人估算；餐饮按日均180元×2天；市内交通按约60元/天×2天（地铁+短程打车）；门票按故宫等约120元估算（国家博物馆等常设展免费但需预约）。均无实时价格，实际以官方渠道为准；不含往返大交通。"
+        },
+        "suggestions": [
+          "故宫博物院与中国国家博物馆均需实名预约，且下午停止入馆时间较早，请提前在官方渠道核实预约名额与开放时间。",
+          "10月末北京早晚温差较大，胡同漫步建议备一件外套；本次未获取到旅行日期对应的天气预报，请出行前自行查看。",
+          "两处博物馆步行量大，建议穿舒适鞋，并把午餐安排在故宫之后、前往国家博物馆之前。",
+          "若想住得离胡同更近，可在五道营—安定门一带检索住宿；本行程的住宿区域仅为建议检索范围，不代表已预订。",
+          "胡同区域多为居民生活区，请低声慢行、不擅入院落；胡同游三轮车等消费项目价格请现场核实。"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "weather:9a144336eaf9",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:46.592320+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-25",
+            "week": "7",
+            "dayweather": "小雨",
+            "nightweather": "小雨",
+            "daytemp": "13",
+            "nighttemp": "9",
+            "daywind": "北",
+            "nightwind": "北",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:9ee4dafb1c66",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:46.592423+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-26",
+            "week": "1",
+            "dayweather": "多云",
+            "nightweather": "晴",
+            "daytemp": "17",
+            "nighttemp": "6",
+            "daywind": "西",
+            "nightwind": "西",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:3ecd2c65adde",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:46.592442+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-27",
+            "week": "2",
+            "dayweather": "晴",
+            "nightweather": "晴",
+            "daytemp": "16",
+            "nighttemp": "1",
+            "daywind": "西北",
+            "nightwind": "西北",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:e3564864fa0f",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:46.592455+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-28",
+            "week": "3",
+            "dayweather": "晴",
+            "nightweather": "晴",
+            "daytemp": "16",
+            "nighttemp": "4",
+            "daywind": "南",
+            "nightwind": "南",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:eb26b49185c8",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819375+00:00",
+          "city": "北京",
+          "data": {
+            "name": "老北京胡同游",
+            "address": "前海西街10号(胡同文化人力客运三轮车)",
+            "typecode": "110000",
+            "id": "B0FFGFZ08S",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/17b07406474b67b1772b1df133a7de4a"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:99a48d8ece98",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819462+00:00",
+          "city": "北京",
+          "data": {
+            "name": "五道营胡同",
+            "address": "安定门五道营胡同67号西门",
+            "typecode": "110200",
+            "id": "B000A9WZZW",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": "",
+            "location": "116.408701,39.948536",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:36:59.844815+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:eadc9590678c",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819479+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京胡同烤鸭店(前门店)",
+            "address": "排子胡同17号(前门地铁站C西南口步行290米)",
+            "typecode": "050118",
+            "id": "B0FFLPYEF3",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/e212f340f1a302ca94598cd073113701"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:d6e06d26ea5b",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819492+00:00",
+          "city": "北京",
+          "data": {
+            "name": "老北京胡同系列游售票处",
+            "address": "安定门西大街18号",
+            "typecode": "070306",
+            "id": "B0FFH283BV",
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:8b9b7ce35a00",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819503+00:00",
+          "city": "北京",
+          "data": {
+            "name": "五道营胡同",
+            "address": "东城区",
+            "typecode": "190301",
+            "id": "B0FFGQA57E",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:29d730f3727d",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819514+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京胡同烤鸭店(大栅栏店)",
+            "address": "煤市街弓字胡同29号(前门地铁站C西南口步行410米)",
+            "typecode": "050111",
+            "id": "B0K6MHCEMS",
+            "image_urls": [
+              "https://store.is.autonavi.com/showpic/b8f2f90f558a6e2d0000003125132824?type=pic"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:cdc0a6b5e03f",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819524+00:00",
+          "city": "北京",
+          "data": {
+            "name": "九门小馆.老北京胡同菜(前门店)",
+            "address": "前门西河沿街66号(前门地铁站C西南口步行250米)",
+            "typecode": "050100",
+            "id": "B0MACHVA3V",
+            "image_urls": [
+              "https://store.is.autonavi.com/showpic/084a7879c0730d750000002987826131?type=pic"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:77afa1c6114b",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819533+00:00",
+          "city": "北京",
+          "data": {
+            "name": "府学胡同",
+            "address": "东城区",
+            "typecode": "190301",
+            "id": "B0FFGQ6M53",
+            "image_urls": [
+              "https://aos-comment.amap.com/B0FFGQ6M53/comment/content_media_external_images_media_9374_ss__1731210746417_62205472.jpg"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": "",
+            "location": "116.412802,39.935737",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:37:01.758206+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:f36e796ef5aa",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819542+00:00",
+          "city": "北京",
+          "data": {
+            "name": "豆瓣胡同",
+            "address": "东城区",
+            "typecode": "190301",
+            "id": "BZDCPW02EA",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/69232cb34afcffedae134bc316955a49"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:da9f458365b6",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:48.819553+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京华尔道夫胡同四合院",
+            "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+            "typecode": "100100",
+            "id": "B0H6YB5C1F",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+            ],
+            "retrieval_hint": "北京胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:b47d77fdd2cc",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724320+00:00",
+          "city": "北京",
+          "data": {
+            "name": "中国国家博物馆",
+            "address": "东长安街16号天安门广场东侧",
+            "typecode": "140100",
+            "id": "B000A83U0P",
+            "image_urls": [
+              "https://aos-comment.amap.com/B000A83U0P/headerImg/c18b1708f9b307ca92bf78809f7a0220_2048_2048_80.jpg"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": "",
+            "location": "116.401304,39.905374",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:37:03.753446+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:623f7044b2de",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724438+00:00",
+          "city": "北京",
+          "data": {
+            "name": "故宫博物院",
+            "address": "景山前街4号",
+            "typecode": "110201|140100",
+            "id": "B000A8UIN8",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/2f968490d105bb2741e17f90b85c6b79"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": "",
+            "location": "116.397029,39.917839",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:37:08.053906+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:04fd17994d70",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724463+00:00",
+          "city": "北京",
+          "data": {
+            "name": "中央礼品文物管理中心",
+            "address": "西兴隆街1号",
+            "typecode": "140100",
+            "id": "B0HUFDX2SZ",
+            "image_urls": [
+              "https://store.is.autonavi.com/showpic/c57c5685ffee0983d0e048d8251dbfc4"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:7da2468bcd8d",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724481+00:00",
+          "city": "北京",
+          "data": {
+            "name": "国家自然博物馆",
+            "address": "天桥南大街126号",
+            "typecode": "140100",
+            "id": "B000A7CRPA",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/75fe64b469bd6b88564a9644a9a471ca"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:bca1c991d758",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724496+00:00",
+          "city": "北京",
+          "data": {
+            "name": "中国美术馆",
+            "address": "五四大街1号",
+            "typecode": "140100",
+            "id": "B000A7BC2S",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/7bd6fc174fed670cf2ea3a6ffcfa303a"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:e3a77bab7bb7",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724511+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京警察博物馆",
+            "address": "东交民巷36号",
+            "typecode": "140100",
+            "id": "B000A3E189",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/5d743251217083210b996dc20c818bd5"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:052975e99303",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724526+00:00",
+          "city": "北京",
+          "data": {
+            "name": "中国铁道博物馆正阳门馆",
+            "address": "前门大街甲2号(前门地铁站E2北口旁)",
+            "typecode": "140100",
+            "id": "B000A84MRF",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/b5db866cf1e2fef06088957b9085a417"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:8e273f18bd80",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724539+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京古代建筑博物馆",
+            "address": "东经路21号",
+            "typecode": "140100",
+            "id": "B000A16BBC",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/584ac3caafa9d9a3b44649f96af5faff"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:84a3c148aed7",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724553+00:00",
+          "city": "北京",
+          "data": {
+            "name": "巧克巧蔻·巧克力博物馆(北京馆)",
+            "address": "廊坊头条2号院5号楼1层01号",
+            "typecode": "140100",
+            "id": "B0L0LUA3GD",
+            "image_urls": [
+              "https://store.is.autonavi.com/showpic/6c35c462d03c79e20000004197142486?type=pic"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:d5bca5d543d4",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:36:50.724569+00:00",
+          "city": "北京",
+          "data": {
+            "name": "中国钱币博物馆",
+            "address": "西交民巷17号",
+            "typecode": "140100",
+            "id": "B000A8UMB4",
+            "image_urls": [
+              "https://aos-comment.amap.com/B000A8UMB4/comment/176777624835_1767776253488_21154743.jpg"
+            ],
+            "retrieval_hint": "北京博物馆",
+            "retrieval_area": ""
+          }
+        }
+      ],
+      "validation": {
+        "passed": true,
+        "issues": [
+          {
+            "code": "weather_uncovered",
+            "severity": "warning",
+            "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+            "day": null
+          },
+          {
+            "code": "estimates_only",
+            "severity": "warning",
+            "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+            "day": null
+          }
+        ],
+        "checks": [
+          "目的地一致",
+          "日期覆盖",
+          "地点证据引用",
+          "每日时间与节奏",
+          "人均预算",
+          "住宿与餐饮",
+          "地理距离",
+          "必去与排除地点"
+        ],
+        "unverified_checks": [
+          "天气覆盖"
+        ]
+      },
+      "trace": [
+        {
+          "stage": "understand",
+          "intent": "new_trip",
+          "summary": "需求完整，准备检索证据",
+          "reused_evidence": 0
+        },
+        {
+          "stage": "tool",
+          "tool": "get_weather_and_climate",
+          "args": {
+            "city": "北京"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 4,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 3054
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京胡同",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2227
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京博物馆",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1905
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 3 次工具",
+          "round": 1
+        },
+        {
+          "stage": "draft_route",
+          "summary": "路线草案已形成，先展示主要活动，再补充食宿",
+          "draft_id": "91bafd05d7e740cea4db1ccc558ade1a"
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A9WZZW"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1734
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFGQ6M53"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1913
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A83U0P"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1995
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A8UIN8"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 4300
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 4 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 7 次工具",
+          "round": 1
+        },
+        {
+          "stage": "plan",
+          "attempt": 1,
+          "summary": "生成引用证据的结构化行程"
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 0 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "validate",
+          "passed": true,
+          "attempt": 1,
+          "errors": [],
+          "issues": [
+            {
+              "code": "weather_uncovered",
+              "severity": "warning",
+              "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+              "day": null
+            },
+            {
+              "code": "estimates_only",
+              "severity": "warning",
+              "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+              "day": null
+            }
+          ],
+          "summary": "约束检查通过"
+        },
+        {
+          "stage": "deliver",
+          "status": "completed",
+          "summary": "交付已校验行程"
+        }
+      ],
+      "metrics": {
+        "model_calls": 3,
+        "input_tokens": 17702,
+        "output_tokens": 4037,
+        "time_to_draft_ms": 21293,
+        "duration_ms": 43078,
+        "tool_calls": 7,
+        "repairs": 0
+      },
+      "accepted_plan": {
+        "itinerary": {
+          "service_mode": "browse",
+          "city": "北京",
+          "days": [
+            {
+              "stay_anchor_evidence_id": "attraction:77afa1c6114b",
+              "meal_breaks": [
+                {
+                  "anchor_evidence_id": "attraction:77afa1c6114b",
+                  "start_time": "12:15",
+                  "end_time": "13:30"
+                }
+              ],
+              "date": "2026-10-29",
+              "theme": "胡同漫步：五道营胡同与府学胡同",
+              "stops": [
+                {
+                  "evidence_id": "attraction:99a48d8ece98",
+                  "start_time": "09:00",
+                  "end_time": "10:30",
+                  "note": "从五道营胡同西口开始慢逛，小店与巷弄适合随走随停；营业时间与是否需要预约未核实，请出行前确认。"
+                },
+                {
+                  "evidence_id": "attraction:77afa1c6114b",
+                  "start_time": "10:45",
+                  "end_time": "12:00",
+                  "note": "从五道营一带转往府学胡同（东城区），两地相距不远，建议打车或骑行约15–20分钟；巷内为居民区，请安静游览。"
+                }
+              ]
+            },
+            {
+              "stay_anchor_evidence_id": null,
+              "meal_breaks": [
+                {
+                  "anchor_evidence_id": "attraction:623f7044b2de",
+                  "start_time": "12:15",
+                  "end_time": "13:15"
+                }
+              ],
+              "date": "2026-10-30",
+              "theme": "博物馆日：故宫博物院与中国国家博物馆",
+              "stops": [
+                {
+                  "evidence_id": "attraction:623f7044b2de",
+                  "start_time": "09:00",
+                  "end_time": "12:00",
+                  "note": "故宫游览约3小时，只能覆盖中轴线主要院落；门票需实名预约、周一闭馆等规则请以官方渠道为准，此处时刻未核验。"
+                },
+                {
+                  "evidence_id": "attraction:b47d77fdd2cc",
+                  "start_time": "13:30",
+                  "end_time": "16:30",
+                  "note": "从故宫前往天安门广场东侧的中国国家博物馆，步行或短程打车约20分钟；国博通常需提前实名预约、下午停止入馆时间较早，请务必先核实。"
+                }
+              ]
+            }
+          ],
+          "hotel_evidence_id": null,
+          "costs": {
+            "accommodation": 450.0,
+            "meals": 360.0,
+            "transport": 120.0,
+            "tickets": 120.0,
+            "basis": "1人2天：住宿按经济型/精品酒店约450元/晚×1晚÷1人估算；餐饮按日均180元×2天；市内交通按约60元/天×2天（地铁+短程打车）；门票按故宫等约120元估算（国家博物馆等常设展免费但需预约）。均无实时价格，实际以官方渠道为准；不含往返大交通。"
+          },
+          "suggestions": [
+            "故宫博物院与中国国家博物馆均需实名预约，且下午停止入馆时间较早，请提前在官方渠道核实预约名额与开放时间。",
+            "10月末北京早晚温差较大，胡同漫步建议备一件外套；本次未获取到旅行日期对应的天气预报，请出行前自行查看。",
+            "两处博物馆步行量大，建议穿舒适鞋，并把午餐安排在故宫之后、前往国家博物馆之前。",
+            "若想住得离胡同更近，可在五道营—安定门一带检索住宿；本行程的住宿区域仅为建议检索范围，不代表已预订。",
+            "胡同区域多为居民生活区，请低声慢行、不擅入院落；胡同游三轮车等消费项目价格请现场核实。"
+          ]
+        },
+        "requirements": {
+          "city": "北京",
+          "start_date": "2026-10-29",
+          "end_date": "2026-10-30",
+          "duration_days": 2,
+          "budget_per_person": 2000.0,
+          "travelers": 1,
+          "preferences": "喜欢胡同和博物馆",
+          "pace": "balanced",
+          "must_visit": [],
+          "avoid_places": [],
+          "required_hotel": "",
+          "required_restaurants": [],
+          "reservation_notes": "",
+          "daily_attraction_limit": 2
+        },
+        "evidence": [
+          {
+            "evidence_id": "weather:9a144336eaf9",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:46.592320+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-25",
+              "week": "7",
+              "dayweather": "小雨",
+              "nightweather": "小雨",
+              "daytemp": "13",
+              "nighttemp": "9",
+              "daywind": "北",
+              "nightwind": "北",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "weather:9ee4dafb1c66",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:46.592423+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-26",
+              "week": "1",
+              "dayweather": "多云",
+              "nightweather": "晴",
+              "daytemp": "17",
+              "nighttemp": "6",
+              "daywind": "西",
+              "nightwind": "西",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "weather:3ecd2c65adde",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:46.592442+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-27",
+              "week": "2",
+              "dayweather": "晴",
+              "nightweather": "晴",
+              "daytemp": "16",
+              "nighttemp": "1",
+              "daywind": "西北",
+              "nightwind": "西北",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "weather:e3564864fa0f",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:46.592455+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-28",
+              "week": "3",
+              "dayweather": "晴",
+              "nightweather": "晴",
+              "daytemp": "16",
+              "nighttemp": "4",
+              "daywind": "南",
+              "nightwind": "南",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:eb26b49185c8",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819375+00:00",
+            "city": "北京",
+            "data": {
+              "name": "老北京胡同游",
+              "address": "前海西街10号(胡同文化人力客运三轮车)",
+              "typecode": "110000",
+              "id": "B0FFGFZ08S",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/17b07406474b67b1772b1df133a7de4a"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:99a48d8ece98",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819462+00:00",
+            "city": "北京",
+            "data": {
+              "name": "五道营胡同",
+              "address": "安定门五道营胡同67号西门",
+              "typecode": "110200",
+              "id": "B000A9WZZW",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": "",
+              "location": "116.408701,39.948536",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:36:59.844815+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:eadc9590678c",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819479+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京胡同烤鸭店(前门店)",
+              "address": "排子胡同17号(前门地铁站C西南口步行290米)",
+              "typecode": "050118",
+              "id": "B0FFLPYEF3",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/e212f340f1a302ca94598cd073113701"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:d6e06d26ea5b",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819492+00:00",
+            "city": "北京",
+            "data": {
+              "name": "老北京胡同系列游售票处",
+              "address": "安定门西大街18号",
+              "typecode": "070306",
+              "id": "B0FFH283BV",
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:8b9b7ce35a00",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819503+00:00",
+            "city": "北京",
+            "data": {
+              "name": "五道营胡同",
+              "address": "东城区",
+              "typecode": "190301",
+              "id": "B0FFGQA57E",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:29d730f3727d",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819514+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京胡同烤鸭店(大栅栏店)",
+              "address": "煤市街弓字胡同29号(前门地铁站C西南口步行410米)",
+              "typecode": "050111",
+              "id": "B0K6MHCEMS",
+              "image_urls": [
+                "https://store.is.autonavi.com/showpic/b8f2f90f558a6e2d0000003125132824?type=pic"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:cdc0a6b5e03f",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819524+00:00",
+            "city": "北京",
+            "data": {
+              "name": "九门小馆.老北京胡同菜(前门店)",
+              "address": "前门西河沿街66号(前门地铁站C西南口步行250米)",
+              "typecode": "050100",
+              "id": "B0MACHVA3V",
+              "image_urls": [
+                "https://store.is.autonavi.com/showpic/084a7879c0730d750000002987826131?type=pic"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:77afa1c6114b",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819533+00:00",
+            "city": "北京",
+            "data": {
+              "name": "府学胡同",
+              "address": "东城区",
+              "typecode": "190301",
+              "id": "B0FFGQ6M53",
+              "image_urls": [
+                "https://aos-comment.amap.com/B0FFGQ6M53/comment/content_media_external_images_media_9374_ss__1731210746417_62205472.jpg"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": "",
+              "location": "116.412802,39.935737",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:37:01.758206+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:f36e796ef5aa",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819542+00:00",
+            "city": "北京",
+            "data": {
+              "name": "豆瓣胡同",
+              "address": "东城区",
+              "typecode": "190301",
+              "id": "BZDCPW02EA",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/69232cb34afcffedae134bc316955a49"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:da9f458365b6",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:48.819553+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京华尔道夫胡同四合院",
+              "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+              "typecode": "100100",
+              "id": "B0H6YB5C1F",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+              ],
+              "retrieval_hint": "北京胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:b47d77fdd2cc",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724320+00:00",
+            "city": "北京",
+            "data": {
+              "name": "中国国家博物馆",
+              "address": "东长安街16号天安门广场东侧",
+              "typecode": "140100",
+              "id": "B000A83U0P",
+              "image_urls": [
+                "https://aos-comment.amap.com/B000A83U0P/headerImg/c18b1708f9b307ca92bf78809f7a0220_2048_2048_80.jpg"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": "",
+              "location": "116.401304,39.905374",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:37:03.753446+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:623f7044b2de",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724438+00:00",
+            "city": "北京",
+            "data": {
+              "name": "故宫博物院",
+              "address": "景山前街4号",
+              "typecode": "110201|140100",
+              "id": "B000A8UIN8",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/2f968490d105bb2741e17f90b85c6b79"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": "",
+              "location": "116.397029,39.917839",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:37:08.053906+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:04fd17994d70",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724463+00:00",
+            "city": "北京",
+            "data": {
+              "name": "中央礼品文物管理中心",
+              "address": "西兴隆街1号",
+              "typecode": "140100",
+              "id": "B0HUFDX2SZ",
+              "image_urls": [
+                "https://store.is.autonavi.com/showpic/c57c5685ffee0983d0e048d8251dbfc4"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:7da2468bcd8d",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724481+00:00",
+            "city": "北京",
+            "data": {
+              "name": "国家自然博物馆",
+              "address": "天桥南大街126号",
+              "typecode": "140100",
+              "id": "B000A7CRPA",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/75fe64b469bd6b88564a9644a9a471ca"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:bca1c991d758",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724496+00:00",
+            "city": "北京",
+            "data": {
+              "name": "中国美术馆",
+              "address": "五四大街1号",
+              "typecode": "140100",
+              "id": "B000A7BC2S",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/7bd6fc174fed670cf2ea3a6ffcfa303a"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:e3a77bab7bb7",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724511+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京警察博物馆",
+              "address": "东交民巷36号",
+              "typecode": "140100",
+              "id": "B000A3E189",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/5d743251217083210b996dc20c818bd5"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:052975e99303",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724526+00:00",
+            "city": "北京",
+            "data": {
+              "name": "中国铁道博物馆正阳门馆",
+              "address": "前门大街甲2号(前门地铁站E2北口旁)",
+              "typecode": "140100",
+              "id": "B000A84MRF",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/b5db866cf1e2fef06088957b9085a417"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:8e273f18bd80",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724539+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京古代建筑博物馆",
+              "address": "东经路21号",
+              "typecode": "140100",
+              "id": "B000A16BBC",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/584ac3caafa9d9a3b44649f96af5faff"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:84a3c148aed7",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724553+00:00",
+            "city": "北京",
+            "data": {
+              "name": "巧克巧蔻·巧克力博物馆(北京馆)",
+              "address": "廊坊头条2号院5号楼1层01号",
+              "typecode": "140100",
+              "id": "B0L0LUA3GD",
+              "image_urls": [
+                "https://store.is.autonavi.com/showpic/6c35c462d03c79e20000004197142486?type=pic"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:d5bca5d543d4",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:36:50.724569+00:00",
+            "city": "北京",
+            "data": {
+              "name": "中国钱币博物馆",
+              "address": "西交民巷17号",
+              "typecode": "140100",
+              "id": "B000A8UMB4",
+              "image_urls": [
+                "https://aos-comment.amap.com/B000A8UMB4/comment/176777624835_1767776253488_21154743.jpg"
+              ],
+              "retrieval_hint": "北京博物馆",
+              "retrieval_area": ""
+            }
+          }
+        ],
+        "validation": {
+          "passed": true,
+          "issues": [
+            {
+              "code": "weather_uncovered",
+              "severity": "warning",
+              "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+              "day": null
+            },
+            {
+              "code": "estimates_only",
+              "severity": "warning",
+              "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+              "day": null
+            }
+          ],
+          "checks": [
+            "目的地一致",
+            "日期覆盖",
+            "地点证据引用",
+            "每日时间与节奏",
+            "人均预算",
+            "住宿与餐饮",
+            "地理距离",
+            "必去与排除地点"
+          ],
+          "unverified_checks": [
+            "天气覆盖"
+          ]
+        },
+        "plan_md": "# 北京 · 2 日旅行\n\n2026-10-29 — 2026-10-30 · 1 人 · 人均预算 ¥2000\n\n> **出行前须知**：近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报；费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。\n\n## Day 1 · 2026-10-29\n**胡同漫步：五道营胡同与府学胡同**\n\n- **09:00–10:30 · [五道营胡同](https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  安定门五道营胡同67号西门\n  规划建议（模型生成）：从五道营胡同西口开始慢逛，小店与巷弄适合随走随停；营业时间与是否需要预约未核实，请出行前确认。\n- **10:45–12:00 · [府学胡同](https://uri.amap.com/search?keyword=%E5%BA%9C%E5%AD%A6%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  东城区\n  规划建议（模型生成）：从五道营一带转往府学胡同（东城区），两地相距不远，建议打车或骑行约15–20分钟；巷内为居民区，请安静游览。\n- **12:15–13:30 · 自由用餐**：以「府学胡同」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「府学胡同」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 2 · 2026-10-30\n**博物馆日：故宫博物院与中国国家博物馆**\n\n- **09:00–12:00 · [故宫博物院](https://uri.amap.com/search?keyword=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2&city=%E5%8C%97%E4%BA%AC)**\n  景山前街4号\n  规划建议（模型生成）：故宫游览约3小时，只能覆盖中轴线主要院落；门票需实名预约、周一闭馆等规则请以官方渠道为准，此处时刻未核验。\n- **13:30–16:30 · [中国国家博物馆](https://uri.amap.com/search?keyword=%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E5%8D%9A%E7%89%A9%E9%A6%86&city=%E5%8C%97%E4%BA%AC)**\n  东长安街16号天安门广场东侧\n  规划建议（模型生成）：从故宫前往天安门广场东侧的中国国家博物馆，步行或短程打车约20分钟；国博通常需提前实名预约、下午停止入馆时间较早，请务必先核实。\n- **12:15–13:15 · 自由用餐**：以「故宫博物院」周边为参照，餐厅待按需浏览选择，未预订。\n\n## 费用估算\n全程人均人民币估算，非实时价格；不含往返目的地的大交通。\n\n| 类别 | 人均估算 |\n| --- | ---: |\n| 住宿 | ¥450 |\n| 餐饮 | ¥360 |\n| 市内交通 | ¥120 |\n| 门票 | ¥120 |\n| 合计 | **¥1050** |\n\n估算依据：1人2天：住宿按经济型/精品酒店约450元/晚×1晚÷1人估算；餐饮按日均180元×2天；市内交通按约60元/天×2天（地铁+短程打车）；门票按故宫等约120元估算（国家博物馆等常设展免费但需预约）。均无实时价格，实际以官方渠道为准；不含往返大交通。\n\n## 旅行提示\n- 故宫博物院与中国国家博物馆均需实名预约，且下午停止入馆时间较早，请提前在官方渠道核实预约名额与开放时间。\n- 10月末北京早晚温差较大，胡同漫步建议备一件外套；本次未获取到旅行日期对应的天气预报，请出行前自行查看。\n- 两处博物馆步行量大，建议穿舒适鞋，并把午餐安排在故宫之后、前往国家博物馆之前。\n- 若想住得离胡同更近，可在五道营—安定门一带检索住宿；本行程的住宿区域仅为建议检索范围，不代表已预订。\n- 胡同区域多为居民生活区，请低声慢行、不擅入院落；胡同游三轮车等消费项目价格请现场核实。\n\n## 数据来源\n地点来自高德地图 MCP，以下为检索时间；文字建议与费用由模型生成。\n- 故宫博物院 · 2026-10-25T03:36:50.724438+00:00 · `attraction:623f7044b2de`\n- 府学胡同 · 2026-10-25T03:36:48.819533+00:00 · `attraction:77afa1c6114b`\n- 五道营胡同 · 2026-10-25T03:36:48.819462+00:00 · `attraction:99a48d8ece98`\n- 中国国家博物馆 · 2026-10-25T03:36:50.724320+00:00 · `attraction:b47d77fdd2cc`"
+      }
+    },
+    "markdown": "# 北京 · 2 日旅行\n\n2026-10-29 — 2026-10-30 · 1 人 · 人均预算 ¥2000\n\n> **出行前须知**：近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报；费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。\n\n## Day 1 · 2026-10-29\n**胡同漫步：五道营胡同与府学胡同**\n\n- **09:00–10:30 · [五道营胡同](https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  安定门五道营胡同67号西门\n  规划建议（模型生成）：从五道营胡同西口开始慢逛，小店与巷弄适合随走随停；营业时间与是否需要预约未核实，请出行前确认。\n- **10:45–12:00 · [府学胡同](https://uri.amap.com/search?keyword=%E5%BA%9C%E5%AD%A6%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  东城区\n  规划建议（模型生成）：从五道营一带转往府学胡同（东城区），两地相距不远，建议打车或骑行约15–20分钟；巷内为居民区，请安静游览。\n- **12:15–13:30 · 自由用餐**：以「府学胡同」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「府学胡同」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 2 · 2026-10-30\n**博物馆日：故宫博物院与中国国家博物馆**\n\n- **09:00–12:00 · [故宫博物院](https://uri.amap.com/search?keyword=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2&city=%E5%8C%97%E4%BA%AC)**\n  景山前街4号\n  规划建议（模型生成）：故宫游览约3小时，只能覆盖中轴线主要院落；门票需实名预约、周一闭馆等规则请以官方渠道为准，此处时刻未核验。\n- **13:30–16:30 · [中国国家博物馆](https://uri.amap.com/search?keyword=%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E5%8D%9A%E7%89%A9%E9%A6%86&city=%E5%8C%97%E4%BA%AC)**\n  东长安街16号天安门广场东侧\n  规划建议（模型生成）：从故宫前往天安门广场东侧的中国国家博物馆，步行或短程打车约20分钟；国博通常需提前实名预约、下午停止入馆时间较早，请务必先核实。\n- **12:15–13:15 · 自由用餐**：以「故宫博物院」周边为参照，餐厅待按需浏览选择，未预订。\n\n## 费用估算\n全程人均人民币估算，非实时价格；不含往返目的地的大交通。\n\n| 类别 | 人均估算 |\n| --- | ---: |\n| 住宿 | ¥450 |\n| 餐饮 | ¥360 |\n| 市内交通 | ¥120 |\n| 门票 | ¥120 |\n| 合计 | **¥1050** |\n\n估算依据：1人2天：住宿按经济型/精品酒店约450元/晚×1晚÷1人估算；餐饮按日均180元×2天；市内交通按约60元/天×2天（地铁+短程打车）；门票按故宫等约120元估算（国家博物馆等常设展免费但需预约）。均无实时价格，实际以官方渠道为准；不含往返大交通。\n\n## 旅行提示\n- 故宫博物院与中国国家博物馆均需实名预约，且下午停止入馆时间较早，请提前在官方渠道核实预约名额与开放时间。\n- 10月末北京早晚温差较大，胡同漫步建议备一件外套；本次未获取到旅行日期对应的天气预报，请出行前自行查看。\n- 两处博物馆步行量大，建议穿舒适鞋，并把午餐安排在故宫之后、前往国家博物馆之前。\n- 若想住得离胡同更近，可在五道营—安定门一带检索住宿；本行程的住宿区域仅为建议检索范围，不代表已预订。\n- 胡同区域多为居民生活区，请低声慢行、不擅入院落；胡同游三轮车等消费项目价格请现场核实。\n\n## 数据来源\n地点来自高德地图 MCP，以下为检索时间；文字建议与费用由模型生成。\n- 故宫博物院 · 2026-10-25T03:36:50.724438+00:00 · `attraction:623f7044b2de`\n- 府学胡同 · 2026-10-25T03:36:48.819533+00:00 · `attraction:77afa1c6114b`\n- 五道营胡同 · 2026-10-25T03:36:48.819462+00:00 · `attraction:99a48d8ece98`\n- 中国国家博物馆 · 2026-10-25T03:36:50.724320+00:00 · `attraction:b47d77fdd2cc`"
+  },
+  {
+    "thread_id": "qa-round2-legacy-ui",
+    "status": "completed",
+    "last_run": {
+      "status": "completed",
+      "trace": [
+        {
+          "stage": "understand",
+          "intent": "new_trip",
+          "summary": "需求完整，准备检索证据",
+          "reused_evidence": 0
+        },
+        {
+          "stage": "tool",
+          "tool": "get_weather_and_climate",
+          "args": {
+            "city": "北京"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 4,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 5369
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京 古迹 古建",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2982
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京 文艺 胡同",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2930
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 3 次工具",
+          "round": 1
+        },
+        {
+          "stage": "draft_route",
+          "summary": "路线草案已形成，先展示主要活动，再补充食宿",
+          "draft_id": "4de1dca141894f09af8f12840815dfbe"
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A7O1CU"
+          },
+          "ok": false,
+          "count": 0,
+          "has_coordinates": false,
+          "unavailable": false,
+          "error_code": "transport_error",
+          "retryable": true,
+          "attempt": 1,
+          "duration_ms": 5005
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A7O1CU"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 2,
+          "duration_ms": 3349
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A81CB2"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 5292
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A7VQ13"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2829
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFGQA57E"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 6796
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "BZDBPV021G"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1754
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0L035CXYP"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1844
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFJONA76"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2194
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 7 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 11 次工具",
+          "round": 1
+        },
+        {
+          "stage": "plan",
+          "attempt": 1,
+          "summary": "生成引用证据的结构化行程"
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 0 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "validate",
+          "passed": true,
+          "attempt": 1,
+          "errors": [],
+          "issues": [
+            {
+              "code": "weather_uncovered",
+              "severity": "warning",
+              "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+              "day": null
+            },
+            {
+              "code": "estimates_only",
+              "severity": "warning",
+              "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+              "day": null
+            }
+          ],
+          "summary": "约束检查通过"
+        },
+        {
+          "stage": "deliver",
+          "status": "completed",
+          "summary": "交付已校验行程"
+        }
+      ],
+      "metrics": {
+        "model_calls": 3,
+        "input_tokens": 18844,
+        "output_tokens": 9779,
+        "time_to_draft_ms": 33857,
+        "duration_ms": 95693,
+        "tool_calls": 11,
+        "repairs": 0
+      }
+    },
+    "version": "509a719742e68c1230a58d5f8be6617e4c30ffbee7e3ab1ce6a70f928b49c3fc",
+    "plan": {
+      "city": "北京",
+      "start_date": "2026-10-29",
+      "end_date": "2026-11-01",
+      "persona": "balanced",
+      "custom_preferences": "喜欢文艺古迹；按不同片区安排；远郊日只安排一个景点并留足交通时间；食宿稍后浏览",
+      "weather_context": null,
+      "inspiration_list": [
+        {
+          "name": "颐和园",
+          "address": "新建宫门路19号",
+          "typecode": "110201",
+          "id": "B000A7O1CU",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/a4b326f43a84d36b581d7f6e856fe858"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": "",
+          "location": "116.275179,39.999617",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:31:48.664504+00:00"
+        },
+        {
+          "name": "颐和园-清晏舫(石舫)",
+          "address": "北京市青龙桥街道新建宫门路19号颐和园内(西侧)",
+          "typecode": "110000",
+          "id": "B000AA21D1",
+          "image_urls": [
+            "http://aos-cdn-image.amap.com/sns/ugccomment/c8edf1d6-d8c1-4a34-8a99-09f65de07e25.jpg"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "乐寿堂",
+          "address": "新建宫门路19号颐和园内(东侧)",
+          "typecode": "110000",
+          "id": "B000A9LFKG",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/1fa2ec8dc2b24953605caae2a5201d07"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "仁寿殿",
+          "address": "新建宫门路19号颐和园内(东侧)",
+          "typecode": "110205",
+          "id": "B000A9PIS4",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/de061bb2d72364f17ba94b898ef94dc1"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "铜牛",
+          "address": "新建宫门路19号颐和园(东南角)",
+          "typecode": "110000",
+          "id": "B000A9JUBR",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/2a2d7741d20f4ae2ba476a60273bbbf8"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "天坛公园",
+          "address": "天坛东里甲1号",
+          "typecode": "110101",
+          "id": "B000A81CB2",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/d7027a05ce598752d0bf69423d80ac94"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": "",
+          "location": "116.410829,39.881913",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:31:53.956402+00:00"
+        },
+        {
+          "name": "天坛公园-斋宫",
+          "address": "天坛东路甲1号天坛公园内(西南角)",
+          "typecode": "110200",
+          "id": "B000A7VQ13",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6976d5d59cb372b05db715cfa1900fdf"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": "",
+          "location": "116.406686,39.879763",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:31:56.785234+00:00"
+        },
+        {
+          "name": "天坛公园-东天门",
+          "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+          "typecode": "110200",
+          "id": "B000A9LF0A",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A9LF0A/comment/content_media_external_file_1000069330_ss__1760356810793_15134112.jpg"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "天坛公园-双环万寿亭",
+          "address": "天坛东路甲1号天坛公园内(西北角)",
+          "typecode": "110200",
+          "id": "B000A83CZL",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A83CZL/comment/19f799b23cc3134450204af36ca04f4a_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "天坛公园-七星石",
+          "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+          "typecode": "110200",
+          "id": "B000A831W5",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6dffc05c81c8d471f3ee29037799455b"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "五道营胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "B0FFGQA57E",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.411707,39.947899",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:03.581337+00:00"
+        },
+        {
+          "name": "烂缦胡同",
+          "address": "西城区",
+          "typecode": "190301",
+          "id": "BZDBPV021G",
+          "image_urls": [
+            "https://aos-comment.amap.com/BZDBPV021G/comment/content_media_external_images_media_1000019349_ss__1729155519789_90066505.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.372376,39.886559",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:05.335202+00:00"
+        },
+        {
+          "name": "五道营胡同",
+          "address": "安定门五道营胡同67号西门",
+          "typecode": "110200",
+          "id": "B000A9WZZW",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "红星胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "BZDBPW026G",
+          "image_urls": [
+            "https://aos-comment.amap.com/BZDBPW026G/comment/51489b072a3daff009f1992f5936d411_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京华尔道夫胡同四合院",
+          "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+          "typecode": "100100",
+          "id": "B0H6YB5C1F",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "胡同四季书房",
+          "address": "仁民路11号泰安里文化艺术中心-二层",
+          "typecode": "061205",
+          "id": "B0LDH7SSEH",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/e1a7ab9eb14ef5d8abfea19a9a09d937"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "金鱼胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "BZDBPW02EM",
+          "image_urls": [
+            "https://aos-comment.amap.com/BZDBPW02EM/comment/3e45dcd4883a9432997cb2b559f7ab8c_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京胡同之根文化体验馆",
+          "address": "砖塔胡同33号(西四地铁站D西南口步行270米)",
+          "typecode": "050600|140000",
+          "id": "B0L035CXYP",
+          "image_urls": [
+            "https://aos-comment.amap.com/B0L035CXYP/comment/B00CDBE8_4801_4835_B5A4_9B9FA49B500A_L0_001_1126_200_1766751972504_17671587.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.371957,39.922266",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:07.179526+00:00"
+        },
+        {
+          "name": "北京俄金钢琴文化艺术有限公司(朝外SOHO店)",
+          "address": "朝阳门外大街乙6号朝外SOHOD座F3层",
+          "typecode": "140000",
+          "id": "B0HA61FVLG",
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "东四胡同博物馆",
+          "address": "北京市东四街道北京市东四街道东四四条77号",
+          "typecode": "140100",
+          "id": "B0FFJONA76",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/3fe772c5e341cf851a1696d2a7af14b7"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.420170,39.927598",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:09.373529+00:00"
+        }
+      ],
+      "confirmed_hotels": [],
+      "confirmed_attractions": [
+        {
+          "name": "颐和园",
+          "address": "新建宫门路19号",
+          "typecode": "110201",
+          "id": "B000A7O1CU",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/a4b326f43a84d36b581d7f6e856fe858"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": "",
+          "location": "116.275179,39.999617",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:31:48.664504+00:00"
+        },
+        {
+          "name": "颐和园-清晏舫(石舫)",
+          "address": "北京市青龙桥街道新建宫门路19号颐和园内(西侧)",
+          "typecode": "110000",
+          "id": "B000AA21D1",
+          "image_urls": [
+            "http://aos-cdn-image.amap.com/sns/ugccomment/c8edf1d6-d8c1-4a34-8a99-09f65de07e25.jpg"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "乐寿堂",
+          "address": "新建宫门路19号颐和园内(东侧)",
+          "typecode": "110000",
+          "id": "B000A9LFKG",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/1fa2ec8dc2b24953605caae2a5201d07"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "仁寿殿",
+          "address": "新建宫门路19号颐和园内(东侧)",
+          "typecode": "110205",
+          "id": "B000A9PIS4",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/de061bb2d72364f17ba94b898ef94dc1"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "铜牛",
+          "address": "新建宫门路19号颐和园(东南角)",
+          "typecode": "110000",
+          "id": "B000A9JUBR",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/2a2d7741d20f4ae2ba476a60273bbbf8"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "天坛公园",
+          "address": "天坛东里甲1号",
+          "typecode": "110101",
+          "id": "B000A81CB2",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/d7027a05ce598752d0bf69423d80ac94"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": "",
+          "location": "116.410829,39.881913",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:31:53.956402+00:00"
+        },
+        {
+          "name": "天坛公园-斋宫",
+          "address": "天坛东路甲1号天坛公园内(西南角)",
+          "typecode": "110200",
+          "id": "B000A7VQ13",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6976d5d59cb372b05db715cfa1900fdf"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": "",
+          "location": "116.406686,39.879763",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:31:56.785234+00:00"
+        },
+        {
+          "name": "天坛公园-东天门",
+          "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+          "typecode": "110200",
+          "id": "B000A9LF0A",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A9LF0A/comment/content_media_external_file_1000069330_ss__1760356810793_15134112.jpg"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "天坛公园-双环万寿亭",
+          "address": "天坛东路甲1号天坛公园内(西北角)",
+          "typecode": "110200",
+          "id": "B000A83CZL",
+          "image_urls": [
+            "https://aos-comment.amap.com/B000A83CZL/comment/19f799b23cc3134450204af36ca04f4a_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "天坛公园-七星石",
+          "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+          "typecode": "110200",
+          "id": "B000A831W5",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6dffc05c81c8d471f3ee29037799455b"
+          ],
+          "retrieval_hint": "北京 古迹 古建",
+          "retrieval_area": ""
+        },
+        {
+          "name": "五道营胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "B0FFGQA57E",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.411707,39.947899",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:03.581337+00:00"
+        },
+        {
+          "name": "烂缦胡同",
+          "address": "西城区",
+          "typecode": "190301",
+          "id": "BZDBPV021G",
+          "image_urls": [
+            "https://aos-comment.amap.com/BZDBPV021G/comment/content_media_external_images_media_1000019349_ss__1729155519789_90066505.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.372376,39.886559",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:05.335202+00:00"
+        },
+        {
+          "name": "五道营胡同",
+          "address": "安定门五道营胡同67号西门",
+          "typecode": "110200",
+          "id": "B000A9WZZW",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "红星胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "BZDBPW026G",
+          "image_urls": [
+            "https://aos-comment.amap.com/BZDBPW026G/comment/51489b072a3daff009f1992f5936d411_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京华尔道夫胡同四合院",
+          "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+          "typecode": "100100",
+          "id": "B0H6YB5C1F",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "胡同四季书房",
+          "address": "仁民路11号泰安里文化艺术中心-二层",
+          "typecode": "061205",
+          "id": "B0LDH7SSEH",
+          "image_urls": [
+            "https://store.is.autonavi.com/showpic/e1a7ab9eb14ef5d8abfea19a9a09d937"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "金鱼胡同",
+          "address": "东城区",
+          "typecode": "190301",
+          "id": "BZDBPW02EM",
+          "image_urls": [
+            "https://aos-comment.amap.com/BZDBPW02EM/comment/3e45dcd4883a9432997cb2b559f7ab8c_2048_2048_80.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "北京胡同之根文化体验馆",
+          "address": "砖塔胡同33号(西四地铁站D西南口步行270米)",
+          "typecode": "050600|140000",
+          "id": "B0L035CXYP",
+          "image_urls": [
+            "https://aos-comment.amap.com/B0L035CXYP/comment/B00CDBE8_4801_4835_B5A4_9B9FA49B500A_L0_001_1126_200_1766751972504_17671587.jpg"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.371957,39.922266",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:07.179526+00:00"
+        },
+        {
+          "name": "北京俄金钢琴文化艺术有限公司(朝外SOHO店)",
+          "address": "朝阳门外大街乙6号朝外SOHOD座F3层",
+          "typecode": "140000",
+          "id": "B0HA61FVLG",
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": ""
+        },
+        {
+          "name": "东四胡同博物馆",
+          "address": "北京市东四街道北京市东四街道东四四条77号",
+          "typecode": "140100",
+          "id": "B0FFJONA76",
+          "image_urls": [
+            "http://store.is.autonavi.com/showpic/3fe772c5e341cf851a1696d2a7af14b7"
+          ],
+          "retrieval_hint": "北京 文艺 胡同",
+          "retrieval_area": "",
+          "location": "116.420170,39.927598",
+          "location_source": "maps_search_detail",
+          "location_fetched_at": "2026-10-25T03:32:09.373529+00:00"
+        }
+      ],
+      "rough_itinerary": "",
+      "requirements": {
+        "city": "北京",
+        "start_date": "2026-10-29",
+        "end_date": "2026-11-01",
+        "duration_days": 4,
+        "budget_per_person": 3500.0,
+        "travelers": 1,
+        "preferences": "喜欢文艺古迹；按不同片区安排；远郊日只安排一个景点并留足交通时间；食宿稍后浏览",
+        "pace": "balanced",
+        "must_visit": [],
+        "avoid_places": [],
+        "required_hotel": "",
+        "required_restaurants": [],
+        "reservation_notes": "",
+        "daily_attraction_limit": 2
+      },
+      "itinerary": {
+        "service_mode": "browse",
+        "city": "北京",
+        "days": [
+          {
+            "stay_anchor_evidence_id": "attraction:8b9b7ce35a00",
+            "meal_breaks": [
+              {
+                "anchor_evidence_id": "attraction:8b9b7ce35a00",
+                "start_time": "11:00",
+                "end_time": "12:00"
+              }
+            ],
+            "date": "2026-10-29",
+            "theme": "东城胡同与文艺展馆",
+            "stops": [
+              {
+                "evidence_id": "attraction:8b9b7ce35a00",
+                "start_time": "09:00",
+                "end_time": "10:30",
+                "note": "五道营胡同漫步，实际开放与店铺营业情况请出行前核对。"
+              },
+              {
+                "evidence_id": "attraction:2da3691a41e2",
+                "start_time": "12:30",
+                "end_time": "14:00",
+                "note": "东四胡同博物馆，预约与开放时间尚未核验。"
+              }
+            ]
+          },
+          {
+            "stay_anchor_evidence_id": "attraction:e0a8301e165a",
+            "meal_breaks": [
+              {
+                "anchor_evidence_id": "attraction:e0a8301e165a",
+                "start_time": "12:00",
+                "end_time": "13:00"
+              }
+            ],
+            "date": "2026-10-30",
+            "theme": "天坛礼制古迹",
+            "stops": [
+              {
+                "evidence_id": "attraction:e0a8301e165a",
+                "start_time": "09:00",
+                "end_time": "11:30",
+                "note": "天坛公园礼制建筑游览，门票与预约待核对。"
+              },
+              {
+                "evidence_id": "attraction:f4e5d965a824",
+                "start_time": "13:30",
+                "end_time": "14:30",
+                "note": "天坛公园-斋宫，开放时段待核对。"
+              }
+            ]
+          },
+          {
+            "stay_anchor_evidence_id": "attraction:7fa50c3ec365",
+            "meal_breaks": [
+              {
+                "anchor_evidence_id": "attraction:7fa50c3ec365",
+                "start_time": "13:30",
+                "end_time": "14:30"
+              }
+            ],
+            "date": "2026-10-31",
+            "theme": "西北片区颐和园慢游",
+            "stops": [
+              {
+                "evidence_id": "attraction:7fa50c3ec365",
+                "start_time": "09:30",
+                "end_time": "13:00",
+                "note": "颐和园远郊单点慢游，建议预留往返交通与园内步行时间。"
+              }
+            ]
+          },
+          {
+            "stay_anchor_evidence_id": "attraction:25baf4a131d3",
+            "meal_breaks": [
+              {
+                "anchor_evidence_id": "attraction:25baf4a131d3",
+                "start_time": "11:00",
+                "end_time": "12:00"
+              }
+            ],
+            "date": "2026-11-01",
+            "theme": "西城胡同与城市记忆",
+            "stops": [
+              {
+                "evidence_id": "attraction:25baf4a131d3",
+                "start_time": "09:30",
+                "end_time": "10:30",
+                "note": "烂缦胡同漫步，实际开放情况请核对。"
+              },
+              {
+                "evidence_id": "attraction:95ffef0df75d",
+                "start_time": "12:45",
+                "end_time": "14:15",
+                "note": "北京胡同之根文化体验馆，开放与预约待核对。"
+              }
+            ]
+          }
+        ],
+        "hotel_evidence_id": null,
+        "costs": {
+          "accommodation": 1950.0,
+          "meals": 720.0,
+          "transport": 240.0,
+          "tickets": 150.0,
+          "basis": "人均估算：住宿650元/晚×3晚=1950元；餐饮180元/天×4天=720元；市内交通60元/天×4天=240元；门票按150元估算。不含往返大交通，价格未实时核验，以实际预订为准。"
+        },
+        "suggestions": [
+          "路线按东城、天坛、西北片区、西城分区安排，已优先沿用草案；实际导航、步行和换乘时间尚未核验，请出行前确认。",
+          "所有景点的开放时间、预约方式、票价和临时闭馆情况均未核验，请以官方渠道为准；本行程不表示已预约。",
+          "食宿稍后浏览：可围绕每日住宿检索锚点附近筛选，本行程未锁定酒店或餐厅。",
+          "每天已留出自由用餐时段，后续选餐厅时请保留至少30分钟用餐及前后交通留白。",
+          "10月31日为颐和园单点日，建议预留充足往返交通和园内步行时间，不临时加点。",
+          "费用为全程人均估算，不含往返大交通；实际价格以预订时为准。"
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "weather:9a144336eaf9",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:19.998904+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-25",
+            "week": "7",
+            "dayweather": "小雨",
+            "nightweather": "小雨",
+            "daytemp": "13",
+            "nighttemp": "9",
+            "daywind": "北",
+            "nightwind": "北",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:9ee4dafb1c66",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:19.998956+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-26",
+            "week": "1",
+            "dayweather": "多云",
+            "nightweather": "晴",
+            "daytemp": "17",
+            "nighttemp": "6",
+            "daywind": "西",
+            "nightwind": "西",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:3ecd2c65adde",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:19.998970+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-27",
+            "week": "2",
+            "dayweather": "晴",
+            "nightweather": "晴",
+            "daytemp": "16",
+            "nighttemp": "1",
+            "daywind": "西北",
+            "nightwind": "西北",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:e3564864fa0f",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:19.998979+00:00",
+          "city": "北京",
+          "data": {
+            "date": "2026-10-28",
+            "week": "3",
+            "dayweather": "晴",
+            "nightweather": "晴",
+            "daytemp": "16",
+            "nighttemp": "4",
+            "daywind": "南",
+            "nightwind": "南",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:7fa50c3ec365",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981327+00:00",
+          "city": "北京",
+          "data": {
+            "name": "颐和园",
+            "address": "新建宫门路19号",
+            "typecode": "110201",
+            "id": "B000A7O1CU",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/a4b326f43a84d36b581d7f6e856fe858"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": "",
+            "location": "116.275179,39.999617",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:31:48.664504+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:0e026e452098",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981417+00:00",
+          "city": "北京",
+          "data": {
+            "name": "颐和园-清晏舫(石舫)",
+            "address": "北京市青龙桥街道新建宫门路19号颐和园内(西侧)",
+            "typecode": "110000",
+            "id": "B000AA21D1",
+            "image_urls": [
+              "http://aos-cdn-image.amap.com/sns/ugccomment/c8edf1d6-d8c1-4a34-8a99-09f65de07e25.jpg"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:a75b4c59d19f",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981434+00:00",
+          "city": "北京",
+          "data": {
+            "name": "乐寿堂",
+            "address": "新建宫门路19号颐和园内(东侧)",
+            "typecode": "110000",
+            "id": "B000A9LFKG",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/1fa2ec8dc2b24953605caae2a5201d07"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:b9f0d855d81f",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981446+00:00",
+          "city": "北京",
+          "data": {
+            "name": "仁寿殿",
+            "address": "新建宫门路19号颐和园内(东侧)",
+            "typecode": "110205",
+            "id": "B000A9PIS4",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/de061bb2d72364f17ba94b898ef94dc1"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:762ab6454bba",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981458+00:00",
+          "city": "北京",
+          "data": {
+            "name": "铜牛",
+            "address": "新建宫门路19号颐和园(东南角)",
+            "typecode": "110000",
+            "id": "B000A9JUBR",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/2a2d7741d20f4ae2ba476a60273bbbf8"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:e0a8301e165a",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981468+00:00",
+          "city": "北京",
+          "data": {
+            "name": "天坛公园",
+            "address": "天坛东里甲1号",
+            "typecode": "110101",
+            "id": "B000A81CB2",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/d7027a05ce598752d0bf69423d80ac94"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": "",
+            "location": "116.410829,39.881913",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:31:53.956402+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:f4e5d965a824",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981479+00:00",
+          "city": "北京",
+          "data": {
+            "name": "天坛公园-斋宫",
+            "address": "天坛东路甲1号天坛公园内(西南角)",
+            "typecode": "110200",
+            "id": "B000A7VQ13",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/6976d5d59cb372b05db715cfa1900fdf"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": "",
+            "location": "116.406686,39.879763",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:31:56.785234+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:48f22219b40a",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981491+00:00",
+          "city": "北京",
+          "data": {
+            "name": "天坛公园-东天门",
+            "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+            "typecode": "110200",
+            "id": "B000A9LF0A",
+            "image_urls": [
+              "https://aos-comment.amap.com/B000A9LF0A/comment/content_media_external_file_1000069330_ss__1760356810793_15134112.jpg"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:89c4f98a4725",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981502+00:00",
+          "city": "北京",
+          "data": {
+            "name": "天坛公园-双环万寿亭",
+            "address": "天坛东路甲1号天坛公园内(西北角)",
+            "typecode": "110200",
+            "id": "B000A83CZL",
+            "image_urls": [
+              "https://aos-comment.amap.com/B000A83CZL/comment/19f799b23cc3134450204af36ca04f4a_2048_2048_80.jpg"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:42c082d074e7",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:22.981514+00:00",
+          "city": "北京",
+          "data": {
+            "name": "天坛公园-七星石",
+            "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+            "typecode": "110200",
+            "id": "B000A831W5",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/6dffc05c81c8d471f3ee29037799455b"
+            ],
+            "retrieval_hint": "北京 古迹 古建",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:8b9b7ce35a00",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911748+00:00",
+          "city": "北京",
+          "data": {
+            "name": "五道营胡同",
+            "address": "东城区",
+            "typecode": "190301",
+            "id": "B0FFGQA57E",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": "",
+            "location": "116.411707,39.947899",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:32:03.581337+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:25baf4a131d3",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911831+00:00",
+          "city": "北京",
+          "data": {
+            "name": "烂缦胡同",
+            "address": "西城区",
+            "typecode": "190301",
+            "id": "BZDBPV021G",
+            "image_urls": [
+              "https://aos-comment.amap.com/BZDBPV021G/comment/content_media_external_images_media_1000019349_ss__1729155519789_90066505.jpg"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": "",
+            "location": "116.372376,39.886559",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:32:05.335202+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:99a48d8ece98",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911846+00:00",
+          "city": "北京",
+          "data": {
+            "name": "五道营胡同",
+            "address": "安定门五道营胡同67号西门",
+            "typecode": "110200",
+            "id": "B000A9WZZW",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:de6c2b872eb3",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911857+00:00",
+          "city": "北京",
+          "data": {
+            "name": "红星胡同",
+            "address": "东城区",
+            "typecode": "190301",
+            "id": "BZDBPW026G",
+            "image_urls": [
+              "https://aos-comment.amap.com/BZDBPW026G/comment/51489b072a3daff009f1992f5936d411_2048_2048_80.jpg"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:da9f458365b6",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911870+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京华尔道夫胡同四合院",
+            "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+            "typecode": "100100",
+            "id": "B0H6YB5C1F",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:af6cc9d46565",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911880+00:00",
+          "city": "北京",
+          "data": {
+            "name": "胡同四季书房",
+            "address": "仁民路11号泰安里文化艺术中心-二层",
+            "typecode": "061205",
+            "id": "B0LDH7SSEH",
+            "image_urls": [
+              "https://store.is.autonavi.com/showpic/e1a7ab9eb14ef5d8abfea19a9a09d937"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:e0be3f1690bf",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911891+00:00",
+          "city": "北京",
+          "data": {
+            "name": "金鱼胡同",
+            "address": "东城区",
+            "typecode": "190301",
+            "id": "BZDBPW02EM",
+            "image_urls": [
+              "https://aos-comment.amap.com/BZDBPW02EM/comment/3e45dcd4883a9432997cb2b559f7ab8c_2048_2048_80.jpg"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:95ffef0df75d",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911901+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京胡同之根文化体验馆",
+            "address": "砖塔胡同33号(西四地铁站D西南口步行270米)",
+            "typecode": "050600|140000",
+            "id": "B0L035CXYP",
+            "image_urls": [
+              "https://aos-comment.amap.com/B0L035CXYP/comment/B00CDBE8_4801_4835_B5A4_9B9FA49B500A_L0_001_1126_200_1766751972504_17671587.jpg"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": "",
+            "location": "116.371957,39.922266",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:32:07.179526+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:131ae7059d96",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911910+00:00",
+          "city": "北京",
+          "data": {
+            "name": "北京俄金钢琴文化艺术有限公司(朝外SOHO店)",
+            "address": "朝阳门外大街乙6号朝外SOHOD座F3层",
+            "typecode": "140000",
+            "id": "B0HA61FVLG",
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:2da3691a41e2",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-25T03:31:25.911920+00:00",
+          "city": "北京",
+          "data": {
+            "name": "东四胡同博物馆",
+            "address": "北京市东四街道北京市东四街道东四四条77号",
+            "typecode": "140100",
+            "id": "B0FFJONA76",
+            "image_urls": [
+              "http://store.is.autonavi.com/showpic/3fe772c5e341cf851a1696d2a7af14b7"
+            ],
+            "retrieval_hint": "北京 文艺 胡同",
+            "retrieval_area": "",
+            "location": "116.420170,39.927598",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-25T03:32:09.373529+00:00"
+          }
+        }
+      ],
+      "validation": {
+        "passed": true,
+        "issues": [
+          {
+            "code": "weather_uncovered",
+            "severity": "warning",
+            "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+            "day": null
+          },
+          {
+            "code": "estimates_only",
+            "severity": "warning",
+            "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+            "day": null
+          }
+        ],
+        "checks": [
+          "目的地一致",
+          "日期覆盖",
+          "地点证据引用",
+          "每日时间与节奏",
+          "人均预算",
+          "住宿与餐饮",
+          "地理距离",
+          "必去与排除地点"
+        ],
+        "unverified_checks": [
+          "天气覆盖"
+        ]
+      },
+      "trace": [
+        {
+          "stage": "understand",
+          "intent": "new_trip",
+          "summary": "需求完整，准备检索证据",
+          "reused_evidence": 0
+        },
+        {
+          "stage": "tool",
+          "tool": "get_weather_and_climate",
+          "args": {
+            "city": "北京"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 4,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 5369
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京 古迹 古建",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2982
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "北京",
+            "keywords": "北京 文艺 胡同",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2930
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 3 次工具",
+          "round": 1
+        },
+        {
+          "stage": "draft_route",
+          "summary": "路线草案已形成，先展示主要活动，再补充食宿",
+          "draft_id": "4de1dca141894f09af8f12840815dfbe"
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A7O1CU"
+          },
+          "ok": false,
+          "count": 0,
+          "has_coordinates": false,
+          "unavailable": false,
+          "error_code": "transport_error",
+          "retryable": true,
+          "attempt": 1,
+          "duration_ms": 5005
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A7O1CU"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 2,
+          "duration_ms": 3349
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A81CB2"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 5292
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B000A7VQ13"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2829
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFGQA57E"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 6796
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "BZDBPV021G"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1754
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0L035CXYP"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1844
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFJONA76"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2194
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 7 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 11 次工具",
+          "round": 1
+        },
+        {
+          "stage": "plan",
+          "attempt": 1,
+          "summary": "生成引用证据的结构化行程"
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 0 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "validate",
+          "passed": true,
+          "attempt": 1,
+          "errors": [],
+          "issues": [
+            {
+              "code": "weather_uncovered",
+              "severity": "warning",
+              "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+              "day": null
+            },
+            {
+              "code": "estimates_only",
+              "severity": "warning",
+              "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+              "day": null
+            }
+          ],
+          "summary": "约束检查通过"
+        },
+        {
+          "stage": "deliver",
+          "status": "completed",
+          "summary": "交付已校验行程"
+        }
+      ],
+      "metrics": {
+        "model_calls": 3,
+        "input_tokens": 18844,
+        "output_tokens": 9779,
+        "time_to_draft_ms": 33857,
+        "duration_ms": 95693,
+        "tool_calls": 11,
+        "repairs": 0
+      },
+      "accepted_plan": {
+        "itinerary": {
+          "service_mode": "browse",
+          "city": "北京",
+          "days": [
+            {
+              "stay_anchor_evidence_id": "attraction:8b9b7ce35a00",
+              "meal_breaks": [
+                {
+                  "anchor_evidence_id": "attraction:8b9b7ce35a00",
+                  "start_time": "11:00",
+                  "end_time": "12:00"
+                }
+              ],
+              "date": "2026-10-29",
+              "theme": "东城胡同与文艺展馆",
+              "stops": [
+                {
+                  "evidence_id": "attraction:8b9b7ce35a00",
+                  "start_time": "09:00",
+                  "end_time": "10:30",
+                  "note": "五道营胡同漫步，实际开放与店铺营业情况请出行前核对。"
+                },
+                {
+                  "evidence_id": "attraction:2da3691a41e2",
+                  "start_time": "12:30",
+                  "end_time": "14:00",
+                  "note": "东四胡同博物馆，预约与开放时间尚未核验。"
+                }
+              ]
+            },
+            {
+              "stay_anchor_evidence_id": "attraction:e0a8301e165a",
+              "meal_breaks": [
+                {
+                  "anchor_evidence_id": "attraction:e0a8301e165a",
+                  "start_time": "12:00",
+                  "end_time": "13:00"
+                }
+              ],
+              "date": "2026-10-30",
+              "theme": "天坛礼制古迹",
+              "stops": [
+                {
+                  "evidence_id": "attraction:e0a8301e165a",
+                  "start_time": "09:00",
+                  "end_time": "11:30",
+                  "note": "天坛公园礼制建筑游览，门票与预约待核对。"
+                },
+                {
+                  "evidence_id": "attraction:f4e5d965a824",
+                  "start_time": "13:30",
+                  "end_time": "14:30",
+                  "note": "天坛公园-斋宫，开放时段待核对。"
+                }
+              ]
+            },
+            {
+              "stay_anchor_evidence_id": "attraction:7fa50c3ec365",
+              "meal_breaks": [
+                {
+                  "anchor_evidence_id": "attraction:7fa50c3ec365",
+                  "start_time": "13:30",
+                  "end_time": "14:30"
+                }
+              ],
+              "date": "2026-10-31",
+              "theme": "西北片区颐和园慢游",
+              "stops": [
+                {
+                  "evidence_id": "attraction:7fa50c3ec365",
+                  "start_time": "09:30",
+                  "end_time": "13:00",
+                  "note": "颐和园远郊单点慢游，建议预留往返交通与园内步行时间。"
+                }
+              ]
+            },
+            {
+              "stay_anchor_evidence_id": "attraction:25baf4a131d3",
+              "meal_breaks": [
+                {
+                  "anchor_evidence_id": "attraction:25baf4a131d3",
+                  "start_time": "11:00",
+                  "end_time": "12:00"
+                }
+              ],
+              "date": "2026-11-01",
+              "theme": "西城胡同与城市记忆",
+              "stops": [
+                {
+                  "evidence_id": "attraction:25baf4a131d3",
+                  "start_time": "09:30",
+                  "end_time": "10:30",
+                  "note": "烂缦胡同漫步，实际开放情况请核对。"
+                },
+                {
+                  "evidence_id": "attraction:95ffef0df75d",
+                  "start_time": "12:45",
+                  "end_time": "14:15",
+                  "note": "北京胡同之根文化体验馆，开放与预约待核对。"
+                }
+              ]
+            }
+          ],
+          "hotel_evidence_id": null,
+          "costs": {
+            "accommodation": 1950.0,
+            "meals": 720.0,
+            "transport": 240.0,
+            "tickets": 150.0,
+            "basis": "人均估算：住宿650元/晚×3晚=1950元；餐饮180元/天×4天=720元；市内交通60元/天×4天=240元；门票按150元估算。不含往返大交通，价格未实时核验，以实际预订为准。"
+          },
+          "suggestions": [
+            "路线按东城、天坛、西北片区、西城分区安排，已优先沿用草案；实际导航、步行和换乘时间尚未核验，请出行前确认。",
+            "所有景点的开放时间、预约方式、票价和临时闭馆情况均未核验，请以官方渠道为准；本行程不表示已预约。",
+            "食宿稍后浏览：可围绕每日住宿检索锚点附近筛选，本行程未锁定酒店或餐厅。",
+            "每天已留出自由用餐时段，后续选餐厅时请保留至少30分钟用餐及前后交通留白。",
+            "10月31日为颐和园单点日，建议预留充足往返交通和园内步行时间，不临时加点。",
+            "费用为全程人均估算，不含往返大交通；实际价格以预订时为准。"
+          ]
+        },
+        "requirements": {
+          "city": "北京",
+          "start_date": "2026-10-29",
+          "end_date": "2026-11-01",
+          "duration_days": 4,
+          "budget_per_person": 3500.0,
+          "travelers": 1,
+          "preferences": "喜欢文艺古迹；按不同片区安排；远郊日只安排一个景点并留足交通时间；食宿稍后浏览",
+          "pace": "balanced",
+          "must_visit": [],
+          "avoid_places": [],
+          "required_hotel": "",
+          "required_restaurants": [],
+          "reservation_notes": "",
+          "daily_attraction_limit": 2
+        },
+        "evidence": [
+          {
+            "evidence_id": "weather:9a144336eaf9",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:19.998904+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-25",
+              "week": "7",
+              "dayweather": "小雨",
+              "nightweather": "小雨",
+              "daytemp": "13",
+              "nighttemp": "9",
+              "daywind": "北",
+              "nightwind": "北",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "weather:9ee4dafb1c66",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:19.998956+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-26",
+              "week": "1",
+              "dayweather": "多云",
+              "nightweather": "晴",
+              "daytemp": "17",
+              "nighttemp": "6",
+              "daywind": "西",
+              "nightwind": "西",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "weather:3ecd2c65adde",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:19.998970+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-27",
+              "week": "2",
+              "dayweather": "晴",
+              "nightweather": "晴",
+              "daytemp": "16",
+              "nighttemp": "1",
+              "daywind": "西北",
+              "nightwind": "西北",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "weather:e3564864fa0f",
+            "category": "weather",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:19.998979+00:00",
+            "city": "北京",
+            "data": {
+              "date": "2026-10-28",
+              "week": "3",
+              "dayweather": "晴",
+              "nightweather": "晴",
+              "daytemp": "16",
+              "nighttemp": "4",
+              "daywind": "南",
+              "nightwind": "南",
+              "daypower": "1-3",
+              "nightpower": "1-3",
+              "retrieval_hint": "",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:7fa50c3ec365",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981327+00:00",
+            "city": "北京",
+            "data": {
+              "name": "颐和园",
+              "address": "新建宫门路19号",
+              "typecode": "110201",
+              "id": "B000A7O1CU",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/a4b326f43a84d36b581d7f6e856fe858"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": "",
+              "location": "116.275179,39.999617",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:31:48.664504+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:0e026e452098",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981417+00:00",
+            "city": "北京",
+            "data": {
+              "name": "颐和园-清晏舫(石舫)",
+              "address": "北京市青龙桥街道新建宫门路19号颐和园内(西侧)",
+              "typecode": "110000",
+              "id": "B000AA21D1",
+              "image_urls": [
+                "http://aos-cdn-image.amap.com/sns/ugccomment/c8edf1d6-d8c1-4a34-8a99-09f65de07e25.jpg"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:a75b4c59d19f",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981434+00:00",
+            "city": "北京",
+            "data": {
+              "name": "乐寿堂",
+              "address": "新建宫门路19号颐和园内(东侧)",
+              "typecode": "110000",
+              "id": "B000A9LFKG",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/1fa2ec8dc2b24953605caae2a5201d07"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:b9f0d855d81f",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981446+00:00",
+            "city": "北京",
+            "data": {
+              "name": "仁寿殿",
+              "address": "新建宫门路19号颐和园内(东侧)",
+              "typecode": "110205",
+              "id": "B000A9PIS4",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/de061bb2d72364f17ba94b898ef94dc1"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:762ab6454bba",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981458+00:00",
+            "city": "北京",
+            "data": {
+              "name": "铜牛",
+              "address": "新建宫门路19号颐和园(东南角)",
+              "typecode": "110000",
+              "id": "B000A9JUBR",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/2a2d7741d20f4ae2ba476a60273bbbf8"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:e0a8301e165a",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981468+00:00",
+            "city": "北京",
+            "data": {
+              "name": "天坛公园",
+              "address": "天坛东里甲1号",
+              "typecode": "110101",
+              "id": "B000A81CB2",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/d7027a05ce598752d0bf69423d80ac94"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": "",
+              "location": "116.410829,39.881913",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:31:53.956402+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:f4e5d965a824",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981479+00:00",
+            "city": "北京",
+            "data": {
+              "name": "天坛公园-斋宫",
+              "address": "天坛东路甲1号天坛公园内(西南角)",
+              "typecode": "110200",
+              "id": "B000A7VQ13",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/6976d5d59cb372b05db715cfa1900fdf"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": "",
+              "location": "116.406686,39.879763",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:31:56.785234+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:48f22219b40a",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981491+00:00",
+            "city": "北京",
+            "data": {
+              "name": "天坛公园-东天门",
+              "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+              "typecode": "110200",
+              "id": "B000A9LF0A",
+              "image_urls": [
+                "https://aos-comment.amap.com/B000A9LF0A/comment/content_media_external_file_1000069330_ss__1760356810793_15134112.jpg"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:89c4f98a4725",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981502+00:00",
+            "city": "北京",
+            "data": {
+              "name": "天坛公园-双环万寿亭",
+              "address": "天坛东路甲1号天坛公园内(西北角)",
+              "typecode": "110200",
+              "id": "B000A83CZL",
+              "image_urls": [
+                "https://aos-comment.amap.com/B000A83CZL/comment/19f799b23cc3134450204af36ca04f4a_2048_2048_80.jpg"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:42c082d074e7",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:22.981514+00:00",
+            "city": "北京",
+            "data": {
+              "name": "天坛公园-七星石",
+              "address": "天坛街道天坛路甲1号天坛公园内(东侧)",
+              "typecode": "110200",
+              "id": "B000A831W5",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/6dffc05c81c8d471f3ee29037799455b"
+              ],
+              "retrieval_hint": "北京 古迹 古建",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:8b9b7ce35a00",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911748+00:00",
+            "city": "北京",
+            "data": {
+              "name": "五道营胡同",
+              "address": "东城区",
+              "typecode": "190301",
+              "id": "B0FFGQA57E",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/8eb74e99699afc7696d258fe6f0897b5"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": "",
+              "location": "116.411707,39.947899",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:32:03.581337+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:25baf4a131d3",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911831+00:00",
+            "city": "北京",
+            "data": {
+              "name": "烂缦胡同",
+              "address": "西城区",
+              "typecode": "190301",
+              "id": "BZDBPV021G",
+              "image_urls": [
+                "https://aos-comment.amap.com/BZDBPV021G/comment/content_media_external_images_media_1000019349_ss__1729155519789_90066505.jpg"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": "",
+              "location": "116.372376,39.886559",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:32:05.335202+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:99a48d8ece98",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911846+00:00",
+            "city": "北京",
+            "data": {
+              "name": "五道营胡同",
+              "address": "安定门五道营胡同67号西门",
+              "typecode": "110200",
+              "id": "B000A9WZZW",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:de6c2b872eb3",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911857+00:00",
+            "city": "北京",
+            "data": {
+              "name": "红星胡同",
+              "address": "东城区",
+              "typecode": "190301",
+              "id": "BZDBPW026G",
+              "image_urls": [
+                "https://aos-comment.amap.com/BZDBPW026G/comment/51489b072a3daff009f1992f5936d411_2048_2048_80.jpg"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:da9f458365b6",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911870+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京华尔道夫胡同四合院",
+              "address": "西堂子胡同23号(金鱼胡同地铁站B东口步行270米)",
+              "typecode": "100100",
+              "id": "B0H6YB5C1F",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/652ee11c3703df6d94544d895d642332"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:af6cc9d46565",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911880+00:00",
+            "city": "北京",
+            "data": {
+              "name": "胡同四季书房",
+              "address": "仁民路11号泰安里文化艺术中心-二层",
+              "typecode": "061205",
+              "id": "B0LDH7SSEH",
+              "image_urls": [
+                "https://store.is.autonavi.com/showpic/e1a7ab9eb14ef5d8abfea19a9a09d937"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:e0be3f1690bf",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911891+00:00",
+            "city": "北京",
+            "data": {
+              "name": "金鱼胡同",
+              "address": "东城区",
+              "typecode": "190301",
+              "id": "BZDBPW02EM",
+              "image_urls": [
+                "https://aos-comment.amap.com/BZDBPW02EM/comment/3e45dcd4883a9432997cb2b559f7ab8c_2048_2048_80.jpg"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:95ffef0df75d",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911901+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京胡同之根文化体验馆",
+              "address": "砖塔胡同33号(西四地铁站D西南口步行270米)",
+              "typecode": "050600|140000",
+              "id": "B0L035CXYP",
+              "image_urls": [
+                "https://aos-comment.amap.com/B0L035CXYP/comment/B00CDBE8_4801_4835_B5A4_9B9FA49B500A_L0_001_1126_200_1766751972504_17671587.jpg"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": "",
+              "location": "116.371957,39.922266",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:32:07.179526+00:00"
+            }
+          },
+          {
+            "evidence_id": "attraction:131ae7059d96",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911910+00:00",
+            "city": "北京",
+            "data": {
+              "name": "北京俄金钢琴文化艺术有限公司(朝外SOHO店)",
+              "address": "朝阳门外大街乙6号朝外SOHOD座F3层",
+              "typecode": "140000",
+              "id": "B0HA61FVLG",
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": ""
+            }
+          },
+          {
+            "evidence_id": "attraction:2da3691a41e2",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-25T03:31:25.911920+00:00",
+            "city": "北京",
+            "data": {
+              "name": "东四胡同博物馆",
+              "address": "北京市东四街道北京市东四街道东四四条77号",
+              "typecode": "140100",
+              "id": "B0FFJONA76",
+              "image_urls": [
+                "http://store.is.autonavi.com/showpic/3fe772c5e341cf851a1696d2a7af14b7"
+              ],
+              "retrieval_hint": "北京 文艺 胡同",
+              "retrieval_area": "",
+              "location": "116.420170,39.927598",
+              "location_source": "maps_search_detail",
+              "location_fetched_at": "2026-10-25T03:32:09.373529+00:00"
+            }
+          }
+        ],
+        "validation": {
+          "passed": true,
+          "issues": [
+            {
+              "code": "weather_uncovered",
+              "severity": "warning",
+              "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+              "day": null
+            },
+            {
+              "code": "estimates_only",
+              "severity": "warning",
+              "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+              "day": null
+            }
+          ],
+          "checks": [
+            "目的地一致",
+            "日期覆盖",
+            "地点证据引用",
+            "每日时间与节奏",
+            "人均预算",
+            "住宿与餐饮",
+            "地理距离",
+            "必去与排除地点"
+          ],
+          "unverified_checks": [
+            "天气覆盖"
+          ]
+        },
+        "plan_md": "# 北京 · 4 日旅行\n\n2026-10-29 — 2026-11-01 · 1 人 · 人均预算 ¥3500\n\n> **出行前须知**：近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报；费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。\n\n## Day 1 · 2026-10-29\n**东城胡同与文艺展馆**\n\n- **09:00–10:30 · [五道营胡同](https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  东城区\n  规划建议（模型生成）：五道营胡同漫步，实际开放与店铺营业情况请出行前核对。\n- **12:30–14:00 · [东四胡同博物馆](https://uri.amap.com/search?keyword=%E4%B8%9C%E5%9B%9B%E8%83%A1%E5%90%8C%E5%8D%9A%E7%89%A9%E9%A6%86&city=%E5%8C%97%E4%BA%AC)**\n  北京市东四街道北京市东四街道东四四条77号\n  规划建议（模型生成）：东四胡同博物馆，预约与开放时间尚未核验。\n- **11:00–12:00 · 自由用餐**：以「五道营胡同」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「五道营胡同」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 2 · 2026-10-30\n**天坛礼制古迹**\n\n- **09:00–11:30 · [天坛公园](https://uri.amap.com/search?keyword=%E5%A4%A9%E5%9D%9B%E5%85%AC%E5%9B%AD&city=%E5%8C%97%E4%BA%AC)**\n  天坛东里甲1号\n  规划建议（模型生成）：天坛公园礼制建筑游览，门票与预约待核对。\n- **13:30–14:30 · [天坛公园-斋宫](https://uri.amap.com/search?keyword=%E5%A4%A9%E5%9D%9B%E5%85%AC%E5%9B%AD-%E6%96%8B%E5%AE%AB&city=%E5%8C%97%E4%BA%AC)**\n  天坛东路甲1号天坛公园内(西南角)\n  规划建议（模型生成）：天坛公园-斋宫，开放时段待核对。\n- **12:00–13:00 · 自由用餐**：以「天坛公园」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「天坛公园」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 3 · 2026-10-31\n**西北片区颐和园慢游**\n\n- **09:30–13:00 · [颐和园](https://uri.amap.com/search?keyword=%E9%A2%90%E5%92%8C%E5%9B%AD&city=%E5%8C%97%E4%BA%AC)**\n  新建宫门路19号\n  规划建议（模型生成）：颐和园远郊单点慢游，建议预留往返交通与园内步行时间。\n- **13:30–14:30 · 自由用餐**：以「颐和园」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「颐和园」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 4 · 2026-11-01\n**西城胡同与城市记忆**\n\n- **09:30–10:30 · [烂缦胡同](https://uri.amap.com/search?keyword=%E7%83%82%E7%BC%A6%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  西城区\n  规划建议（模型生成）：烂缦胡同漫步，实际开放情况请核对。\n- **12:45–14:15 · [北京胡同之根文化体验馆](https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E8%83%A1%E5%90%8C%E4%B9%8B%E6%A0%B9%E6%96%87%E5%8C%96%E4%BD%93%E9%AA%8C%E9%A6%86&city=%E5%8C%97%E4%BA%AC)**\n  砖塔胡同33号(西四地铁站D西南口步行270米)\n  规划建议（模型生成）：北京胡同之根文化体验馆，开放与预约待核对。\n- **11:00–12:00 · 自由用餐**：以「烂缦胡同」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「烂缦胡同」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## 费用估算\n全程人均人民币估算，非实时价格；不含往返目的地的大交通。\n\n| 类别 | 人均估算 |\n| --- | ---: |\n| 住宿 | ¥1950 |\n| 餐饮 | ¥720 |\n| 市内交通 | ¥240 |\n| 门票 | ¥150 |\n| 合计 | **¥3060** |\n\n估算依据：人均估算：住宿650元/晚×3晚=1950元；餐饮180元/天×4天=720元；市内交通60元/天×4天=240元；门票按150元估算。不含往返大交通，价格未实时核验，以实际预订为准。\n\n## 旅行提示\n- 路线按东城、天坛、西北片区、西城分区安排，已优先沿用草案；实际导航、步行和换乘时间尚未核验，请出行前确认。\n- 所有景点的开放时间、预约方式、票价和临时闭馆情况均未核验，请以官方渠道为准；本行程不表示已预约。\n- 食宿稍后浏览：可围绕每日住宿检索锚点附近筛选，本行程未锁定酒店或餐厅。\n- 每天已留出自由用餐时段，后续选餐厅时请保留至少30分钟用餐及前后交通留白。\n- 10月31日为颐和园单点日，建议预留充足往返交通和园内步行时间，不临时加点。\n- 费用为全程人均估算，不含往返大交通；实际价格以预订时为准。\n\n## 数据来源\n地点来自高德地图 MCP，以下为检索时间；文字建议与费用由模型生成。\n- 烂缦胡同 · 2026-10-25T03:31:25.911831+00:00 · `attraction:25baf4a131d3`\n- 东四胡同博物馆 · 2026-10-25T03:31:25.911920+00:00 · `attraction:2da3691a41e2`\n- 颐和园 · 2026-10-25T03:31:22.981327+00:00 · `attraction:7fa50c3ec365`\n- 五道营胡同 · 2026-10-25T03:31:25.911748+00:00 · `attraction:8b9b7ce35a00`\n- 北京胡同之根文化体验馆 · 2026-10-25T03:31:25.911901+00:00 · `attraction:95ffef0df75d`\n- 天坛公园 · 2026-10-25T03:31:22.981468+00:00 · `attraction:e0a8301e165a`\n- 天坛公园-斋宫 · 2026-10-25T03:31:22.981479+00:00 · `attraction:f4e5d965a824`"
+      }
+    },
+    "markdown": "# 北京 · 4 日旅行\n\n2026-10-29 — 2026-11-01 · 1 人 · 人均预算 ¥3500\n\n> **出行前须知**：近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报；费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。\n\n## Day 1 · 2026-10-29\n**东城胡同与文艺展馆**\n\n- **09:00–10:30 · [五道营胡同](https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  东城区\n  规划建议（模型生成）：五道营胡同漫步，实际开放与店铺营业情况请出行前核对。\n- **12:30–14:00 · [东四胡同博物馆](https://uri.amap.com/search?keyword=%E4%B8%9C%E5%9B%9B%E8%83%A1%E5%90%8C%E5%8D%9A%E7%89%A9%E9%A6%86&city=%E5%8C%97%E4%BA%AC)**\n  北京市东四街道北京市东四街道东四四条77号\n  规划建议（模型生成）：东四胡同博物馆，预约与开放时间尚未核验。\n- **11:00–12:00 · 自由用餐**：以「五道营胡同」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「五道营胡同」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 2 · 2026-10-30\n**天坛礼制古迹**\n\n- **09:00–11:30 · [天坛公园](https://uri.amap.com/search?keyword=%E5%A4%A9%E5%9D%9B%E5%85%AC%E5%9B%AD&city=%E5%8C%97%E4%BA%AC)**\n  天坛东里甲1号\n  规划建议（模型生成）：天坛公园礼制建筑游览，门票与预约待核对。\n- **13:30–14:30 · [天坛公园-斋宫](https://uri.amap.com/search?keyword=%E5%A4%A9%E5%9D%9B%E5%85%AC%E5%9B%AD-%E6%96%8B%E5%AE%AB&city=%E5%8C%97%E4%BA%AC)**\n  天坛东路甲1号天坛公园内(西南角)\n  规划建议（模型生成）：天坛公园-斋宫，开放时段待核对。\n- **12:00–13:00 · 自由用餐**：以「天坛公园」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「天坛公园」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 3 · 2026-10-31\n**西北片区颐和园慢游**\n\n- **09:30–13:00 · [颐和园](https://uri.amap.com/search?keyword=%E9%A2%90%E5%92%8C%E5%9B%AD&city=%E5%8C%97%E4%BA%AC)**\n  新建宫门路19号\n  规划建议（模型生成）：颐和园远郊单点慢游，建议预留往返交通与园内步行时间。\n- **13:30–14:30 · 自由用餐**：以「颐和园」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「颐和园」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 4 · 2026-11-01\n**西城胡同与城市记忆**\n\n- **09:30–10:30 · [烂缦胡同](https://uri.amap.com/search?keyword=%E7%83%82%E7%BC%A6%E8%83%A1%E5%90%8C&city=%E5%8C%97%E4%BA%AC)**\n  西城区\n  规划建议（模型生成）：烂缦胡同漫步，实际开放情况请核对。\n- **12:45–14:15 · [北京胡同之根文化体验馆](https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E8%83%A1%E5%90%8C%E4%B9%8B%E6%A0%B9%E6%96%87%E5%8C%96%E4%BD%93%E9%AA%8C%E9%A6%86&city=%E5%8C%97%E4%BA%AC)**\n  砖塔胡同33号(西四地铁站D西南口步行270米)\n  规划建议（模型生成）：北京胡同之根文化体验馆，开放与预约待核对。\n- **11:00–12:00 · 自由用餐**：以「烂缦胡同」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「烂缦胡同」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## 费用估算\n全程人均人民币估算，非实时价格；不含往返目的地的大交通。\n\n| 类别 | 人均估算 |\n| --- | ---: |\n| 住宿 | ¥1950 |\n| 餐饮 | ¥720 |\n| 市内交通 | ¥240 |\n| 门票 | ¥150 |\n| 合计 | **¥3060** |\n\n估算依据：人均估算：住宿650元/晚×3晚=1950元；餐饮180元/天×4天=720元；市内交通60元/天×4天=240元；门票按150元估算。不含往返大交通，价格未实时核验，以实际预订为准。\n\n## 旅行提示\n- 路线按东城、天坛、西北片区、西城分区安排，已优先沿用草案；实际导航、步行和换乘时间尚未核验，请出行前确认。\n- 所有景点的开放时间、预约方式、票价和临时闭馆情况均未核验，请以官方渠道为准；本行程不表示已预约。\n- 食宿稍后浏览：可围绕每日住宿检索锚点附近筛选，本行程未锁定酒店或餐厅。\n- 每天已留出自由用餐时段，后续选餐厅时请保留至少30分钟用餐及前后交通留白。\n- 10月31日为颐和园单点日，建议预留充足往返交通和园内步行时间，不临时加点。\n- 费用为全程人均估算，不含往返大交通；实际价格以预订时为准。\n\n## 数据来源\n地点来自高德地图 MCP，以下为检索时间；文字建议与费用由模型生成。\n- 烂缦胡同 · 2026-10-25T03:31:25.911831+00:00 · `attraction:25baf4a131d3`\n- 东四胡同博物馆 · 2026-10-25T03:31:25.911920+00:00 · `attraction:2da3691a41e2`\n- 颐和园 · 2026-10-25T03:31:22.981327+00:00 · `attraction:7fa50c3ec365`\n- 五道营胡同 · 2026-10-25T03:31:25.911748+00:00 · `attraction:8b9b7ce35a00`\n- 北京胡同之根文化体验馆 · 2026-10-25T03:31:25.911901+00:00 · `attraction:95ffef0df75d`\n- 天坛公园 · 2026-10-25T03:31:22.981468+00:00 · `attraction:e0a8301e165a`\n- 天坛公园-斋宫 · 2026-10-25T03:31:22.981479+00:00 · `attraction:f4e5d965a824`"
+  }
+]

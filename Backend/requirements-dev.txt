@@ -1,0 +1,5 @@
+# 仅开发/测试环境需要，不要装进部署镜像
+# 安装：pip install -r requirements-dev.txt
+pytest>=8.0
+pytest-asyncio>=0.23
+ruff>=0.17,<0.18

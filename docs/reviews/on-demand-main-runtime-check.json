@@ -1,0 +1,13 @@
+{
+  "thread_id": "f359c00e-e649-46fc-ba8c-00c3747ab56c",
+  "before_sha256": "480827f3f0ca71d783c95dddc41b13eebe52e08b51484c51a564661d2ea9ffc9",
+  "after_sha256": "480827f3f0ca71d783c95dddc41b13eebe52e08b51484c51a564661d2ea9ffc9",
+  "unchanged": true,
+  "message_count": 4,
+  "trip_count": 0,
+  "main_health": "ok",
+  "mcp_tools_ok": true,
+  "api_default": "automatic",
+  "browse_route_loaded": true,
+  "frontend_http": 200
+}

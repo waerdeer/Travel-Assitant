@@ -1,0 +1,141 @@
+{
+  "type": "production HTTP endpoints against seeded isolated SQLite fixtures; no model/map planning calls",
+  "results": [
+    {
+      "case": "legacy",
+      "http_status": 200,
+      "response": {
+        "thread_id": "qa-round2-legacy-api",
+        "status": "awaiting_clarification",
+        "reply": "这份候选来自旧版规划规则，尚未按当前规则确认游玩范围。本轮先不生成行程，请明确一个集中游玩的城市或区域，并确认日期；北疆等多地行程需要拆段。原日期和偏好已保留，可直接补充范围后重新检索。",
+        "skill_used": "new_trip",
+        "plan": {
+          "city": "阿勒泰",
+          "start_date": "2026-11-01",
+          "end_date": "2026-11-07",
+          "plan_content": "",
+          "itinerary": null
+        },
+        "requirements": {
+          "city": "阿勒泰",
+          "start_date": "2026-11-01",
+          "end_date": "2026-11-07",
+          "duration_days": 7,
+          "budget_per_person": 1000.0,
+          "travelers": 1,
+          "preferences": "",
+          "pace": "balanced",
+          "must_visit": [],
+          "avoid_places": [],
+          "daily_attraction_limit": null
+        },
+        "validation": {},
+        "evidence": [
+          {
+            "evidence_id": "a1",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T08:25:54.678165+00:00",
+            "city": "阿勒泰",
+            "data": {
+              "id": "a1",
+              "name": "西湖",
+              "address": "杭州市西湖区",
+              "location": "120.14,30.24"
+            }
+          },
+          {
+            "evidence_id": "a2",
+            "category": "attraction",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T08:25:54.678171+00:00",
+            "city": "阿勒泰",
+            "data": {
+              "id": "a2",
+              "name": "浙江省博物馆",
+              "address": "杭州市西湖区",
+              "location": "120.13,30.25"
+            }
+          },
+          {
+            "evidence_id": "r1",
+            "category": "restaurant",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T08:25:54.678173+00:00",
+            "city": "阿勒泰",
+            "data": {
+              "id": "r1",
+              "name": "真实餐厅",
+              "address": "杭州市西湖区",
+              "location": "120.14,30.24"
+            }
+          },
+          {
+            "evidence_id": "h1",
+            "category": "hotel",
+            "source": "高德地图 MCP",
+            "fetched_at": "2026-10-24T08:25:54.678176+00:00",
+            "city": "阿勒泰",
+            "data": {
+              "id": "h1",
+              "name": "真实酒店",
+              "address": "杭州市西湖区",
+              "location": "120.14,30.24"
+            }
+          }
+        ],
+        "trace": [
+          {
+            "stage": "apply_selection",
+            "status": "awaiting_clarification",
+            "summary": "旧候选缺少范围策略版本，先确认范围，不调用规划模型"
+          },
+          {
+            "stage": "deliver",
+            "status": "awaiting_clarification",
+            "summary": "返回说明与下一步"
+          }
+        ],
+        "metrics": {
+          "duration_ms": 11,
+          "tool_calls": 0,
+          "repairs": 0
+        },
+        "degraded": false,
+        "error_msg": null,
+        "persisted": true,
+        "pending_choice": null,
+        "selected_options": {}
+      }
+    },
+    {
+      "case": "invalid",
+      "http_status": 409,
+      "response": {
+        "detail": "本次住宿或餐饮候选已全部过期或不可用，自动安排也无法跳过，请点击“换一批候选”重新检索。"
+      }
+    },
+    {
+      "case": "repeat",
+      "http_status": 409,
+      "response": {
+        "detail": "相同条件与选择已检查过，仍有路线冲突，未重复调用模型或地图。请换选候选、调整游玩范围，或点击“换一批候选”主动重查。"
+      }
+    },
+    {
+      "case": "repeat",
+      "http_status": 409,
+      "response": {
+        "detail": "相同条件与选择已检查过，仍有路线冲突，未重复调用模型或地图。请换选候选、调整游玩范围，或点击“换一批候选”主动重查。"
+      }
+    },
+    {
+      "case": "repeat",
+      "http_status": 409,
+      "response": {
+        "detail": "相同条件与选择已检查过，仍有路线冲突，未重复调用模型或地图。请换选候选、调整游玩范围，或点击“换一批候选”主动重查。"
+      }
+    }
+  ],
+  "health": "ok"
+}

@@ -1,0 +1,95 @@
+{
+  "original_request": "去北疆高级奢华游 下周一整周",
+  "original_status": "blocked",
+  "selected_options": {
+    "hotel_evidence_id": "hotel:1fcb9cf4378b",
+    "restaurant_evidence_ids": [
+      "restaurant:6e9d53e8fc2b"
+    ]
+  },
+  "metrics": {
+    "model_calls": 1,
+    "input_tokens": 4959,
+    "output_tokens": 6386,
+    "duration_ms": 53211,
+    "tool_calls": 20,
+    "repairs": 0
+  },
+  "spatial_errors": [
+    {
+      "code": "long_transfer",
+      "severity": "error",
+      "message": "相邻地点直线距离约 34.3 km，建议换成同区域地点；尚未核验真实路线。",
+      "day": "2026-10-30"
+    },
+    {
+      "code": "long_transfer",
+      "severity": "error",
+      "message": "相邻地点直线距离约 33.7 km，建议换成同区域地点；尚未核验真实路线。",
+      "day": "2026-10-30"
+    },
+    {
+      "code": "long_transfer",
+      "severity": "error",
+      "message": "相邻地点直线距离约 35.5 km，建议换成同区域地点；尚未核验真实路线。",
+      "day": "2026-10-31"
+    },
+    {
+      "code": "long_transfer",
+      "severity": "error",
+      "message": "相邻地点直线距离约 34.6 km，建议换成同区域地点；尚未核验真实路线。",
+      "day": "2026-11-01"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 39.2 km，请换到主要游玩区域附近。",
+      "day": "2026-10-26"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 43.7 km，请换到主要游玩区域附近。",
+      "day": "2026-10-26"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 30.6 km，请换到主要游玩区域附近。",
+      "day": "2026-10-27"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 39.0 km，请换到主要游玩区域附近。",
+      "day": "2026-10-27"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 39.6 km，请换到主要游玩区域附近。",
+      "day": "2026-10-28"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 39.4 km，请换到主要游玩区域附近。",
+      "day": "2026-10-28"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 39.4 km，请换到主要游玩区域附近。",
+      "day": "2026-10-29"
+    },
+    {
+      "code": "distant_hotel",
+      "severity": "error",
+      "message": "住宿到当日首末地点的直线距离约 39.6 km，请换到主要游玩区域附近。",
+      "day": "2026-10-29"
+    }
+  ],
+  "repair_searches": [],
+  "root_cause": "Spatial research deleted hotel and restaurant evidence before nearby queries; empty results made selected IDs appear unavailable.",
+  "fix": "Merge nearby evidence without deleting selected facts; re-open human choice for spatial conflict; exclude explicit unavailable place markers; clarify region scope before search."
+}

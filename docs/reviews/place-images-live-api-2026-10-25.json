@@ -1,0 +1,43 @@
+{
+  "scope": "real same-POI enrichment on isolated clone of accepted QA plan with image fields removed; no new planning",
+  "thread_id": "qa-place-photos-legacy",
+  "request": {
+    "plan_version": "e92434279b27ccac61bb3881805efc19474235fc734ac6faa65f5e4baa6028ee",
+    "evidence_id": "attraction:99a48d8ece98"
+  },
+  "responses": [
+    {
+      "plan_version": "e92434279b27ccac61bb3881805efc19474235fc734ac6faa65f5e4baa6028ee",
+      "evidence_id": "attraction:99a48d8ece98",
+      "status": "ok",
+      "images": [
+        {
+          "url": "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a",
+          "source": "高德地图 MCP",
+          "poi_id": "B000A9WZZW"
+        }
+      ]
+    },
+    {
+      "plan_version": "e92434279b27ccac61bb3881805efc19474235fc734ac6faa65f5e4baa6028ee",
+      "evidence_id": "attraction:99a48d8ece98",
+      "status": "ok",
+      "images": [
+        {
+          "url": "http://store.is.autonavi.com/showpic/6e12d4ca5db991a63063a6b10e9f8a7a",
+          "source": "高德地图 MCP",
+          "poi_id": "B000A9WZZW"
+        }
+      ]
+    }
+  ],
+  "http_statuses": [
+    200,
+    200
+  ],
+  "duration_ms": 2098,
+  "wrong_version_http": 409,
+  "trip_unchanged": true,
+  "message_count": 0,
+  "trip_sha256": "6d77485914854912c12c1e37559f20dc9d982c69921dc9de29d74f0ccf9a48fa"
+}

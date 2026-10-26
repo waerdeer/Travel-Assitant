@@ -1,0 +1,785 @@
+[
+  {
+    "thread_id": "qa-round2-legacy-ui",
+    "status": "awaiting_choice",
+    "route_draft": {
+      "city": "杭州",
+      "days": [
+        {
+          "date": "2026-11-01",
+          "theme": "西湖湖滨与西湖博物馆",
+          "attraction_evidence_ids": [
+            "attraction:daf6dff29756",
+            "attraction:cee616bd3ef2"
+          ]
+        },
+        {
+          "date": "2026-11-02",
+          "theme": "吴山与南宋官窑博物馆",
+          "attraction_evidence_ids": [
+            "attraction:0edc0989dcd7",
+            "attraction:a949f9d8ffb5"
+          ]
+        }
+      ],
+      "rationale": "草案仅按同城 attraction 证据与西湖、博物馆偏好选取。Day1 以西湖风景名胜区—西湖博物馆的湖滨/南山路一带为主，松弛游览并满足必去西湖；Day2 以杭州博物馆—南宋官窑博物馆的吴山/南复路一带为主，减少跨区折返。当前未指定酒店、餐厅锚点，故不把它们作为硬约束；主要活动先定，其他食宿后补。未核实真实导航、营业与预约。",
+      "draft_id": "9ee5744f35e74c18ae5a1ab33eaf360c",
+      "run_id": "6d69aed19ae245eaa2ea8141b1f8057b",
+      "requirements_key": "5ec5e0c75c96ff6c6d4334aff50d06c775aebd80251a1ddba6e7ee820f1106f3",
+      "status": "draft",
+      "warnings": [],
+      "checked": [
+        "目的地与日期覆盖",
+        "主要活动证据引用",
+        "景点数量与必去排除"
+      ],
+      "unchecked": [
+        "真实导航与交通时间",
+        "营业与预约",
+        "住宿与餐饮",
+        "完整预算"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "weather:0030768d9aff",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:13:39.911074+00:00",
+          "city": "杭州",
+          "data": {
+            "date": "2026-10-24",
+            "week": "6",
+            "dayweather": "小雨",
+            "nightweather": "小雨",
+            "daytemp": "20",
+            "nighttemp": "17",
+            "daywind": "西南",
+            "nightwind": "西南",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:5c8d0c7c7862",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:13:39.911133+00:00",
+          "city": "杭州",
+          "data": {
+            "date": "2026-10-25",
+            "week": "7",
+            "dayweather": "小雨",
+            "nightweather": "晴",
+            "daytemp": "23",
+            "nighttemp": "17",
+            "daywind": "西南",
+            "nightwind": "西南",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:1ecc42fd23e5",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:13:39.911146+00:00",
+          "city": "杭州",
+          "data": {
+            "date": "2026-10-26",
+            "week": "1",
+            "dayweather": "晴",
+            "nightweather": "晴",
+            "daytemp": "26",
+            "nighttemp": "15",
+            "daywind": "西南",
+            "nightwind": "西南",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "weather:39322c5c6a08",
+          "category": "weather",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:13:39.911156+00:00",
+          "city": "杭州",
+          "data": {
+            "date": "2026-10-27",
+            "week": "2",
+            "dayweather": "多云",
+            "nightweather": "晴",
+            "daytemp": "21",
+            "nighttemp": "14",
+            "daywind": "东北",
+            "nightwind": "东北",
+            "daypower": "1-3",
+            "nightpower": "1-3",
+            "retrieval_hint": "",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:daf6dff29756",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673048+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州西湖风景名胜区",
+            "address": "西湖街道龙井路1号",
+            "typecode": "110202",
+            "id": "B023B13L9M",
+            "retrieval_hint": "西湖",
+            "retrieval_area": "",
+            "location": "120.121358,30.222692",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-24T11:15:31.098032+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:93ef66f12de9",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673152+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "西湖",
+            "address": "西湖区",
+            "typecode": "190205",
+            "id": "B0FFFEDKS3",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:8ebde259e0a9",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673171+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州西湖风景名胜区-断桥残雪",
+            "address": "龙井路1号杭州西湖风景名胜区内(东北角)",
+            "typecode": "110202",
+            "id": "B023B01EE6",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:708a06ff5575",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673183+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州西湖风景名胜区-湖滨公园",
+            "address": "龙井路1号杭州西湖风景名胜区内(东北角)",
+            "typecode": "110101",
+            "id": "B023B05MLT",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:dec0d521c6eb",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673192+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州西湖风景名胜区-苏堤春晓",
+            "address": "杭州西湖风景名胜区内(东北角)",
+            "typecode": "110000",
+            "id": "B023B02070",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:f0b920581ebb",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673202+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州西湖风景名胜区-六公园",
+            "address": "杭州西湖风景名胜区内(东北角)",
+            "typecode": "110101",
+            "id": "B023B13YJB",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:e4f1e476f880",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673212+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "西湖游船-二公园码头",
+            "address": "杭州西湖风景名胜区(东北角)",
+            "typecode": "150300",
+            "id": "B0FFG03EXP",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:862e46a1d387",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673222+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "西湖文化广场",
+            "address": "环城北路47号",
+            "typecode": "110105",
+            "id": "B023B0BIT8",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:04a6b4ad5193",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673230+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州西湖风景名胜区-湖边小广场",
+            "address": "南山路147号西湖天地内滨湖一带",
+            "typecode": "110105",
+            "id": "B023B18LZZ",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:a9c3cc15d30c",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:15.673240+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州西湖风景名胜区-五公园",
+            "address": "杭州西湖风景名胜区内(龙翔桥地铁站B出口步行430米)",
+            "typecode": "110101",
+            "id": "B023B1EQES",
+            "retrieval_hint": "西湖",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:0edc0989dcd7",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192719+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州博物馆",
+            "address": "粮道山18号",
+            "typecode": "140100",
+            "id": "B0FFFWQGI8",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": "",
+            "location": "120.166525,30.239091",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-24T11:15:33.087812+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:cb3706cf8e09",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192797+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "浙江自然博物院",
+            "address": "西湖文化广场6号",
+            "typecode": "140100",
+            "id": "B023B15DKJ",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:e8b58e58ab88",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192816+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州博物馆北馆",
+            "address": "吴山景区(吴山广场地铁站D口步行190米)",
+            "typecode": "140100",
+            "id": "B0FFF9V0XX",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:cee616bd3ef2",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192830+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "西湖博物馆",
+            "address": "南山路89号",
+            "typecode": "140100",
+            "id": "B023B089X6",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": "",
+            "location": "120.157449,30.241739",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-24T11:15:35.515683+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:bb42e5c93de6",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192843+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州博物馆南馆",
+            "address": "粮道山18号杭州博物馆",
+            "typecode": "140100",
+            "id": "B023B014F0",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:a949f9d8ffb5",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192855+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "南宋官窑博物馆",
+            "address": "南复路60号",
+            "typecode": "140100",
+            "id": "B023B09JLI",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": "",
+            "location": "120.155048,30.209606",
+            "location_source": "maps_search_detail",
+            "location_fetched_at": "2026-10-24T11:15:37.031881+00:00"
+          }
+        },
+        {
+          "evidence_id": "attraction:9129bdd8f1bc",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192867+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "浙江省博物馆(之江馆区)",
+            "address": "之江文化中心",
+            "typecode": "140100",
+            "id": "B0I15SU50Z",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:213dfd88ae35",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192879+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "幻觉博物馆(杭州大厦购物城·中央商城店)",
+            "address": "体育场路208号武林广场B2层",
+            "typecode": "140100",
+            "id": "B0LU5MB9YM",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:c9a8ae6b2bb1",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192891+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州大光明眼镜博物馆",
+            "address": "延安路238号大光明眼镜3层(龙翔桥地铁站D口步行350米)",
+            "typecode": "140100",
+            "id": "B0FFF09ZZ1",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": ""
+          }
+        },
+        {
+          "evidence_id": "attraction:f0e0a225e1bf",
+          "category": "attraction",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:17.192903+00:00",
+          "city": "杭州",
+          "data": {
+            "name": "杭州世界城市博物馆",
+            "address": "南环路与科创路交叉口东北320米",
+            "typecode": "140100",
+            "id": "B0FFM55KXF",
+            "retrieval_hint": "杭州博物馆",
+            "retrieval_area": ""
+          }
+        }
+      ]
+    },
+    "pending_choice": {
+      "token": "1d5e8b2bf6fa415689d5c6837a6a4b59",
+      "city": "杭州",
+      "message": "路线草案已在上方。可以优先考虑某些食宿，也可以明确锁定，或分别交给 Agent 安排；这些选项不代表已预订。",
+      "hotels": [
+        {
+          "evidence_id": "hotel:b9c2c7cfbed6",
+          "name": "灵隐若隐民宿(西湖风景区灵隐寺店)",
+          "address": "无门洞石窟西北侧110米",
+          "retrieval_hint": "",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:40.892539+00:00",
+          "route_relation": "以 2026-11-01 的「杭州西湖风景名胜区」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "hotel:a381cdd4c95c",
+          "name": "杭州西湖风景名胜区上满觉陇5号房",
+          "address": "满觉陇路2号靠近杭州西湖风景名胜区-水乐洞",
+          "retrieval_hint": "",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:40.892639+00:00",
+          "route_relation": "以 2026-11-01 的「杭州西湖风景名胜区」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "hotel:e90629fd1997",
+          "name": "杭州觅萩野民宿(西湖风景区店)",
+          "address": "杨家山21号",
+          "retrieval_hint": "",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:40.892658+00:00",
+          "route_relation": "以 2026-11-01 的「杭州西湖风景名胜区」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "hotel:76c469ea785b",
+          "name": "杭州良栖山院民宿(西湖店)",
+          "address": "上满觉陇杨家山23号",
+          "retrieval_hint": "",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:40.892672+00:00",
+          "route_relation": "以 2026-11-01 的「杭州西湖风景名胜区」为检索参照，实际距离与交通仍待检查。"
+        }
+      ],
+      "restaurants": [
+        {
+          "evidence_id": "restaurant:a554f56dd2ad",
+          "name": "两岸花园铁板烧(南山店)",
+          "address": "南山路204号",
+          "retrieval_hint": "",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:44.996229+00:00",
+          "route_relation": "以 2026-11-01 的「西湖博物馆」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "restaurant:5e4b0f82181d",
+          "name": "嵊州小吃小笼包",
+          "address": "开元路39号(定安路63-1号)",
+          "retrieval_hint": "杭州小笼包",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:48.220101+00:00",
+          "route_relation": "以 2026-11-02 的「杭州博物馆」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "restaurant:71d5b98929ea",
+          "name": "家烧面馆(南山路)",
+          "address": "家烧面馆南山路38号雷峰塔西停车场斜对面大树边小巷到底15米",
+          "retrieval_hint": "片儿川",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:50.565366+00:00",
+          "route_relation": "以 2026-11-02 的「南宋官窑博物馆」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "restaurant:44740e761c08",
+          "name": "Park 1999园林式餐厅",
+          "address": "南山路87-2号",
+          "retrieval_hint": "",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:44.996333+00:00",
+          "route_relation": "以 2026-11-01 的「西湖博物馆」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "restaurant:311f969cdcbf",
+          "name": "杭州小笼包(丰平商业中心店)",
+          "address": "西湖大道2号丰平商业中心F1层",
+          "retrieval_hint": "杭州小笼包",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:48.220211+00:00",
+          "route_relation": "以 2026-11-02 的「杭州博物馆」为检索参照，实际距离与交通仍待检查。"
+        },
+        {
+          "evidence_id": "restaurant:f4fb784e6eed",
+          "name": "天天小排面馆",
+          "address": "秋涛路68号(近凤凰苑门口)",
+          "retrieval_hint": "片儿川",
+          "source": "高德地图 MCP",
+          "fetched_at": "2026-10-24T11:15:50.565448+00:00",
+          "route_relation": "以 2026-11-02 的「南宋官窑博物馆」为检索参照，实际距离与交通仍待检查。"
+        }
+      ],
+      "selected_options": {},
+      "intent": "modify_itinerary",
+      "scope_policy_version": 1,
+      "preferred_options": {},
+      "draft_id": "9ee5744f35e74c18ae5a1ab33eaf360c",
+      "requirements_key": "5ec5e0c75c96ff6c6d4334aff50d06c775aebd80251a1ddba6e7ee820f1106f3",
+      "selection_policy": "prefer_or_lock",
+      "trip_summary": "杭州 · 2026-11-01 — 2026-11-02 · 1 人"
+    },
+    "last_run": {
+      "status": "awaiting_choice",
+      "trace": [
+        {
+          "stage": "understand",
+          "intent": "modify_itinerary",
+          "summary": "需求完整，准备检索证据",
+          "reused_evidence": 4
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "杭州",
+            "keywords": "西湖",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2358
+        },
+        {
+          "stage": "tool",
+          "tool": "search_travel_inspiration",
+          "args": {
+            "city": "杭州",
+            "keywords": "杭州博物馆",
+            "max_results": 10
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 10,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1519
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 24 条，本轮累计调用 2 次工具",
+          "round": 1
+        },
+        {
+          "stage": "draft_route",
+          "summary": "路线草案已形成，先展示主要活动，再补充食宿",
+          "draft_id": "9ee5744f35e74c18ae5a1ab33eaf360c"
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B13L9M"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 3668
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B0FFFWQGI8"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1990
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B089X6"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 2428
+        },
+        {
+          "stage": "tool",
+          "tool": "maps_search_detail",
+          "args": {
+            "id": "B023B09JLI"
+          },
+          "ok": true,
+          "count": 1,
+          "has_coordinates": true,
+          "unavailable": false,
+          "error_code": null,
+          "retryable": false,
+          "attempt": 1,
+          "duration_ms": 1516
+        },
+        {
+          "stage": "geography",
+          "summary": "补充 4 个已选地点坐标；0 个地点被详情标记为不可用"
+        },
+        {
+          "stage": "tool",
+          "tool": "search_nearby_pois",
+          "args": {
+            "city": "杭州",
+            "location": "120.121358,30.222692",
+            "category": "hotel",
+            "keywords": "中档"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 0,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 1549
+        },
+        {
+          "stage": "tool",
+          "tool": "search_nearby_pois",
+          "args": {
+            "city": "杭州",
+            "location": "120.121358,30.222692",
+            "category": "hotel",
+            "keywords": ""
+          },
+          "attempt": 2,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2309
+        },
+        {
+          "stage": "tool",
+          "tool": "search_nearby_pois",
+          "args": {
+            "city": "杭州",
+            "location": "120.157449,30.241739",
+            "category": "restaurant",
+            "keywords": "杭帮菜"
+          },
+          "attempt": 1,
+          "ok": false,
+          "count": 0,
+          "error_code": "transport_error",
+          "retryable": true,
+          "duration_ms": 68
+        },
+        {
+          "stage": "tool",
+          "tool": "search_nearby_pois",
+          "args": {
+            "city": "杭州",
+            "location": "120.157449,30.241739",
+            "category": "restaurant",
+            "keywords": ""
+          },
+          "attempt": 2,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 4036
+        },
+        {
+          "stage": "tool",
+          "tool": "search_nearby_pois",
+          "args": {
+            "city": "杭州",
+            "location": "120.166525,30.239091",
+            "category": "restaurant",
+            "keywords": "杭州小笼包"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 3224
+        },
+        {
+          "stage": "tool",
+          "tool": "search_nearby_pois",
+          "args": {
+            "city": "杭州",
+            "location": "120.155048,30.209606",
+            "category": "restaurant",
+            "keywords": "片儿川"
+          },
+          "attempt": 1,
+          "ok": true,
+          "count": 5,
+          "error_code": null,
+          "retryable": null,
+          "duration_ms": 2345
+        },
+        {
+          "stage": "research",
+          "summary": "证据收集完成，共 44 条，本轮累计调用 12 次工具",
+          "round": 1
+        },
+        {
+          "stage": "review_options",
+          "summary": "已保存候选，等待用户选择后继续规划",
+          "hotel_options": 4,
+          "restaurant_options": 6
+        },
+        {
+          "stage": "deliver",
+          "status": "awaiting_choice",
+          "summary": "返回说明与下一步"
+        }
+      ],
+      "metrics": {
+        "model_calls": 2,
+        "input_tokens": 6171,
+        "output_tokens": 2996,
+        "time_to_draft_ms": 21787,
+        "duration_ms": 44931,
+        "tool_calls": 12,
+        "repairs": 0
+      }
+    }
+  }
+]

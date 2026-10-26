@@ -1,0 +1,8 @@
+{
+  "type": "one real MCP detail call; no model call or user state mutation",
+  "success": true,
+  "identity_matched": true,
+  "has_coordinates": true,
+  "explicit_unavailable_signal": false,
+  "limitation": "absence of a negative marker does not establish that a place is open or bookable"
+}

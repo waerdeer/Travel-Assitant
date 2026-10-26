@@ -1,0 +1,585 @@
+[
+  {
+    "prompt": "2026年11月1日到3日去杭州市，1个人，人均预算2000元。1日晚上19点才到杭州，当天只入住休息，不去景点；3日上午10点离开杭州。2日喜欢博物馆和西湖散步，每天最多两个景点。请按抵离时间安排。",
+    "elapsed_seconds": 74.382,
+    "status": "completed",
+    "requirements": {
+      "city": "杭州",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-03",
+      "duration_days": 3,
+      "budget_per_person": 2000.0,
+      "travelers": 1,
+      "preferences": "博物馆、西湖散步",
+      "arrival_time": "19:00",
+      "departure_time": "10:00",
+      "arrival_buffer_minutes": 60,
+      "departure_buffer_minutes": 90,
+      "rest_dates": [
+        "2026-11-01"
+      ],
+      "pace": "balanced",
+      "must_visit": [],
+      "avoid_places": [],
+      "required_hotel": "",
+      "required_restaurants": [],
+      "reservation_notes": "",
+      "daily_attraction_limit": 2
+    },
+    "itinerary": {
+      "service_mode": "browse",
+      "city": "杭州",
+      "days": [
+        {
+          "stay_anchor_evidence_id": null,
+          "meal_breaks": [],
+          "date": "2026-11-01",
+          "theme": "晚间抵达杭州，办理入住并休息",
+          "stops": []
+        },
+        {
+          "stay_anchor_evidence_id": "attraction:daf6dff29756",
+          "meal_breaks": [
+            {
+              "anchor_evidence_id": "attraction:daf6dff29756",
+              "start_time": "11:00",
+              "end_time": "12:00"
+            },
+            {
+              "anchor_evidence_id": "attraction:9129bdd8f1bc",
+              "start_time": "17:30",
+              "end_time": "18:30"
+            }
+          ],
+          "date": "2026-11-02",
+          "theme": "西湖散步与博物馆参观，控制为两处景点",
+          "stops": [
+            {
+              "evidence_id": "attraction:daf6dff29756",
+              "start_time": "08:00",
+              "end_time": "11:00",
+              "note": "安排西湖散步；具体开放情况与步行路线请出行前核对，接驳留白为行程规划假设。"
+            },
+            {
+              "evidence_id": "attraction:9129bdd8f1bc",
+              "start_time": "12:30",
+              "end_time": "16:00",
+              "note": "浙江省博物馆(之江馆区)参观；请提前核对开放时间与预约要求，草案时刻尚未校验。"
+            }
+          ]
+        },
+        {
+          "stay_anchor_evidence_id": null,
+          "meal_breaks": [],
+          "date": "2026-11-03",
+          "theme": "上午退房返程，不安排游玩点",
+          "stops": []
+        }
+      ],
+      "hotel_evidence_id": null,
+      "costs": {
+        "accommodation": 900.0,
+        "meals": 360.0,
+        "transport": 160.0,
+        "tickets": 80.0,
+        "basis": "按1人、2晚估算：住宿约450元/晚×2晚=900元；餐饮约120元/天×3天=360元；市内交通及接驳预留160元；门票/展览预留80元。合计约1500元/人，未含往返大交通；均为估算假设，非实时价格。"
+      },
+      "suggestions": [
+        "请出行前核对西湖风景名胜区、浙江省博物馆(之江馆区)的开放时间及预约要求，行程中时刻尚未核验。",
+        "11月1日晚间抵达后建议优先办理入住休息，不再安排景点。",
+        "11月2日为两处主要景点，建议根据体力与现场客流灵活调整停留时间。",
+        "11月3日10:00离开，建议预留退房与前往车站/机场的时间。",
+        "接驳与交通留白为规划假设，不代表真实导航耗时，请当天结合实时路况调整。",
+        "博物馆与西湖散步建议穿着舒适鞋，并关注出行前最新官方信息。"
+      ]
+    },
+    "validation": {
+      "passed": true,
+      "issues": [
+        {
+          "code": "weather_uncovered",
+          "severity": "warning",
+          "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+          "day": null
+        },
+        {
+          "code": "coordinates_missing",
+          "severity": "warning",
+          "message": "部分地点无坐标，无法核验其距离；出行前请通过地图核实。",
+          "day": null
+        },
+        {
+          "code": "arrival_departure_assumptions",
+          "severity": "warning",
+          "message": "抵离时刻来自用户；接驳留白为规划假设，尚未核实机场/车站、交通路线与办理手续耗时。",
+          "day": null
+        },
+        {
+          "code": "estimates_only",
+          "severity": "warning",
+          "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+          "day": null
+        }
+      ],
+      "checks": [
+        "目的地一致",
+        "日期覆盖",
+        "地点证据引用",
+        "每日时间与节奏",
+        "人均预算",
+        "住宿与餐饮",
+        "必去与排除地点"
+      ],
+      "unverified_checks": [
+        "抵离接驳与办理手续耗时",
+        "地理距离",
+        "天气覆盖"
+      ]
+    },
+    "metrics": {
+      "model_calls": 3,
+      "input_tokens": 13418,
+      "output_tokens": 6742,
+      "time_to_draft_ms": 39367,
+      "duration_ms": 74369,
+      "tool_calls": 7,
+      "repairs": 0
+    },
+    "trace": [
+      {
+        "stage": "understand",
+        "intent": "new_trip",
+        "summary": "需求完整，准备检索证据",
+        "reused_evidence": 0
+      },
+      {
+        "stage": "tool",
+        "tool": "get_weather_and_climate",
+        "args": {
+          "city": "杭州"
+        },
+        "attempt": 1,
+        "ok": true,
+        "count": 4,
+        "error_code": null,
+        "retryable": null,
+        "duration_ms": 8915
+      },
+      {
+        "stage": "tool",
+        "tool": "search_travel_inspiration",
+        "args": {
+          "city": "杭州",
+          "keywords": "杭州博物馆展览",
+          "max_results": 10
+        },
+        "attempt": 1,
+        "ok": true,
+        "count": 10,
+        "error_code": null,
+        "retryable": null,
+        "duration_ms": 3573
+      },
+      {
+        "stage": "tool",
+        "tool": "search_travel_inspiration",
+        "args": {
+          "city": "杭州",
+          "keywords": "西湖步行游览",
+          "max_results": 10
+        },
+        "attempt": 1,
+        "ok": false,
+        "count": 0,
+        "error_code": "transport_error",
+        "retryable": true,
+        "duration_ms": 5006
+      },
+      {
+        "stage": "tool",
+        "tool": "search_travel_inspiration",
+        "args": {
+          "city": "杭州",
+          "keywords": "风景名胜 公园 博物馆",
+          "max_results": 10
+        },
+        "attempt": 2,
+        "ok": true,
+        "count": 10,
+        "error_code": null,
+        "retryable": null,
+        "duration_ms": 2981
+      },
+      {
+        "stage": "research",
+        "summary": "证据收集完成，共 24 条，本轮累计调用 4 次工具",
+        "round": 1
+      },
+      {
+        "stage": "draft_route",
+        "summary": "路线草案已形成，先展示主要活动，再补充食宿",
+        "draft_id": "c5f1cbde75494c96b3e1e7e99ceb70b7"
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B023B13L9M"
+        },
+        "ok": false,
+        "count": 0,
+        "has_coordinates": false,
+        "unavailable": false,
+        "error_code": "transport_error",
+        "retryable": true,
+        "attempt": 1,
+        "duration_ms": 5004
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B023B13L9M"
+        },
+        "ok": false,
+        "count": 0,
+        "has_coordinates": false,
+        "unavailable": false,
+        "error_code": "transport_error",
+        "retryable": true,
+        "attempt": 2,
+        "duration_ms": 5007
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B0I15SU50Z"
+        },
+        "ok": true,
+        "count": 1,
+        "has_coordinates": true,
+        "unavailable": false,
+        "error_code": null,
+        "retryable": false,
+        "attempt": 1,
+        "duration_ms": 2795
+      },
+      {
+        "stage": "geography",
+        "summary": "补充 1 个已选地点坐标；0 个地点被详情标记为不可用"
+      },
+      {
+        "stage": "research",
+        "summary": "证据收集完成，共 24 条，本轮累计调用 7 次工具",
+        "round": 1
+      },
+      {
+        "stage": "plan",
+        "attempt": 1,
+        "summary": "生成引用证据的结构化行程"
+      },
+      {
+        "stage": "geography",
+        "summary": "补充 0 个已选地点坐标；0 个地点被详情标记为不可用"
+      },
+      {
+        "stage": "validate",
+        "passed": true,
+        "attempt": 1,
+        "errors": [],
+        "issues": [
+          {
+            "code": "weather_uncovered",
+            "severity": "warning",
+            "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+            "day": null
+          },
+          {
+            "code": "coordinates_missing",
+            "severity": "warning",
+            "message": "部分地点无坐标，无法核验其距离；出行前请通过地图核实。",
+            "day": null
+          },
+          {
+            "code": "arrival_departure_assumptions",
+            "severity": "warning",
+            "message": "抵离时刻来自用户；接驳留白为规划假设，尚未核实机场/车站、交通路线与办理手续耗时。",
+            "day": null
+          },
+          {
+            "code": "estimates_only",
+            "severity": "warning",
+            "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+            "day": null
+          }
+        ],
+        "summary": "约束检查通过"
+      },
+      {
+        "stage": "deliver",
+        "status": "completed",
+        "summary": "交付已校验行程"
+      }
+    ],
+    "reply": "已完成杭州行程，并通过 7 类约束检查。费用为估算，出行前仍需核实营业与预订信息。",
+    "persisted": true,
+    "error_msg": null,
+    "final_plan_md": "# 杭州 · 3 日旅行\n\n2026-11-01 — 2026-11-03 · 1 人 · 人均预算 ¥2000\n\n> **出行前须知**：近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报；部分地点无坐标，无法核验其距离；出行前请通过地图核实；抵离时刻来自用户；接驳留白为规划假设，尚未核实机场/车站、交通路线与办理手续耗时；费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。\n\n## Day 1 · 2026-11-01\n**晚间抵达杭州，办理入住并休息**\n\n抵离安排：19:00抵达，之后预留60分钟接驳（接驳为规划假设，非导航结果）。\n\n可安排活动时段：20:00–21:00。\n\n当天按用户要求休息，不安排景点。\n\n住宿区域待定，请按已订住宿入住或另行确认；未预订酒店。\n\n\n## Day 2 · 2026-11-02\n**西湖散步与博物馆参观，控制为两处景点**\n\n- **08:00–11:00 · [杭州西湖风景名胜区](https://uri.amap.com/search?keyword=%E6%9D%AD%E5%B7%9E%E8%A5%BF%E6%B9%96%E9%A3%8E%E6%99%AF%E5%90%8D%E8%83%9C%E5%8C%BA&city=%E6%9D%AD%E5%B7%9E)**\n  西湖街道龙井路1号\n  规划建议（模型生成）：安排西湖散步；具体开放情况与步行路线请出行前核对，接驳留白为行程规划假设。\n- **11:00–12:00 · 自由用餐**：以「杭州西湖风景名胜区」周边为参照，餐厅待按需浏览选择，未预订。\n- **12:30–16:00 · [浙江省博物馆(之江馆区)](https://uri.amap.com/search?keyword=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%8D%9A%E7%89%A9%E9%A6%86%28%E4%B9%8B%E6%B1%9F%E9%A6%86%E5%8C%BA%29&city=%E6%9D%AD%E5%B7%9E)**\n  之江文化中心\n  规划建议（模型生成）：浙江省博物馆(之江馆区)参观；请提前核对开放时间与预约要求，草案时刻尚未校验。\n- **17:30–18:30 · 自由用餐**：以「浙江省博物馆(之江馆区)」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「杭州西湖风景名胜区」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 3 · 2026-11-03\n**上午退房返程，不安排游玩点**\n\n抵离安排：10:00离开，之前预留90分钟接驳（接驳为规划假设，非导航结果）。\n\n可安排活动时段：08:00–08:30。\n\n当天抵离可用时间有限，预留入住休息或返程，不强行安排景点。\n\n\n## 费用估算\n全程人均人民币估算，非实时价格；不含往返目的地的大交通。\n\n| 类别 | 人均估算 |\n| --- | ---: |\n| 住宿 | ¥900 |\n| 餐饮 | ¥360 |\n| 市内交通 | ¥160 |\n| 门票 | ¥80 |\n| 合计 | **¥1500** |\n\n估算依据：按1人、2晚估算：住宿约450元/晚×2晚=900元；餐饮约120元/天×3天=360元；市内交通及接驳预留160元；门票/展览预留80元。合计约1500元/人，未含往返大交通；均为估算假设，非实时价格。\n\n## 旅行提示\n- 请出行前核对西湖风景名胜区、浙江省博物馆(之江馆区)的开放时间及预约要求，行程中时刻尚未核验。\n- 11月1日晚间抵达后建议优先办理入住休息，不再安排景点。\n- 11月2日为两处主要景点，建议根据体力与现场客流灵活调整停留时间。\n- 11月3日10:00离开，建议预留退房与前往车站/机场的时间。\n- 接驳与交通留白为规划假设，不代表真实导航耗时，请当天结合实时路况调整。\n- 博物馆与西湖散步建议穿着舒适鞋，并关注出行前最新官方信息。\n\n## 数据来源\n地点来自高德地图 MCP，以下为检索时间；文字建议与费用由模型生成。\n- 浙江省博物馆(之江馆区) · 2026-10-25T15:55:20.293762+00:00 · `attraction:9129bdd8f1bc`\n- 杭州西湖风景名胜区 · 2026-10-25T15:55:20.293635+00:00 · `attraction:daf6dff29756`"
+  },
+  {
+    "prompt": "返程时间改为11月3日中午12点，其他要求保持不变。",
+    "elapsed_seconds": 38.635,
+    "status": "completed",
+    "requirements": {
+      "city": "杭州",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-03",
+      "duration_days": 3,
+      "budget_per_person": 2000.0,
+      "travelers": 1,
+      "preferences": "博物馆、西湖散步",
+      "arrival_time": "19:00",
+      "departure_time": "12:00",
+      "arrival_buffer_minutes": 60,
+      "departure_buffer_minutes": 90,
+      "rest_dates": [
+        "2026-11-01"
+      ],
+      "pace": "balanced",
+      "must_visit": [],
+      "avoid_places": [],
+      "required_hotel": "",
+      "required_restaurants": [],
+      "reservation_notes": "",
+      "daily_attraction_limit": 2
+    },
+    "itinerary": {
+      "service_mode": "browse",
+      "city": "杭州",
+      "days": [
+        {
+          "stay_anchor_evidence_id": null,
+          "meal_breaks": [],
+          "date": "2026-11-01",
+          "theme": "晚间抵达杭州，办理入住并休息，不安排景点",
+          "stops": []
+        },
+        {
+          "stay_anchor_evidence_id": "attraction:daf6dff29756",
+          "meal_breaks": [
+            {
+              "anchor_evidence_id": "attraction:daf6dff29756",
+              "start_time": "11:00",
+              "end_time": "12:00"
+            },
+            {
+              "anchor_evidence_id": "attraction:9129bdd8f1bc",
+              "start_time": "17:30",
+              "end_time": "18:30"
+            }
+          ],
+          "date": "2026-11-02",
+          "theme": "西湖散步与浙江省博物馆(之江馆区)参观",
+          "stops": [
+            {
+              "evidence_id": "attraction:daf6dff29756",
+              "start_time": "08:00",
+              "end_time": "10:45",
+              "note": "西湖散步；开放情况与步行路线请出行前核对，接驳留白为规划假设。"
+            },
+            {
+              "evidence_id": "attraction:9129bdd8f1bc",
+              "start_time": "12:30",
+              "end_time": "16:00",
+              "note": "浙江省博物馆(之江馆区)参观；请提前核对开放时间与预约要求，草案时刻尚未校验。"
+            }
+          ]
+        },
+        {
+          "stay_anchor_evidence_id": null,
+          "meal_breaks": [],
+          "date": "2026-11-03",
+          "theme": "上午退房并预留接驳时间返程，不安排景点",
+          "stops": []
+        }
+      ],
+      "hotel_evidence_id": null,
+      "costs": {
+        "accommodation": 900.0,
+        "meals": 360.0,
+        "transport": 160.0,
+        "tickets": 80.0,
+        "basis": "按1人、2晚估算：住宿约450元/晚×2晚=900元；餐饮约120元/天×3天=360元；市内交通及接驳预留160元；门票/展览预留80元。合计约1500元/人，未含往返大交通；均为估算假设，非实时价格。"
+      },
+      "suggestions": [
+        "请出行前核对西湖风景名胜区、浙江省博物馆(之江馆区)的开放时间、预约要求及临时闭馆信息，行程中时刻尚未核验。",
+        "11月1日晚间抵达后优先办理入住休息，不再安排景点。",
+        "11月2日为两处主要景点，建议根据体力与现场客流灵活调整停留时间。",
+        "11月3日12:00返程，预留的90分钟接驳为规划假设，请按实时路况提前出发。",
+        "自由用餐留白仅表示用餐时段，不代表具体餐厅或已核实营业信息。",
+        "接驳与交通留白为规划假设，不代表真实导航耗时；住宿区域建议以当日主要活动周边检索。"
+      ]
+    },
+    "validation": {
+      "passed": true,
+      "issues": [
+        {
+          "code": "weather_uncovered",
+          "severity": "warning",
+          "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+          "day": null
+        },
+        {
+          "code": "coordinates_missing",
+          "severity": "warning",
+          "message": "部分地点无坐标，无法核验其距离；出行前请通过地图核实。",
+          "day": null
+        },
+        {
+          "code": "arrival_departure_assumptions",
+          "severity": "warning",
+          "message": "抵离时刻来自用户；接驳留白为规划假设，尚未核实机场/车站、交通路线与办理手续耗时。",
+          "day": null
+        },
+        {
+          "code": "estimates_only",
+          "severity": "warning",
+          "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+          "day": null
+        }
+      ],
+      "checks": [
+        "目的地一致",
+        "日期覆盖",
+        "地点证据引用",
+        "每日时间与节奏",
+        "人均预算",
+        "住宿与餐饮",
+        "必去与排除地点"
+      ],
+      "unverified_checks": [
+        "抵离接驳与办理手续耗时",
+        "地理距离",
+        "天气覆盖"
+      ]
+    },
+    "metrics": {
+      "model_calls": 3,
+      "input_tokens": 15665,
+      "output_tokens": 4810,
+      "time_to_draft_ms": 9225,
+      "duration_ms": 38625,
+      "tool_calls": 2,
+      "repairs": 0
+    },
+    "trace": [
+      {
+        "stage": "understand",
+        "intent": "modify_itinerary",
+        "summary": "需求完整，准备检索证据",
+        "reused_evidence": 24
+      },
+      {
+        "stage": "research",
+        "summary": "证据收集完成，共 24 条，本轮累计调用 0 次工具",
+        "round": 1
+      },
+      {
+        "stage": "draft_route",
+        "summary": "路线草案已形成，先展示主要活动，再补充食宿",
+        "draft_id": "0758145703514216a88227abe1e3ce4e"
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B023B13L9M"
+        },
+        "ok": false,
+        "count": 0,
+        "has_coordinates": false,
+        "unavailable": false,
+        "error_code": "transport_error",
+        "retryable": true,
+        "attempt": 1,
+        "duration_ms": 5003
+      },
+      {
+        "stage": "tool",
+        "tool": "maps_search_detail",
+        "args": {
+          "id": "B023B13L9M"
+        },
+        "ok": false,
+        "count": 0,
+        "has_coordinates": false,
+        "unavailable": false,
+        "error_code": "transport_error",
+        "retryable": true,
+        "attempt": 2,
+        "duration_ms": 5005
+      },
+      {
+        "stage": "geography",
+        "summary": "补充 0 个已选地点坐标；0 个地点被详情标记为不可用"
+      },
+      {
+        "stage": "research",
+        "summary": "证据收集完成，共 24 条，本轮累计调用 2 次工具",
+        "round": 1
+      },
+      {
+        "stage": "plan",
+        "attempt": 1,
+        "summary": "生成引用证据的结构化行程"
+      },
+      {
+        "stage": "geography",
+        "summary": "补充 0 个已选地点坐标；0 个地点被详情标记为不可用"
+      },
+      {
+        "stage": "validate",
+        "passed": true,
+        "attempt": 1,
+        "errors": [],
+        "issues": [
+          {
+            "code": "weather_uncovered",
+            "severity": "warning",
+            "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+            "day": null
+          },
+          {
+            "code": "coordinates_missing",
+            "severity": "warning",
+            "message": "部分地点无坐标，无法核验其距离；出行前请通过地图核实。",
+            "day": null
+          },
+          {
+            "code": "arrival_departure_assumptions",
+            "severity": "warning",
+            "message": "抵离时刻来自用户；接驳留白为规划假设，尚未核实机场/车站、交通路线与办理手续耗时。",
+            "day": null
+          },
+          {
+            "code": "estimates_only",
+            "severity": "warning",
+            "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+            "day": null
+          }
+        ],
+        "summary": "约束检查通过"
+      },
+      {
+        "stage": "deliver",
+        "status": "completed",
+        "summary": "交付已校验行程"
+      }
+    ],
+    "reply": "已完成杭州行程，并通过 7 类约束检查。费用为估算，出行前仍需核实营业与预订信息。",
+    "persisted": true,
+    "error_msg": null,
+    "final_plan_md": "# 杭州 · 3 日旅行\n\n2026-11-01 — 2026-11-03 · 1 人 · 人均预算 ¥2000\n\n> **出行前须知**：近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报；部分地点无坐标，无法核验其距离；出行前请通过地图核实；抵离时刻来自用户；接驳留白为规划假设，尚未核实机场/车站、交通路线与办理手续耗时；费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。\n\n## Day 1 · 2026-11-01\n**晚间抵达杭州，办理入住并休息，不安排景点**\n\n抵离安排：19:00抵达，之后预留60分钟接驳（接驳为规划假设，非导航结果）。\n\n可安排活动时段：20:00–21:00。\n\n当天按用户要求休息，不安排景点。\n\n住宿区域待定，请按已订住宿入住或另行确认；未预订酒店。\n\n\n## Day 2 · 2026-11-02\n**西湖散步与浙江省博物馆(之江馆区)参观**\n\n- **08:00–10:45 · [杭州西湖风景名胜区](https://uri.amap.com/search?keyword=%E6%9D%AD%E5%B7%9E%E8%A5%BF%E6%B9%96%E9%A3%8E%E6%99%AF%E5%90%8D%E8%83%9C%E5%8C%BA&city=%E6%9D%AD%E5%B7%9E)**\n  西湖街道龙井路1号\n  规划建议（模型生成）：西湖散步；开放情况与步行路线请出行前核对，接驳留白为规划假设。\n- **11:00–12:00 · 自由用餐**：以「杭州西湖风景名胜区」周边为参照，餐厅待按需浏览选择，未预订。\n- **12:30–16:00 · [浙江省博物馆(之江馆区)](https://uri.amap.com/search?keyword=%E6%B5%99%E6%B1%9F%E7%9C%81%E5%8D%9A%E7%89%A9%E9%A6%86%28%E4%B9%8B%E6%B1%9F%E9%A6%86%E5%8C%BA%29&city=%E6%9D%AD%E5%B7%9E)**\n  之江文化中心\n  规划建议（模型生成）：浙江省博物馆(之江馆区)参观；请提前核对开放时间与预约要求，草案时刻尚未校验。\n- **17:30–18:30 · 自由用餐**：以「浙江省博物馆(之江馆区)」周边为参照，餐厅待按需浏览选择，未预订。\n住宿建议区域：以「杭州西湖风景名胜区」周边为检索参照，具体酒店待浏览，实际通勤与房态待确认。\n\n## Day 3 · 2026-11-03\n**上午退房并预留接驳时间返程，不安排景点**\n\n抵离安排：12:00离开，之前预留90分钟接驳（接驳为规划假设，非导航结果）。\n\n可安排活动时段：08:00–10:30。\n\n当天抵离可用时间有限，预留入住休息或返程，不强行安排景点。\n\n\n## 费用估算\n全程人均人民币估算，非实时价格；不含往返目的地的大交通。\n\n| 类别 | 人均估算 |\n| --- | ---: |\n| 住宿 | ¥900 |\n| 餐饮 | ¥360 |\n| 市内交通 | ¥160 |\n| 门票 | ¥80 |\n| 合计 | **¥1500** |\n\n估算依据：按1人、2晚估算：住宿约450元/晚×2晚=900元；餐饮约120元/天×3天=360元；市内交通及接驳预留160元；门票/展览预留80元。合计约1500元/人，未含往返大交通；均为估算假设，非实时价格。\n\n## 旅行提示\n- 请出行前核对西湖风景名胜区、浙江省博物馆(之江馆区)的开放时间、预约要求及临时闭馆信息，行程中时刻尚未核验。\n- 11月1日晚间抵达后优先办理入住休息，不再安排景点。\n- 11月2日为两处主要景点，建议根据体力与现场客流灵活调整停留时间。\n- 11月3日12:00返程，预留的90分钟接驳为规划假设，请按实时路况提前出发。\n- 自由用餐留白仅表示用餐时段，不代表具体餐厅或已核实营业信息。\n- 接驳与交通留白为规划假设，不代表真实导航耗时；住宿区域建议以当日主要活动周边检索。\n\n## 数据来源\n地点来自高德地图 MCP，以下为检索时间；文字建议与费用由模型生成。\n- 浙江省博物馆(之江馆区) · 2026-10-25T15:55:20.293762+00:00 · `attraction:9129bdd8f1bc`\n- 杭州西湖风景名胜区 · 2026-10-25T15:55:20.293635+00:00 · `attraction:daf6dff29756`"
+  }
+]

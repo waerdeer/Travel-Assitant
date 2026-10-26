@@ -1,0 +1,670 @@
+[
+  {
+    "id": "valid",
+    "passed": true,
+    "patches": [],
+    "group": "specific"
+  },
+  {
+    "id": "wrong_city",
+    "passed": false,
+    "codes": [
+      "city_mismatch"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "city"
+        ],
+        "成都"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "date_gap",
+    "passed": false,
+    "codes": [
+      "date_coverage"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          1,
+          "date"
+        ],
+        "2026-11-03"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "hallucinated_poi",
+    "passed": false,
+    "codes": [
+      "invalid_reference"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stops",
+          0,
+          "evidence_id"
+        ],
+        "made-up"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "fake_hotel",
+    "passed": false,
+    "codes": [
+      "invalid_hotel"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "hotel_evidence_id"
+        ],
+        "a1"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "overlap",
+    "passed": false,
+    "codes": [
+      "time_overlap"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stops",
+          1,
+          "start_time"
+        ],
+        "10:30"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "budget",
+    "passed": false,
+    "codes": [
+      "budget_exceeded"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "costs",
+          "accommodation"
+        ],
+        2000
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "zero_hotel_cost",
+    "passed": false,
+    "codes": [
+      "missing_hotel_cost"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "costs",
+          "accommodation"
+        ],
+        0
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "cross_district_meal",
+    "passed": false,
+    "codes": [
+      "long_transfer"
+    ],
+    "patches": [
+      [
+        [
+          "evidence",
+          2,
+          "data",
+          "location"
+        ],
+        "119.72,30.23"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "far_hotel",
+    "passed": true,
+    "codes": [
+      "distant_hotel"
+    ],
+    "patches": [
+      [
+        [
+          "evidence",
+          3,
+          "data",
+          "location"
+        ],
+        "119.72,30.23"
+      ]
+    ],
+    "group": "specific",
+    "warning_codes": [
+      "distant_hotel"
+    ]
+  },
+  {
+    "id": "must_visit",
+    "passed": false,
+    "codes": [
+      "must_visit_missing"
+    ],
+    "patches": [
+      [
+        [
+          "requirements",
+          "must_visit"
+        ],
+        [
+          "灵隐寺"
+        ]
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "exclude_place",
+    "passed": false,
+    "codes": [
+      "excluded_place"
+    ],
+    "patches": [
+      [
+        [
+          "requirements",
+          "avoid_places"
+        ],
+        [
+          "西湖"
+        ]
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "missing_meal",
+    "passed": false,
+    "codes": [
+      "missing_daily_meal"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          1,
+          "stops"
+        ],
+        [
+          {
+            "evidence_id": "a2",
+            "start_time": "09:00",
+            "end_time": "11:00"
+          }
+        ]
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "duplicate",
+    "passed": false,
+    "codes": [
+      "duplicate_attraction"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          1,
+          "stops",
+          0,
+          "evidence_id"
+        ],
+        "a1"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "traffic_buffer",
+    "passed": false,
+    "codes": [
+      "transfer_buffer"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stops",
+          1,
+          "start_time"
+        ],
+        "11:05"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "early_activity",
+    "passed": false,
+    "codes": [
+      "time_window"
+    ],
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stops",
+          0,
+          "start_time"
+        ],
+        "07:00"
+      ]
+    ],
+    "group": "specific"
+  },
+  {
+    "id": "future_weather_is_warning",
+    "passed": true,
+    "codes": [
+      "weather_uncovered"
+    ],
+    "patches": [],
+    "group": "specific"
+  },
+  {
+    "id": "browse_valid",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": true,
+    "patches": [],
+    "error_codes": [],
+    "warning_codes": []
+  },
+  {
+    "id": "browse_meal_required",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "meal_breaks"
+        ],
+        []
+      ]
+    ],
+    "error_codes": [
+      "missing_daily_meal"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "browse_stay_area_required",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stay_anchor_evidence_id"
+        ],
+        null
+      ]
+    ],
+    "error_codes": [
+      "missing_stay_area"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "browse_stay_cannot_borrow_other_day",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stay_anchor_evidence_id"
+        ],
+        "a2"
+      ]
+    ],
+    "error_codes": [
+      "invalid_stay_anchor"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "browse_meal_cannot_borrow_other_day",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "meal_breaks",
+          0,
+          "anchor_evidence_id"
+        ],
+        "a2"
+      ]
+    ],
+    "error_codes": [
+      "invalid_meal_anchor"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "browse_meal_overlap",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "meal_breaks",
+          0,
+          "start_time"
+        ],
+        "10:00"
+      ]
+    ],
+    "error_codes": [
+      "meal_time_overlap"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "browse_meal_zero_budget",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "costs",
+          "meals"
+        ],
+        0
+      ]
+    ],
+    "error_codes": [
+      "missing_costs"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "browse_hotel_budget_reserved",
+    "group": "browse",
+    "baseline": "browse-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "costs",
+          "accommodation"
+        ],
+        0
+      ]
+    ],
+    "error_codes": [
+      "missing_hotel_cost"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "arrival_return_empty",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": true,
+    "patches": [],
+    "error_codes": [],
+    "warning_codes": [
+      "arrival_departure_assumptions"
+    ]
+  },
+  {
+    "id": "arrival_before_rejected",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stops"
+        ],
+        [
+          {
+            "evidence_id": "a1",
+            "start_time": "09:00",
+            "end_time": "11:00"
+          }
+        ]
+      ]
+    ],
+    "error_codes": [
+      "availability_window"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "departure_after_rejected",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days",
+          1,
+          "stops"
+        ],
+        [
+          {
+            "evidence_id": "a2",
+            "start_time": "09:00",
+            "end_time": "11:00"
+          }
+        ]
+      ]
+    ],
+    "error_codes": [
+      "availability_window"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "empty_does_not_excuse_ordinary_day",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "requirements",
+          "arrival_time"
+        ],
+        null
+      ],
+      [
+        [
+          "requirements",
+          "departure_time"
+        ],
+        null
+      ]
+    ],
+    "error_codes": [
+      "missing_attraction",
+      "missing_daily_meal",
+      "missing_stay_area"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "empty_does_not_erase_must_visit",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "requirements",
+          "must_visit"
+        ],
+        [
+          "西湖"
+        ]
+      ]
+    ],
+    "error_codes": [
+      "must_visit_missing"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "empty_does_not_erase_hotel_cost",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "costs",
+          "accommodation"
+        ],
+        0
+      ]
+    ],
+    "error_codes": [
+      "missing_hotel_cost"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "empty_does_not_erase_dates",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "itinerary",
+          "days"
+        ],
+        [
+          {
+            "date": "2026-11-01",
+            "theme": "湖畔慢行",
+            "stops": [],
+            "meal_breaks": [],
+            "stay_anchor_evidence_id": null
+          }
+        ]
+      ]
+    ],
+    "error_codes": [
+      "date_coverage"
+    ],
+    "warning_codes": []
+  },
+  {
+    "id": "rest_day_cannot_have_attraction",
+    "group": "availability",
+    "baseline": "availability-baseline.json",
+    "passed": false,
+    "patches": [
+      [
+        [
+          "requirements",
+          "rest_dates"
+        ],
+        [
+          "2026-11-01"
+        ]
+      ],
+      [
+        [
+          "itinerary",
+          "days",
+          0,
+          "stops"
+        ],
+        [
+          {
+            "evidence_id": "a1",
+            "start_time": "20:00",
+            "end_time": "20:30"
+          }
+        ]
+      ]
+    ],
+    "error_codes": [
+      "rest_day_activity"
+    ],
+    "warning_codes": []
+  }
+]

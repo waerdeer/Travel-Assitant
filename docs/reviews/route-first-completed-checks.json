@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "city": "杭州",
+  "dates": [
+    "2026-11-01",
+    "2026-11-02"
+  ],
+  "hotel": "hotel:b9c2c7cfbed6",
+  "metrics": {
+    "model_calls": 1,
+    "input_tokens": 12065,
+    "output_tokens": 4671,
+    "duration_ms": 35602,
+    "tool_calls": 5,
+    "repairs": 0
+  },
+  "plan_sha256": "d32059e0b37572efbb7c4652ab5e5e1cb571898f4d56ddc166a84372453bf9b3",
+  "trace_nodes": [
+    "apply_selection",
+    "plan",
+    "tool",
+    "tool",
+    "tool",
+    "tool",
+    "tool",
+    "geography",
+    "validate",
+    "deliver"
+  ]
+}

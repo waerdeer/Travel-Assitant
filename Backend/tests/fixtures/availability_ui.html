@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><title>首末日与休息日 · 合成验收</title></head><body style="margin:24px;background:#f6f7f1"><h1 style="font-size:20px">首末日与休息日展示 · 合成测试</h1><p>不调用模型、地图或保存接口，不是真实推荐。</p><div id="qa-root"></div><script type="module">
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import TravelPlan from '/src/components/TravelPlan.tsx';
+import RouteDraftCard from '/src/components/RouteDraftCard.tsx';
+import DayAvailability,{getDayAvailability} from '/src/components/DayAvailability.tsx';
+import '/src/index.css';
+const dates=['2026-11-01','2026-11-02','2026-11-03'];
+const req={city:'杭州',start_date:dates[0],end_date:dates[2],arrival_time:'19:00',departure_time:'10:00',arrival_buffer_minutes:60,departure_buffer_minutes:90,rest_dates:[dates[1]]};
+const days=dates.map((date,i)=>({date,theme:['抵达与入住休息','休息日','返程安排'][i],stops:[]}));
+const saved={requirements:req,evidence:[],validation:{passed:true,checks:[],unverified_checks:['交通']},markdown:'合成测试',itinerary:{city:'杭州',service_mode:'browse',days,costs:{accommodation:900,meals:360,transport:180,tickets:0,basis:'合成测试估算，不是实时报价'},suggestions:[]}};
+const draft={requirements:req,city:'杭州',days:days.map(d=>({...d,attraction_evidence_ids:[]})),evidence:[],rationale:'合成测试：草案日期完整，没有虚构景点',warnings:[],checked:['日期与时窗'],unchecked:['真实交通']};
+const cases=[{name:'晚到',req,date:dates[0]},{name:'早走',req,date:dates[2]},{name:'中间休息',req,date:dates[1]},{name:'跨日缓冲',req:{...req,arrival_time:null,departure_time:'00:30',departure_buffer_minutes:360,rest_dates:[]},date:dates[1]},{name:'180分钟',req:{...req,arrival_time:'17:00',rest_dates:[]},date:dates[0]},{name:'179分钟',req:{...req,arrival_time:'17:01',rest_dates:[]},date:dates[0]}];
+cases.push({name:'无可用观光时段',req:{...req,arrival_time:'23:30',rest_dates:[]},date:dates[0]});
+const records=cases.map(c=>({name:c.name,req:c.req,date:c.date,value:getDayAvailability(c.req,c.date,dates[0],dates[2])}));
+createRoot(document.getElementById('qa-root')).render(React.createElement(React.Fragment,null,
+React.createElement(TravelPlan,{saved,threadId:'fixture-only',busy:false}),
+React.createElement('h2',null,'草案空日展示'),React.createElement(RouteDraftCard,{draft,interrupted:false}),
+React.createElement('h2',null,'跨日离城缓冲'),React.createElement(DayAvailability,{requirements:cases[3].req,date:dates[1],firstDate:dates[0],lastDate:dates[2],empty:false}),
+React.createElement('details',null,React.createElement('summary',null,'查看时窗契约对照'),React.createElement('pre',{id:'contract-results'},JSON.stringify(records,null,2)))));
+</script></body></html>

@@ -1,0 +1,83 @@
+{
+  "scope": "two real MCP around searches; no model, price or star-rating verification",
+  "results": [
+    {
+      "profile": "中档",
+      "ok": true,
+      "count": 5,
+      "notice": null,
+      "items": [
+        {
+          "name": "西湖国宾馆7号楼",
+          "address": "杨公堤18号杭州西湖国宾馆",
+          "typecode": "100100",
+          "id": "B0FFJGFAF6"
+        },
+        {
+          "name": "西湖国宾馆1号楼",
+          "address": "杨公堤18号杭州西湖国宾馆",
+          "typecode": "100100",
+          "id": "B0FFJGFAF8"
+        },
+        {
+          "name": "杭州西湖国宾馆",
+          "address": "杨公堤18号",
+          "typecode": "100100",
+          "id": "B023B09IGU"
+        },
+        {
+          "name": "西湖国宾馆6号楼",
+          "address": "杨公堤18号杭州西湖国宾馆",
+          "typecode": "100100",
+          "id": "B0L0CC00HT"
+        },
+        {
+          "name": "西湖国宾馆2号楼",
+          "address": "杨公堤西湖风景区",
+          "typecode": "100100",
+          "id": "B0FFJGFAFA"
+        }
+      ],
+      "error_code": null
+    },
+    {
+      "profile": "民宿",
+      "ok": true,
+      "count": 5,
+      "notice": null,
+      "items": [
+        {
+          "name": "听涧·西湖|越上云舍精品民宿(杭州太子湾公园店)",
+          "address": "三台山路三台云舍69号",
+          "typecode": "100200",
+          "id": "B0FFGJ4IXM"
+        },
+        {
+          "name": "杭州博雅轩民宿(雷峰塔店)",
+          "address": "赵公堤与赵公堤支路交叉口东160米",
+          "typecode": "100000",
+          "id": "B0LARUBDGB"
+        },
+        {
+          "name": "杭州西湖古韵庭院民宿(太子湾店)",
+          "address": "三台山路三台云舍54号",
+          "typecode": "100000|080500",
+          "id": "B0FFIFOIKO"
+        },
+        {
+          "name": "杭州青逸假日民宿",
+          "address": "三台山路三台云舍32号",
+          "typecode": "100200",
+          "id": "B0FFFHBHQW"
+        },
+        {
+          "name": "杭州此湖居艺术民宿(西湖太子湾店)",
+          "address": "三台云舍62号",
+          "typecode": "100000",
+          "id": "B0FFI92V5T"
+        }
+      ],
+      "error_code": null
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "validation": {
+    "passed": false,
+    "issues": [
+      {
+        "code": "long_transfer",
+        "severity": "error",
+        "message": "相邻地点直线距离约 42.2 km，建议换成同区域地点；尚未核验真实路线。",
+        "day": "2026-10-30"
+      },
+      {
+        "code": "long_transfer",
+        "severity": "error",
+        "message": "相邻地点直线距离约 42.9 km，建议换成同区域地点；尚未核验真实路线。",
+        "day": "2026-10-30"
+      },
+      {
+        "code": "weather_uncovered",
+        "severity": "warning",
+        "message": "近期天气预报未覆盖全部旅行日期，不可把近期天气当作出行当天预报。",
+        "day": null
+      },
+      {
+        "code": "estimates_only",
+        "severity": "warning",
+        "message": "费用、交通时长和开放情况尚未经过实时价格／导航／营业时间接口核验。",
+        "day": null
+      }
+    ],
+    "checks": [
+      "目的地一致",
+      "日期覆盖",
+      "地点证据引用",
+      "每日时间与节奏",
+      "人均预算",
+      "住宿与餐饮",
+      "地理距离",
+      "必去与排除地点"
+    ],
+    "unverified_checks": [
+      "天气覆盖"
+    ]
+  },
+  "trace": [
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B0HGNGK3FG"
+      },
+      "ok": true,
+      "count": 1,
+      "error_code": null,
+      "retryable": false,
+      "attempt": 1,
+      "duration_ms": 3292
+    },
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B0FFFWQGI8"
+      },
+      "ok": false,
+      "count": 0,
+      "error_code": "transport_error",
+      "retryable": true,
+      "attempt": 1,
+      "duration_ms": 5004
+    },
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B0FFFWQGI8"
+      },
+      "ok": true,
+      "count": 1,
+      "error_code": null,
+      "retryable": false,
+      "attempt": 2,
+      "duration_ms": 2188
+    },
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B023B089X6"
+      },
+      "ok": true,
+      "count": 1,
+      "error_code": null,
+      "retryable": false,
+      "attempt": 1,
+      "duration_ms": 2233
+    },
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B023B09JLL"
+      },
+      "ok": true,
+      "count": 1,
+      "error_code": null,
+      "retryable": false,
+      "attempt": 1,
+      "duration_ms": 1582
+    },
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B023B06XVX"
+      },
+      "ok": true,
+      "count": 1,
+      "error_code": null,
+      "retryable": false,
+      "attempt": 1,
+      "duration_ms": 3228
+    },
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B0FFHDP24G"
+      },
+      "ok": true,
+      "count": 1,
+      "error_code": null,
+      "retryable": false,
+      "attempt": 1,
+      "duration_ms": 1239
+    },
+    {
+      "stage": "tool",
+      "tool": "maps_search_detail",
+      "args": {
+        "id": "B0FFKXAXQG"
+      },
+      "ok": true,
+      "count": 1,
+      "error_code": null,
+      "retryable": false,
+      "attempt": 1,
+      "duration_ms": 1053
+    },
+    {
+      "stage": "geography",
+      "summary": "补充 7 个已选地点的坐标，供路线校验使用"
+    }
+  ],
+  "selected_places": [
+    {
+      "name": "南宋德寿宫遗址博物馆",
+      "location": "120.173273,30.238678"
+    },
+    {
+      "name": "杭州博物馆",
+      "location": "120.166525,30.239091"
+    },
+    {
+      "name": "西湖博物馆",
+      "location": "120.157449,30.241739"
+    },
+    {
+      "name": "中国丝绸博物馆",
+      "location": "120.151292,30.222870"
+    },
+    {
+      "name": "浙江省博物馆(孤山馆区)",
+      "location": "120.143778,30.251243"
+    },
+    {
+      "name": "可见时光·望达斯旅舍(杭州西湖湖滨河坊街店)",
+      "location": "120.168087,30.239811"
+    },
+    {
+      "name": "临安宴·临安菜(博物馆店)",
+      "location": "119.727349,30.228424"
+    }
+  ]
+}

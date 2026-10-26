@@ -1,0 +1,89 @@
+{
+  "scope": "real read-only discovery after real default planning; same isolated Beijing trip",
+  "http_status": 200,
+  "request": {
+    "plan_version": "509a719742e68c1230a58d5f8be6617e4c30ffbee7e3ab1ce6a70f928b49c3fc",
+    "date": "2026-10-31",
+    "anchor_evidence_id": "attraction:7fa50c3ec365",
+    "category": "restaurant"
+  },
+  "response": {
+    "plan_version": "509a719742e68c1230a58d5f8be6617e4c30ffbee7e3ab1ce6a70f928b49c3fc",
+    "date": "2026-10-31",
+    "category": "restaurant",
+    "anchor_evidence_id": "attraction:7fa50c3ec365",
+    "anchor_name": "颐和园",
+    "city": "北京",
+    "relation": "以该地点坐标在5公里范围检索；距离仅为直线距离，交通待核实。",
+    "items": [
+      {
+        "poi_id": "B0LDMM6OK3",
+        "name": "松堂快餐厅",
+        "address": "新建宫门路19号颐和园内(北宫门地铁站A西北口步行420米)",
+        "source": "高德地图 MCP",
+        "fetched_at": "2026-10-25T03:35:41.384751+00:00",
+        "distance_km": null,
+        "images": []
+      },
+      {
+        "poi_id": "B000A8W9BC",
+        "name": "肯德基(北宫门店)",
+        "address": "北京城区颐和园北宫门三岔口33号大有商业办公楼B座一层",
+        "source": "高德地图 MCP",
+        "fetched_at": "2026-10-25T03:35:41.384751+00:00",
+        "distance_km": null,
+        "images": [
+          {
+            "url": "http://store.is.autonavi.com/showpic/cf64ea8e22533b4bba864a3b10c322fb",
+            "source": "高德地图 MCP",
+            "poi_id": "B000A8W9BC"
+          }
+        ]
+      },
+      {
+        "poi_id": "B0L34ZFH1J",
+        "name": "尹三豆汁·尹三冰激淋(颐和园十丈亭店)",
+        "address": "新建宫门路19号颐和园内石丈亭(石舫码头旁)",
+        "source": "高德地图 MCP",
+        "fetched_at": "2026-10-25T03:35:41.384751+00:00",
+        "distance_km": null,
+        "images": [
+          {
+            "url": "https://aos-comment.amap.com/B0L34ZFH1J/comment/content_media_external_file_30661_1771301152089_61844393.jpg",
+            "source": "高德地图 MCP",
+            "poi_id": "B0L34ZFH1J"
+          }
+        ]
+      },
+      {
+        "poi_id": "B0MDO9WCML",
+        "name": "居东北饺子馆",
+        "address": "油作胡同与大有庄街交叉口西南120米",
+        "source": "高德地图 MCP",
+        "fetched_at": "2026-10-25T03:35:41.384751+00:00",
+        "distance_km": null,
+        "images": []
+      },
+      {
+        "poi_id": "B0JR2AGDHI",
+        "name": "颐源聚面馆",
+        "address": "新建宫门路19号颐和园内(东侧)",
+        "source": "高德地图 MCP",
+        "fetched_at": "2026-10-25T03:35:41.384751+00:00",
+        "distance_km": null,
+        "images": [
+          {
+            "url": "https://aos-comment.amap.com/B0JR2AGDHI/comment/174348858474_1743488585733_76250864.jpg",
+            "source": "高德地图 MCP",
+            "poi_id": "B0JR2AGDHI"
+          }
+        ]
+      }
+    ],
+    "notice": "仅供浏览，未选择或预订；价位、房态、营业和菜系仍需核实。"
+  },
+  "trip_unchanged": true,
+  "version_unchanged": true,
+  "message_count": 2,
+  "metrics_unchanged": true
+}

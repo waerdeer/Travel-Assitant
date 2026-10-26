@@ -5,6 +5,11 @@ logs/*
 # 环境变量
 .env
 
+# 数据库文件（SQLite）
+*.db
+*.db-wal
+*.db-shm
+
 # Python
 __pycache__/
 *.pyc
@@ -21,3 +26,16 @@ venv/
 # 系统
 .DS_Store
 Thumbs.db
+
+# Frontend generated dependencies and build artifacts
+node_modules/
+dist/
+*.tsbuildinfo
+.pytest_cache/
+Backend/app/logs/
+Backend/*.log
+Backend/*.pid
+Backend/logs/
+Frontend/*.log
+Frontend/vite.config.js
+Frontend/vite.config.d.ts
